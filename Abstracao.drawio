@@ -1,0 +1,316 @@
+<mxfile host="app.diagrams.net" modified="2024-02-14T18:06:12.502Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="p-lhT73guwmHa-pgWofE" version="23.1.4" type="device" pages="5">
+  <diagram name="Relações" id="-RDPZMECj-KDmckSBQJ7">
+    <mxGraphModel dx="1956" dy="2111" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-2" value="hospital" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="190" y="-20" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=22;" parent="1" target="OqT2HGRvIQ006_QFUIbo-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="195" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-7" value="leitos_disponiveis&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;orçamento&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;especialidades []&lt;br&gt;&lt;br&gt;id" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="190" y="20" width="200" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-9" value="especialidades" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="540" y="10" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=22;" parent="1" source="OqT2HGRvIQ006_QFUIbo-11" target="OqT2HGRvIQ006_QFUIbo-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-11" value="nome&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;medicos []" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="540" y="40" width="200" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-14" value="medicos" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="810" y="-10" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eI9exI1h_JV6mNCN_PSR-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="OqT2HGRvIQ006_QFUIbo-15" target="OqT2HGRvIQ006_QFUIbo-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-15" value="nome&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;email&lt;br&gt;&lt;br&gt;senha&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;crm&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id&lt;br&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id_especialidade&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;pacientes []&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;salario" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="810" y="30" width="200" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-17" value="pacientes" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="1580" y="-220" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-18" value="nome&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;idade&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;email&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;telefone&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;cpf&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;status&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id&lt;br&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;tratamentos []&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;queixas" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="1581" y="-180" width="258" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-24" value="tratamento_paciente" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="1100" y="-20" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-25" value="&lt;br&gt;nome&lt;br&gt;&lt;br&gt;valor&lt;br&gt;&lt;br&gt;id_especialidade&lt;br&gt;&lt;br&gt;id_medico&lt;br&gt;&lt;br&gt;id_paciente&lt;br&gt;&lt;br&gt;id_especialidade&lt;br&gt;&lt;br&gt;inicio&lt;br&gt;&lt;br&gt;termino&lt;br&gt;&lt;br&gt;status&lt;br&gt;&lt;br&gt;madicamentos []" style="rounded=0;whiteSpace=wrap;html=1;fontSize=23;" parent="1" vertex="1">
+          <mxGeometry x="1100" y="20" width="260" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="Ib-rAGLKGSD410KpwREd-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OqT2HGRvIQ006_QFUIbo-29" target="OqT2HGRvIQ006_QFUIbo-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-29" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;aplicacao_medicamento&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1530" y="470" width="283" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="OqT2HGRvIQ006_QFUIbo-30" target="OqT2HGRvIQ006_QFUIbo-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ib-rAGLKGSD410KpwREd-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="OqT2HGRvIQ006_QFUIbo-30" target="Ib-rAGLKGSD410KpwREd-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-30" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;id&lt;br&gt;&lt;br&gt;id_tratamento&lt;br&gt;&lt;br&gt;id_medicamento&lt;br&gt;&lt;br&gt;hora_aplicacao&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1531" y="540" width="280" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="dLQCYUEsovKtr-vVgGef-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="dLQCYUEsovKtr-vVgGef-7" target="OqT2HGRvIQ006_QFUIbo-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dLQCYUEsovKtr-vVgGef-7" value="tratamentos_disponiveis" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="450" y="390" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dLQCYUEsovKtr-vVgGef-8" value="&lt;br&gt;nome&lt;br&gt;&lt;br&gt;valor&lt;br&gt;&lt;br&gt;id&lt;br&gt;&lt;br&gt;id_especialidade" style="rounded=0;whiteSpace=wrap;html=1;fontSize=23;" parent="1" vertex="1">
+          <mxGeometry x="450" y="430" width="290" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="OUrvebyIbem-n34GM_K5-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="dLQCYUEsovKtr-vVgGef-8" target="dLQCYUEsovKtr-vVgGef-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI9exI1h_JV6mNCN_PSR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1.008;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="OqT2HGRvIQ006_QFUIbo-18" target="OqT2HGRvIQ006_QFUIbo-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ib-rAGLKGSD410KpwREd-1" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;medicamento&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1960" y="480" width="283" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Ib-rAGLKGSD410KpwREd-2" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;nome&lt;br&gt;&lt;br&gt;quantidade&lt;br&gt;&lt;br&gt;id&lt;br&gt;&lt;br&gt;valor_unitario&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1961" y="550" width="280" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="Ib-rAGLKGSD410KpwREd-6" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;auditoria_hospital&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="-620" width="283" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Ib-rAGLKGSD410KpwREd-7" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;id_hospital&lt;br&gt;&lt;br&gt;valor_transacao&lt;br&gt;&lt;br&gt;id_medico&lt;br&gt;&lt;br&gt;id_medicamentos&lt;br&gt;&lt;br&gt;id_secretaria&lt;br&gt;&lt;br&gt;operacao(vai ser um enum com: pagamento, recebimento, compra)&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="571" y="-550" width="280" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="hDAFCqDAtnvn9Ev5iwWK-1" value="secretaria" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="214" y="-410" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDAFCqDAtnvn9Ev5iwWK-2" value="nome&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;email&lt;br&gt;&lt;br&gt;senha&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id&lt;br&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;salario" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="214" y="-370" width="200" height="300" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="1Dg1uKK2K-heEakL6BFX" name="Medico ações">
+    <mxGraphModel dx="2294" dy="1876" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xGp4c2fe30O6-x1v16Lx-1" value="Medico faz login" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" parent="1" vertex="1">
+          <mxGeometry x="150" y="150" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="au-0wPMuFHUaeuqjbm_t-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="xGp4c2fe30O6-x1v16Lx-2" target="xGp4c2fe30O6-x1v16Lx-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGp4c2fe30O6-x1v16Lx-2" value="Pacientes sob&amp;nbsp; suas responsabilidade" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="350" y="100" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="au-0wPMuFHUaeuqjbm_t-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="xGp4c2fe30O6-x1v16Lx-3" target="xGp4c2fe30O6-x1v16Lx-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGp4c2fe30O6-x1v16Lx-3" value="Pode adicionar remédios aos paciente sob sua responsabilidade e que estão com status &quot;em tratamento&quot;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="350" y="180" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="au-0wPMuFHUaeuqjbm_t-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="xGp4c2fe30O6-x1v16Lx-5" target="xGp4c2fe30O6-x1v16Lx-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xGp4c2fe30O6-x1v16Lx-5" value="Pode mudar o status do paciente" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="270" y="340" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="au-0wPMuFHUaeuqjbm_t-1" value="Pode cadastrar novos pacientes e atribuir para outras especialidades" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="240" y="-10" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="au-0wPMuFHUaeuqjbm_t-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="au-0wPMuFHUaeuqjbm_t-4" target="au-0wPMuFHUaeuqjbm_t-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="au-0wPMuFHUaeuqjbm_t-4" value="Seria melhor outra entidade fazer o cadastro do paciente?" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="380" y="-130" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="au-0wPMuFHUaeuqjbm_t-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.4;entryY=-0.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="au-0wPMuFHUaeuqjbm_t-1" target="xGp4c2fe30O6-x1v16Lx-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Vf4-LL4XYz3Mqelcfy_--4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="Vf4-LL4XYz3Mqelcfy_--2" target="xGp4c2fe30O6-x1v16Lx-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Vf4-LL4XYz3Mqelcfy_--2" value="Vai ter acesso ao painel com todos os pacientes em consulta e em tratamento" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="-90" y="100" width="180" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Vf4-LL4XYz3Mqelcfy_--6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Vf4-LL4XYz3Mqelcfy_--5" target="xGp4c2fe30O6-x1v16Lx-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Vf4-LL4XYz3Mqelcfy_--5" value="Vai ter acesso ao estoque dos medicamentos" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="-40" y="-30" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="4xHeXH1JqVmloOD5l7Rj-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="4xHeXH1JqVmloOD5l7Rj-2" target="xGp4c2fe30O6-x1v16Lx-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4xHeXH1JqVmloOD5l7Rj-2" value="Quando o médico mudar o status do paciente para &quot;em alta&quot;, o paciente não será mais da sua responsabilidade e sumirá do painel. Entretanto, ficará salvo na base de dados&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="-65" y="270" width="220" height="210" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="XMp5EE-tKhNGOXc22Qx3" name="Paciente ações">
+    <mxGraphModel dx="2084" dy="1775" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QOz20VkskurqUD3UfBQY-2" value="Paciente cadastrado&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="270" y="140" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="OqSgSRU5_GwESmKtbDHi-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="QOz20VkskurqUD3UfBQY-3" target="QOz20VkskurqUD3UfBQY-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QOz20VkskurqUD3UfBQY-3" value="De acordo com o cadastro, o paciente vai ter consulta que irá sumir depois do horario marcado ou se ele cancelar, ou então, terá o tratamento que irá sumir apenas quando o médico der alta ou quando interromper o tratamento" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="270" y="-250" width="220" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="OqSgSRU5_GwESmKtbDHi-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="QOz20VkskurqUD3UfBQY-4" target="QOz20VkskurqUD3UfBQY-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QOz20VkskurqUD3UfBQY-4" value="O status dele pode ser:&lt;br&gt;&lt;br&gt;aguardando consulta&lt;br&gt;&lt;br&gt;consulta cancelada&lt;br&gt;&lt;br&gt;em tratamento&lt;br&gt;&lt;br&gt;tratamento interrompido&lt;br&gt;&lt;br&gt;em alta" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="-10" y="10" width="180" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="OqSgSRU5_GwESmKtbDHi-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="QOz20VkskurqUD3UfBQY-7" target="QOz20VkskurqUD3UfBQY-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QOz20VkskurqUD3UfBQY-7" value="O paciente ficará salvo no banco de dados com as informações dos tratamentos, consultas, medicos responsaveis e medicamentos que ele usou" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="530" y="50" width="180" height="250" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="NJRkbjkZf1h_UxsKVpn4" name="Medico rotinas">
+    <mxGraphModel dx="1100" dy="1699" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8RZExaCQPrIk_u2w8BDK-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="8RZExaCQPrIk_u2w8BDK-1" target="8RZExaCQPrIk_u2w8BDK-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8RZExaCQPrIk_u2w8BDK-1" value="Medico inicia o cadastro de um paciente" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="80" y="140" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="TEQ-03RBKm3OCl_Lnoej-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8RZExaCQPrIk_u2w8BDK-2" target="8RZExaCQPrIk_u2w8BDK-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8RZExaCQPrIk_u2w8BDK-2" value="Insere dados do paciente: email, telefone, nome etc" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="310" y="140" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="8RZExaCQPrIk_u2w8BDK-4" target="8RZExaCQPrIk_u2w8BDK-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="8RZExaCQPrIk_u2w8BDK-4" target="8RZExaCQPrIk_u2w8BDK-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8RZExaCQPrIk_u2w8BDK-4" value="médico &lt;br&gt;escolhe uma ação" style="rhombus;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="570" y="80" width="210" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="8RZExaCQPrIk_u2w8BDK-5" target="8RZExaCQPrIk_u2w8BDK-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8RZExaCQPrIk_u2w8BDK-5" value="Marcar consulta" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="520" y="-10" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="8RZExaCQPrIk_u2w8BDK-6" target="ehR2lQOq6KSDubd5EFu8-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8RZExaCQPrIk_u2w8BDK-6" value="Iniciar tratamento" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="540" y="310" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="8RZExaCQPrIk_u2w8BDK-9" value="Escolhe uma especialidade e já pega o valor de uma consulta dessa especialidade" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="820" y="-20" width="210" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3AM-RdDZuLKVxrfPxCu6-1" target="8RZExaCQPrIk_u2w8BDK-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3AM-RdDZuLKVxrfPxCu6-1" value="get especialidades" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="820" y="-150" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="AtRXLtIigFfNoq2CuPPq-1" target="vYCayqjrncIwiui9BXgX-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AtRXLtIigFfNoq2CuPPq-1" value="Escolhe um médico de acordo com o id_especialidade" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="1061" y="-10" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vYCayqjrncIwiui9BXgX-1" target="FU6SNpknrA6fmKx1ywwF-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vYCayqjrncIwiui9BXgX-1" value="Registra um dia e horario nas consultas dos médicos" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="1320" y="-10" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="FU6SNpknrA6fmKx1ywwF-1" target="DH9areGqDJB9wVUNl5Tn-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FU6SNpknrA6fmKx1ywwF-1" value="Pronto. Agora deve aparecer essa nova consulta na aba consultas do médico" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="1570" y="-10" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="ehR2lQOq6KSDubd5EFu8-2" target="bW2vugW4qfgieLpe2sCS-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ehR2lQOq6KSDubd5EFu8-2" value="Escolhe uma especialidade e já pega o valor de um tratamento dessa especialidade" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="780" y="300" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="ehR2lQOq6KSDubd5EFu8-3" target="ehR2lQOq6KSDubd5EFu8-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="448" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ehR2lQOq6KSDubd5EFu8-3" value="get especialidades" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="780" y="485" width="210" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bW2vugW4qfgieLpe2sCS-1" target="bW2vugW4qfgieLpe2sCS-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bW2vugW4qfgieLpe2sCS-1" value="Escolhe um médico que irá fazer o tratamento de acordo com o id_especialidade" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="1020" y="330" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bW2vugW4qfgieLpe2sCS-2" target="bW2vugW4qfgieLpe2sCS-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bW2vugW4qfgieLpe2sCS-2" value="Registra o inicio do tratamento com o paciente com status em tratamento" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="1271" y="320" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bW2vugW4qfgieLpe2sCS-5" target="DH9areGqDJB9wVUNl5Tn-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bW2vugW4qfgieLpe2sCS-5" value="Agora esse registro vai aparecer na aba de tratamentos, podendo cada registro ter as seguintes ações:&amp;nbsp;&lt;br&gt;&lt;br&gt;adicionar medicamento&lt;br&gt;&lt;br&gt;dar alta&lt;br&gt;&lt;br&gt;cancelar tratamento" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="1540" y="247.5" width="210" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="DH9areGqDJB9wVUNl5Tn-2" target="DH9areGqDJB9wVUNl5Tn-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-2" value="Depois de qualquer uma dessas ações, o registro não deve mais aparecer na aba, pois apenas registros com status em tratamentos podem aparecer" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="1840" y="270" width="210" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.002;entryY=0.624;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="8RZExaCQPrIk_u2w8BDK-9" target="AtRXLtIigFfNoq2CuPPq-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DH9areGqDJB9wVUNl5Tn-17" value="Entretanto, na aba histórico, todos os registros, tanto consultas quanto tratamentos podem aparecer" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="1990" y="-20" width="210" height="215" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="kCKVs8NazKAzqspavrfk" name="mudanças">
+    <mxGraphModel dx="880" dy="424" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="P2Fe4rjV5ZNHECv1aD9y-1" value="Tabela tratamaneto irá se comportat como uma consulta tendo campos opcionais&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="210" width="340" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="YcC-oCsuG4HAfh1Wd0FO-1" value="O tratamento será uma ponte. Se o paciente ele precisa pegar o nome do médico precisar pelo tratamento que vai conter o id do medico responsável pelo tratamento que ele está fazendo" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="90" y="60" width="340" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="lHl2XY4xIYL9y65LA0OI-1" value="Criar duas entidades: medico e secretária, diferenciar suas funções. Criar uma tabela usuario que vai representar essas duas entidades, separa por uma propriedade" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="250" width="340" height="140" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
