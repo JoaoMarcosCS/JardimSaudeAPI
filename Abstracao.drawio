@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-14T18:06:12.502Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="p-lhT73guwmHa-pgWofE" version="23.1.4" type="device" pages="5">
+<mxfile host="app.diagrams.net" modified="2024-02-15T16:37:15.276Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="w7xlKwTzV0fh9SneVXFy" version="23.1.4" type="device" pages="5">
   <diagram name="Relações" id="-RDPZMECj-KDmckSBQJ7">
-    <mxGraphModel dx="1956" dy="2111" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1600" dy="1940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -27,7 +27,7 @@
         <mxCell id="OqT2HGRvIQ006_QFUIbo-14" value="medicos" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
           <mxGeometry x="810" y="-10" width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eI9exI1h_JV6mNCN_PSR-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="OqT2HGRvIQ006_QFUIbo-15" target="OqT2HGRvIQ006_QFUIbo-25">
+        <mxCell id="eI9exI1h_JV6mNCN_PSR-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="OqT2HGRvIQ006_QFUIbo-15" target="OqT2HGRvIQ006_QFUIbo-25" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OqT2HGRvIQ006_QFUIbo-15" value="nome&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;email&lt;br&gt;&lt;br&gt;senha&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;crm&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id&lt;br&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id_especialidade&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;pacientes []&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;salario" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
@@ -36,16 +36,16 @@
         <mxCell id="OqT2HGRvIQ006_QFUIbo-17" value="pacientes" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
           <mxGeometry x="1580" y="-220" width="260" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="OqT2HGRvIQ006_QFUIbo-18" value="nome&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;idade&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;email&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;telefone&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;cpf&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;status&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id&lt;br&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;tratamentos []&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;queixas" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-18" value="nome&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;idade&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;email&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;telefone&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;cpf&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;status&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id&lt;br&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;tratamentos []&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;queixas&lt;br&gt;&lt;br&gt;status" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
           <mxGeometry x="1581" y="-180" width="258" height="570" as="geometry" />
         </mxCell>
         <mxCell id="OqT2HGRvIQ006_QFUIbo-24" value="tratamento_paciente" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
           <mxGeometry x="1100" y="-20" width="260" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="OqT2HGRvIQ006_QFUIbo-25" value="&lt;br&gt;nome&lt;br&gt;&lt;br&gt;valor&lt;br&gt;&lt;br&gt;id_especialidade&lt;br&gt;&lt;br&gt;id_medico&lt;br&gt;&lt;br&gt;id_paciente&lt;br&gt;&lt;br&gt;id_especialidade&lt;br&gt;&lt;br&gt;inicio&lt;br&gt;&lt;br&gt;termino&lt;br&gt;&lt;br&gt;status&lt;br&gt;&lt;br&gt;madicamentos []" style="rounded=0;whiteSpace=wrap;html=1;fontSize=23;" parent="1" vertex="1">
+        <mxCell id="OqT2HGRvIQ006_QFUIbo-25" value="&lt;br&gt;nome&lt;br&gt;&lt;br&gt;valor&lt;br&gt;&lt;br&gt;id_especialidade&lt;br&gt;&lt;br&gt;id_medico&lt;br&gt;&lt;br&gt;id_paciente&lt;br&gt;&lt;br&gt;id_especialidade&lt;br&gt;&lt;br&gt;inicio&lt;br&gt;&lt;br&gt;termino&lt;br&gt;&lt;br&gt;madicamentos []" style="rounded=0;whiteSpace=wrap;html=1;fontSize=23;" parent="1" vertex="1">
           <mxGeometry x="1100" y="20" width="260" height="550" as="geometry" />
         </mxCell>
-        <mxCell id="Ib-rAGLKGSD410KpwREd-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OqT2HGRvIQ006_QFUIbo-29" target="OqT2HGRvIQ006_QFUIbo-30">
+        <mxCell id="Ib-rAGLKGSD410KpwREd-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OqT2HGRvIQ006_QFUIbo-29" target="OqT2HGRvIQ006_QFUIbo-30" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OqT2HGRvIQ006_QFUIbo-29" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;aplicacao_medicamento&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -54,7 +54,7 @@
         <mxCell id="OqT2HGRvIQ006_QFUIbo-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="OqT2HGRvIQ006_QFUIbo-30" target="OqT2HGRvIQ006_QFUIbo-25" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Ib-rAGLKGSD410KpwREd-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="OqT2HGRvIQ006_QFUIbo-30" target="Ib-rAGLKGSD410KpwREd-2">
+        <mxCell id="Ib-rAGLKGSD410KpwREd-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="OqT2HGRvIQ006_QFUIbo-30" target="Ib-rAGLKGSD410KpwREd-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OqT2HGRvIQ006_QFUIbo-30" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;id&lt;br&gt;&lt;br&gt;id_tratamento&lt;br&gt;&lt;br&gt;id_medicamento&lt;br&gt;&lt;br&gt;hora_aplicacao&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -69,28 +69,31 @@
         <mxCell id="dLQCYUEsovKtr-vVgGef-8" value="&lt;br&gt;nome&lt;br&gt;&lt;br&gt;valor&lt;br&gt;&lt;br&gt;id&lt;br&gt;&lt;br&gt;id_especialidade" style="rounded=0;whiteSpace=wrap;html=1;fontSize=23;" parent="1" vertex="1">
           <mxGeometry x="450" y="430" width="290" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="OUrvebyIbem-n34GM_K5-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="dLQCYUEsovKtr-vVgGef-8" target="dLQCYUEsovKtr-vVgGef-8">
+        <mxCell id="OUrvebyIbem-n34GM_K5-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="dLQCYUEsovKtr-vVgGef-8" target="dLQCYUEsovKtr-vVgGef-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="eI9exI1h_JV6mNCN_PSR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1.008;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="OqT2HGRvIQ006_QFUIbo-18" target="OqT2HGRvIQ006_QFUIbo-25">
+        <mxCell id="eI9exI1h_JV6mNCN_PSR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1.008;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="OqT2HGRvIQ006_QFUIbo-18" target="OqT2HGRvIQ006_QFUIbo-25" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Ib-rAGLKGSD410KpwREd-1" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;medicamento&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Ib-rAGLKGSD410KpwREd-1" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;medicamento&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1960" y="480" width="283" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="Ib-rAGLKGSD410KpwREd-2" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;nome&lt;br&gt;&lt;br&gt;quantidade&lt;br&gt;&lt;br&gt;id&lt;br&gt;&lt;br&gt;valor_unitario&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Ib-rAGLKGSD410KpwREd-2" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;nome&lt;br&gt;&lt;br&gt;quantidade&lt;br&gt;&lt;br&gt;id&lt;br&gt;&lt;br&gt;valor_unitario&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1961" y="550" width="280" height="350" as="geometry" />
         </mxCell>
-        <mxCell id="Ib-rAGLKGSD410KpwREd-6" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;auditoria_hospital&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Ib-rAGLKGSD410KpwREd-6" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;auditoria_hospital&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="570" y="-620" width="283" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="Ib-rAGLKGSD410KpwREd-7" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;id_hospital&lt;br&gt;&lt;br&gt;valor_transacao&lt;br&gt;&lt;br&gt;id_medico&lt;br&gt;&lt;br&gt;id_medicamentos&lt;br&gt;&lt;br&gt;id_secretaria&lt;br&gt;&lt;br&gt;operacao(vai ser um enum com: pagamento, recebimento, compra)&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="i-EROvwmN-S7Lx38wncq-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ib-rAGLKGSD410KpwREd-7" target="OqT2HGRvIQ006_QFUIbo-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ib-rAGLKGSD410KpwREd-7" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;id_hospital&lt;br&gt;&lt;br&gt;valor_transacao&lt;br&gt;&lt;br&gt;id_medico&lt;br&gt;&lt;br&gt;id_medicamentos&lt;br&gt;&lt;br&gt;id_secretaria&lt;br&gt;&lt;br&gt;operacao(vai ser um enum com: pagamento, recebimento, compra)&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="571" y="-550" width="280" height="440" as="geometry" />
         </mxCell>
-        <mxCell id="hDAFCqDAtnvn9Ev5iwWK-1" value="secretaria" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" vertex="1" parent="1">
+        <mxCell id="hDAFCqDAtnvn9Ev5iwWK-1" value="secretaria" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
           <mxGeometry x="214" y="-410" width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="hDAFCqDAtnvn9Ev5iwWK-2" value="nome&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;email&lt;br&gt;&lt;br&gt;senha&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id&lt;br&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;salario" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" vertex="1" parent="1">
+        <mxCell id="hDAFCqDAtnvn9Ev5iwWK-2" value="nome&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;email&lt;br&gt;&lt;br&gt;senha&lt;br style=&quot;font-size: 22px;&quot;&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;id&lt;br&gt;&lt;br style=&quot;font-size: 22px;&quot;&gt;salario" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
           <mxGeometry x="214" y="-370" width="200" height="300" as="geometry" />
         </mxCell>
       </root>

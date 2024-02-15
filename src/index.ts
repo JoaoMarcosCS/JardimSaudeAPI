@@ -1,1 +1,1 @@
-console.log("teste");
+//import { AppDataSource } from "./data-source";
