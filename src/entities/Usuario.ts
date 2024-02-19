@@ -20,16 +20,16 @@ export class Usuario {
   @Column()
   idade: number;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, unique: true })
   crm: string;
 
-  @Column()
+  @Column({ unique: true })
   senha: string;
 
-  @Column()
+  @Column("decimal", { precision: 10, scale: 2 })
   salario: number;
 
   @Column()

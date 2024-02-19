@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  ManyToOne,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Tratamento } from "./Tratamento";
 import { Medicamento } from "./Medicamento";
 
@@ -13,7 +7,7 @@ export class AplicacaoMedicamento {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: "timestamptz" })
   hora_aplicacao: Date;
 
   @ManyToOne(
@@ -22,6 +16,6 @@ export class AplicacaoMedicamento {
   )
   tratamento: Tratamento;
 
-  @OneToOne(() => Medicamento, (medicamento) => medicamento.aplicacao)
-  medicamento: Medicamento;
+  @ManyToOne(() => Medicamento, (medicamento) => medicamento.aplicacoes)
+  medicamentos: Medicamento;
 }

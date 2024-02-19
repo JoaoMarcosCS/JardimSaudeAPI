@@ -13,7 +13,7 @@ export class Especialidade {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   nome: string;
 
   //o segundo argumento é para definir como será a chave estrangeira em Hospital para acessar as especialidades relacionada

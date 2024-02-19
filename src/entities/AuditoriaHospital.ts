@@ -18,10 +18,10 @@ export class AuditoriaHospital {
   @Column({ type: "enum", enum: Operacao })
   tipoOperacao: Operacao;
 
-  @Column()
+  @Column("decimal", { precision: 10, scale: 2 })
   valor_transacao: number;
 
-  @Column()
+  @Column({ type: "timestamptz" })
   data: Date;
 
   @Column({ nullable: true })

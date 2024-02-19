@@ -21,10 +21,10 @@ export class Tratamento {
   @Column()
   valor: number;
 
-  @Column()
+  @Column({ type: "timestamptz" })
   inicio: Date;
 
-  @Column()
+  @Column({ type: "timestamptz" })
   termino: Date;
 
   @ManyToOne(() => Usuario, (usuario) => usuario.tratamentos)
@@ -36,6 +36,7 @@ export class Tratamento {
   @OneToMany(
     () => AplicacaoMedicamento,
     (aplicacaoMedicamento) => aplicacaoMedicamento.tratamento,
+    { nullable: true },
   )
   aplicacoes_medicamentos: AplicacaoMedicamento[];
 }

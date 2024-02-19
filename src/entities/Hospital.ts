@@ -6,13 +6,13 @@ export default class Hospital {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   nome: string;
 
   @Column()
   leitos_disponiveis: number;
 
-  @Column()
+  @Column("decimal", { precision: 10, scale: 2 })
   orcamento: number;
 
   //estabelece a relacao onetomany com a entidade do primeiro argumento
