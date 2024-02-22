@@ -2,12 +2,6 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { AplicacaoMedicamento } from "./AplicacaoMedicamento";
 import { AuditoriaHospital } from "./AuditoriaHospital";
 
-//TODO Criar a coluna peso
-
-//TODO criar a coluna via: oral (boca), retal (ânus), sublingual (embaixo da língua), injetável (intravenoso), dermatológica (pele), nasal (nariz) e oftálmica (olhos)
-
-//TODO fazer um enum para a coluna via
-
 @Entity()
 export class Medicamento {
   @PrimaryGeneratedColumn()

@@ -1,16 +1,13 @@
-import { AppDataSource } from "./database/config/data-source";
-import { seed } from "./database/seeders/seed";
+import express from "express";
+import dotenv from "dotenv";
+import loginRouter from "./routes/loginRoutes";
 
-AppDataSource.initialize()
-  .then(() => {
-    console.log("Database connected successfully!");
-  })
-  .catch((error) => console.log(error));
+dotenv.config();
 
-async function makeSeed() {
-  await seed()
-    .then((response) => console.log("Seed executado!" + response))
-    .catch((e) => console.log("Erro feio: " + e));
-}
+const app = express();
 
-makeSeed();
+app.use("/user", loginRouter);
+
+app.listen(3000, () => {
+  console.log("Servidor rodando: http://localhost:3000");
+});

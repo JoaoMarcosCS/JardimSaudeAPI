@@ -19,10 +19,6 @@ import {
 } from "./Medicamentos/MedicamentosSeed";
 import especialidades from "./Especialidades/EspecialidadesSeed";
 
-//TODO criar uma lógica para separar os seeds das entidades
-
-//TODO criar pacientes e tratamentos
-
 export const seed = async () => {
   await AppDataSource.initialize();
 
