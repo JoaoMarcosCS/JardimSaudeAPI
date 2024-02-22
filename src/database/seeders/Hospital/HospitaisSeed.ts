@@ -1,4 +1,4 @@
-import Hospital from "../../entities/Hospital";
+import Hospital from "../../../entities/Hospital";
 
 const hospital = new Hospital();
 

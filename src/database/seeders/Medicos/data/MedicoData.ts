@@ -1,8 +1,4 @@
-import { Usuario } from "../../entities/Usuario";
-import { AuditoriaHospital } from "../../entities/AuditoriaHospital";
-import { Operacao } from "../../enums/auditoriaOpercoes";
-
-const medicosSeedValues = [
+export const medicosData = [
   { name: "Ana Silva", email: "ana.silva@gmail.com", crm: "CRM-SP 98765" },
   {
     name: "João Oliveira",
@@ -100,32 +96,3 @@ const medicosSeedValues = [
     crm: "CRM-SE 78923",
   },
 ];
-
-const medicos = <Usuario[]>[];
-const auditoriasPagamentoMedicos = <AuditoriaHospital[]>[];
-
-for (let i = 0; i < medicosSeedValues.length; i++) {
-  const medico = new Usuario();
-  medico.crm = medicosSeedValues[i].crm;
-  medico.name = medicosSeedValues[i].name;
-  medico.email = medicosSeedValues[i].email;
-  medico.idade = Math.floor(Math.random() * 60) + 20;
-  medico.salario = Math.ceil(
-    Number((Math.random() * (7000 - 3000) + 3000).toFixed(2)),
-  );
-  medico.pagamento = [];
-  medico.tratamentos = [];
-  medico.nivel = 2;
-
-  const auditoriaPagamentoMedico = new AuditoriaHospital();
-  auditoriaPagamentoMedico.data = new Date();
-  auditoriaPagamentoMedico.usuario = medico;
-  auditoriaPagamentoMedico.tipoOperacao = Operacao.Pagamento;
-  auditoriaPagamentoMedico.valor_transacao = medico.salario;
-
-  medico.pagamento = [auditoriaPagamentoMedico];
-  auditoriasPagamentoMedicos.push(auditoriaPagamentoMedico);
-  medicos.push(medico);
-}
-
-export { auditoriasPagamentoMedicos, medicos };

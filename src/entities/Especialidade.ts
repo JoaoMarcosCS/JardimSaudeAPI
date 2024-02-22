@@ -17,9 +17,11 @@ export class Especialidade {
   nome: string;
 
   //o segundo argumento é para definir como será a chave estrangeira em Hospital para acessar as especialidades relacionada
-  @ManyToOne(() => Hospital, (hospital) => hospital.especialidades)
+  @ManyToOne(() => Hospital, (hospital) => hospital.especialidades, {
+    cascade: true,
+  })
   hospital: Hospital; // vai ser uma propriedade de cada registro
 
-  @OneToMany(() => Usuario, (usuario) => usuario.especialidade)
+  @OneToMany(() => Usuario, (usuario) => usuario.especialidade, { eager: true })
   medicos: Usuario[];
 }

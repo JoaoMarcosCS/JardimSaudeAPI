@@ -1,6 +1,6 @@
-import { AuditoriaHospital } from "../../entities/AuditoriaHospital";
-import { Medicamento } from "../../entities/Medicamento";
-import { Operacao } from "../../enums/auditoriaOpercoes";
+import { AuditoriaHospital } from "../../../entities/AuditoriaHospital";
+import { Medicamento } from "../../../entities/Medicamento";
+import { Operacao } from "../../../enums/auditoriaOpercoes";
 import { medicamentosData } from "./data/MedicamentosData";
 
 const auditoriasCompraMedicamentos: AuditoriaHospital[] = [];

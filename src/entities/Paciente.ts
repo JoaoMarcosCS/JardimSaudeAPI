@@ -10,7 +10,7 @@ export class Paciente {
   nome: string;
 
   @Column()
-  idade: number;
+  nascimento: Date;
 
   @Column()
   altura: number;

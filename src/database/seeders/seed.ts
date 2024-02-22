@@ -1,21 +1,27 @@
 import { AuditoriaHospital } from "../../entities/AuditoriaHospital";
 import Hospital from "../../entities/Hospital";
-//import { Medicamento } from "../../entities/Medicamento";
 import { AppDataSource } from "../config/data-source";
-import { auditoriasCompraMedicamentos, medicamentos } from "./MedicamentosSeed";
 import { Medicamento } from "../../entities/Medicamento";
-import hospital from "./HospitaisSeed";
-import { medicos, auditoriasPagamentoMedicos } from "./MedicosSeed";
 import * as brcypt from "bcrypt";
-import especialidades from "./EspecialidadesSeed";
 import { Usuario } from "../../entities/Usuario";
 import { Especialidade } from "../../entities/Especialidade";
+import { Shopping } from "../../entities/Shopping";
+import { shoppings } from "./Shopping/ShoppingSeed";
+import {
+  auditoriasPagamentoSecretarias,
+  secretarias,
+} from "./Secretarias/SecretariasSeed";
+import { auditoriasPagamentoMedicos, medicos } from "./Medicos/MedicosSeed";
+import hospital from "./Hospital/HospitaisSeed";
+import {
+  auditoriasCompraMedicamentos,
+  medicamentos,
+} from "./Medicamentos/MedicamentosSeed";
+import especialidades from "./Especialidades/EspecialidadesSeed";
 
 //TODO criar uma lógica para separar os seeds das entidades
 
 //TODO criar pacientes e tratamentos
-
-//TODO criar a entidade "shopping" como os itens disponiveis para adquirir
 
 export const seed = async () => {
   await AppDataSource.initialize();
@@ -28,6 +34,7 @@ export const seed = async () => {
     );
     if (i < especialidades.length) {
       medico.especialidade = especialidades[i];
+
       i++;
     } else {
       i = 0;
@@ -42,6 +49,10 @@ export const seed = async () => {
   );
 
   hospital.orcamento -= auditoriasPagamentoMedicos.reduce(
+    (total, auditoria) => total + auditoria.valor_transacao,
+    0,
+  );
+  hospital.orcamento -= auditoriasPagamentoSecretarias.reduce(
     (total, auditoria) => total + auditoria.valor_transacao,
     0,
   );
@@ -64,6 +75,11 @@ export const seed = async () => {
       .execute();
     await AppDataSource.createQueryBuilder()
       .insert()
+      .into(Usuario)
+      .values(secretarias)
+      .execute();
+    await AppDataSource.createQueryBuilder()
+      .insert()
       .into(Medicamento)
       .values(medicamentos)
       .execute();
@@ -76,6 +92,16 @@ export const seed = async () => {
       .insert()
       .into(AuditoriaHospital)
       .values(auditoriasPagamentoMedicos)
+      .execute();
+    await AppDataSource.createQueryBuilder()
+      .insert()
+      .into(AuditoriaHospital)
+      .values(auditoriasPagamentoSecretarias)
+      .execute();
+    await AppDataSource.createQueryBuilder()
+      .insert()
+      .into(Shopping)
+      .values(shoppings)
       .execute();
 
     console.log("Deu certo");

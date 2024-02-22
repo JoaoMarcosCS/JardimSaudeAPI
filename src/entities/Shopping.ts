@@ -5,7 +5,7 @@ export class Shopping {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column()
   nome: string;
 
   @Column()
@@ -16,6 +16,9 @@ export class Shopping {
 
   @Column()
   descricao: string;
+
+  @Column("decimal", { precision: 10, scale: 2 })
+  peso: number;
 
   @Column()
   tipo: string;

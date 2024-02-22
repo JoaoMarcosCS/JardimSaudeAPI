@@ -1,4 +1,4 @@
-import MedicamentoInterface from "../../../interface/medicamentoInterface";
+import MedicamentoInterface from "../../../../interface/medicamentoInterface";
 
 export const medicamentosData: MedicamentoInterface[] = [
   {

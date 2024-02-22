@@ -18,7 +18,7 @@ export class Usuario {
   name: string;
 
   @Column()
-  idade: number;
+  nascimento: Date;
 
   @Column({ unique: true })
   email: string;
@@ -37,17 +37,21 @@ export class Usuario {
 
   @ManyToOne(() => Especialidade, (especialidade) => especialidade.medicos, {
     nullable: true,
+    cascade: true,
   })
   especialidade: Especialidade;
 
   @OneToMany(() => Tratamento, (tratamento) => tratamento.medico_responsavel, {
     nullable: true,
+    eager: true,
   })
   tratamentos: Tratamento[];
 
   @OneToMany(
     () => AuditoriaHospital,
     (auditoriaHospital) => auditoriaHospital.usuario,
+    //eager permite que os registros em auditoriaHospital sejam carregados na chave definida
+    { eager: true },
   )
   pagamento: AuditoriaHospital[];
 }

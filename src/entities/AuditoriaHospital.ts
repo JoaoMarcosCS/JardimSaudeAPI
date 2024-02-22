@@ -27,13 +27,16 @@ export class AuditoriaHospital {
   @Column({ nullable: true })
   quantidade: number;
 
-  @ManyToOne(() => Usuario, (usuario) => usuario.pagamento, { nullable: true })
+  @ManyToOne(() => Usuario, (usuario) => usuario.pagamento, {
+    nullable: true,
+    cascade: true,
+  })
   usuario: Usuario;
 
   @ManyToOne(
     () => Medicamento,
     (medicamento) => medicamento.historico_compras,
-    { nullable: true },
+    { nullable: true, cascade: true },
   )
   medicamento: Medicamento;
 

@@ -13,9 +13,12 @@ export class AplicacaoMedicamento {
   @ManyToOne(
     () => Tratamento,
     (tratamento) => tratamento.aplicacoes_medicamentos,
+    { cascade: true },
   )
   tratamento: Tratamento;
 
-  @ManyToOne(() => Medicamento, (medicamento) => medicamento.aplicacoes)
+  @ManyToOne(() => Medicamento, (medicamento) => medicamento.aplicacoes, {
+    cascade: true,
+  })
   medicamentos: Medicamento;
 }

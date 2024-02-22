@@ -27,7 +27,7 @@ export class Tratamento {
   @Column({ type: "timestamptz" })
   termino: Date;
 
-  @ManyToOne(() => Usuario, (usuario) => usuario.tratamentos)
+  @ManyToOne(() => Usuario, (usuario) => usuario.tratamentos, { cascade: true })
   medico_responsavel: Usuario;
 
   @OneToOne(() => Paciente, (paciente) => paciente.tratamento) //são vários registro de um mesmo paciente em diferentes momentos
@@ -36,7 +36,7 @@ export class Tratamento {
   @OneToMany(
     () => AplicacaoMedicamento,
     (aplicacaoMedicamento) => aplicacaoMedicamento.tratamento,
-    { nullable: true },
+    { nullable: true, eager: true },
   )
   aplicacoes_medicamentos: AplicacaoMedicamento[];
 }

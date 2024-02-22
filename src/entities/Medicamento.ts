@@ -13,7 +13,7 @@ export class Medicamento {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column()
   nome: string;
 
   @Column()
@@ -34,13 +34,14 @@ export class Medicamento {
   @OneToMany(
     () => AplicacaoMedicamento,
     (aplicacaoMedicamentos) => aplicacaoMedicamentos.medicamentos,
-    { nullable: true },
+    { nullable: true, eager: true },
   )
   aplicacoes: AplicacaoMedicamento[];
 
   @OneToMany(
     () => AuditoriaHospital,
     (auditoriaHospital) => auditoriaHospital.medicamento,
+    { eager: true },
   )
   historico_compras: AuditoriaHospital[];
 }
