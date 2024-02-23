@@ -1,12 +1,6 @@
-import { AuditoriaHospital } from "../../entities/AuditoriaHospital";
-import Hospital from "../../entities/Hospital";
-import { AppDataSource } from "../config/data-source";
-import { Medicamento } from "../../entities/Medicamento";
-import * as brcypt from "bcrypt";
+import connection from "../config/data-source";
+import brcyptjs from "bcryptjs";
 import { Usuario } from "../../entities/Usuario";
-import { Especialidade } from "../../entities/Especialidade";
-import { Shopping } from "../../entities/Shopping";
-import { shoppings } from "./Shopping/ShoppingSeed";
 import {
   auditoriasPagamentoSecretarias,
   secretarias,
@@ -18,16 +12,19 @@ import {
   medicamentos,
 } from "./Medicamentos/MedicamentosSeed";
 import especialidades from "./Especialidades/EspecialidadesSeed";
+import { AuditoriaHospital } from "../../entities/AuditoriaHospital";
+import { Especialidade } from "../../entities/Especialidade";
+import Hospital from "../../entities/Hospital";
+import { Medicamento } from "../../entities/Medicamento";
+import { Shopping } from "../../entities/Shopping";
+import { shoppings } from "./Shopping/ShoppingSeed";
 
 export const seed = async () => {
-  await AppDataSource.initialize();
-
   let i = 0;
   for (const medico of medicos) {
-    medico.senha = await brcypt.hash(
-      `${medico.name.replace(" ", "")}12345`,
-      10,
-    );
+    console.log("Senha: " + medico.senha);
+    medico.senha = await brcyptjs.hash(medico.senha, 10);
+    console.log("Hash: " + medico.senha);
     if (i < especialidades.length) {
       medico.especialidade = especialidades[i];
 
@@ -35,6 +32,11 @@ export const seed = async () => {
     } else {
       i = 0;
     }
+  }
+  for (const secretaria of secretarias) {
+    console.log("Senha secretaria: " + secretaria.senha);
+    secretaria.senha = await brcyptjs.hash(secretaria.senha, 10);
+    console.log("Hash secretaria: " + secretaria.senha);
   }
 
   hospital.especialidades = especialidades;
@@ -54,47 +56,56 @@ export const seed = async () => {
   );
 
   try {
-    await AppDataSource.createQueryBuilder()
+    await (await connection)
+      .createQueryBuilder()
       .insert()
       .into(Hospital)
       .values(hospital)
       .execute();
-    await AppDataSource.createQueryBuilder()
+    await (await connection)
+      .createQueryBuilder()
       .insert()
       .into(Especialidade)
       .values(especialidades)
       .execute();
-    await AppDataSource.createQueryBuilder()
+    await (await connection)
+      .createQueryBuilder()
       .insert()
       .into(Usuario)
       .values(medicos)
       .execute();
-    await AppDataSource.createQueryBuilder()
+    await (await connection)
+      .createQueryBuilder()
       .insert()
       .into(Usuario)
       .values(secretarias)
       .execute();
-    await AppDataSource.createQueryBuilder()
+    await (await connection)
+      .createQueryBuilder()
       .insert()
       .into(Medicamento)
       .values(medicamentos)
       .execute();
-    await AppDataSource.createQueryBuilder()
+    await (await connection)
+      .createQueryBuilder()
       .insert()
       .into(AuditoriaHospital)
       .values(auditoriasCompraMedicamentos)
       .execute();
-    await AppDataSource.createQueryBuilder()
+    await (await connection)
+      .createQueryBuilder()
       .insert()
       .into(AuditoriaHospital)
       .values(auditoriasPagamentoMedicos)
       .execute();
-    await AppDataSource.createQueryBuilder()
+    await (await connection)
+      .createQueryBuilder()
       .insert()
       .into(AuditoriaHospital)
       .values(auditoriasPagamentoSecretarias)
       .execute();
-    await AppDataSource.createQueryBuilder()
+    await (await connection)
+      .createQueryBuilder()
       .insert()
       .into(Shopping)
       .values(shoppings)

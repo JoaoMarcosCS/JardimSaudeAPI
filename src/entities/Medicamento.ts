@@ -28,14 +28,14 @@ export class Medicamento {
   @OneToMany(
     () => AplicacaoMedicamento,
     (aplicacaoMedicamentos) => aplicacaoMedicamentos.medicamentos,
-    { nullable: true, eager: true },
+    { nullable: true, eager: true, onDelete: "CASCADE" },
   )
   aplicacoes: AplicacaoMedicamento[];
 
   @OneToMany(
     () => AuditoriaHospital,
     (auditoriaHospital) => auditoriaHospital.medicamento,
-    { eager: true },
+    { eager: true, onDelete: "CASCADE" },
   )
   historico_compras: AuditoriaHospital[];
 }

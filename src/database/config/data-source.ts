@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-export const AppDataSource = new DataSource({
+const AppDataSource = new DataSource({
   type: "postgres",
   url: process.env.DATABASE_URL,
   synchronize: true,
@@ -13,3 +13,5 @@ export const AppDataSource = new DataSource({
   migrations: ["src/database/migrations/*{.ts,.js}"],
   subscribers: [],
 });
+
+export default AppDataSource.initialize();

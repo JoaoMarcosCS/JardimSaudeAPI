@@ -12,6 +12,8 @@ for (let i = 0; i < medicosData.length; i++) {
   medico.crm = medicosData[i].crm;
   medico.name = medicosData[i].name;
   medico.email = medicosData[i].email;
+  medico.senha = medicosData[i].senha;
+  medico.empregado = true;
   medico.nascimento = getBirthday(Math.floor(Math.random() * 60) + 20);
   medico.salario = Math.ceil(
     Number((Math.random() * (7000 - 3000) + 3000).toFixed(2)),

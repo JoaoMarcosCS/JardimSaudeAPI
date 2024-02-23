@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "ts-node src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch \"src/\" --exec \"ts-node src/app.ts\" -e ts ",
+    "dev": "nodemon --watch \"src/\" -r \"tsconfig-paths/register\" --exec \"ts-node src/app.ts\" -e ts ",
     "typeorm": "typeorm-ts-node-commonjs"
   },
   "keywords": [],
@@ -24,10 +24,12 @@
     "nodemon": "^3.0.3",
     "prettier": "^3.2.5",
     "ts-node": "10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "4.5.2"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.4",
     "express": "^4.18.2",
     "express-handler-errors": "^2.3.1",

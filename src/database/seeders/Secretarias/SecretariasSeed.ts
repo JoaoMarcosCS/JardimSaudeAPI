@@ -18,6 +18,7 @@ for (let i = 0; i < secretariaData.length; i++) {
   secretaria.pagamento = [];
   secretaria.tratamentos = [];
   secretaria.nivel = 1;
+  secretaria.empregado = true;
   secretaria.senha = secretariaData[i].senha;
 
   const auditoriaPagamentoSecretaria = new AuditoriaHospital();

@@ -5,9 +5,17 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./build",
+    "rootDir": "./src",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@controllers/*": ["./src/controllers/*"],
+      "@services/*": ["./src/services/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@middlewares/*": ["./src/middleware/*"]
+    }
   }
 }
