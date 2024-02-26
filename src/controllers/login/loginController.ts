@@ -3,7 +3,7 @@ import { loginService } from "../../services/login/loginService";
 import { CustomError } from "express-handler-errors";
 
 class LoginController {
-  async sigin(req: Request, res: Response) {
+  async sigin(req: Request, res: Response): Promise<Response> {
     const { email, senha } = req.body;
 
     if (!email || !senha) {

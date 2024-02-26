@@ -2,11 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import loginRouter from "./routes/login/loginRoutes";
 import userRouter from "./routes/user/userRoutes";
-import { seed } from "./database/seeders/seed";
+import "module-alias/register";
+//import { seed } from "./database/seeders/seed";
 
 dotenv.config();
 
-seed();
+//seed();
 
 const app = express();
 
