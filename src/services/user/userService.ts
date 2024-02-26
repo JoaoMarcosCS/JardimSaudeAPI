@@ -5,6 +5,8 @@ import bcryptjs from "bcryptjs";
 import { CustomError } from "express-handler-errors";
 import { Especialidade } from "src/entities/Especialidade";
 import { Tratamento } from "src/entities/Tratamento";
+import { AuditoriaHospital } from "src/entities/AuditoriaHospital";
+import { Operacao } from "src/enums/auditoriaOpercoes";
 
 class UserService {
   private repo: Repository<Usuario>;
@@ -39,7 +41,27 @@ class UserService {
         .values(data)
         .execute();
 
-      return response;
+      const userCreated = await this.repo.findOne({
+        where: {
+          email: data.email,
+        },
+      });
+
+      const pagamentoMedico = new AuditoriaHospital();
+      pagamentoMedico.data = new Date();
+      pagamentoMedico.tipoOperacao = Operacao.Pagamento;
+      pagamentoMedico.valor_transacao = userCreated.salario;
+      pagamentoMedico.usuario = userCreated;
+
+      const pagamentoRealizado = (await connection)
+        .getRepository(AuditoriaHospital)
+        .createQueryBuilder()
+        .insert()
+        .into(AuditoriaHospital)
+        .values(pagamentoMedico)
+        .execute();
+
+      return { response, pagamentoRealizado };
     } catch (error) {
       if (
         error instanceof QueryFailedError &&
@@ -50,6 +72,14 @@ class UserService {
           message: error.message,
           status: 400,
         });
+      } else {
+        if (error instanceof QueryFailedError) {
+          throw new CustomError({
+            code: "PAYMENTE_NOT_RECIVED",
+            message: error.message,
+            status: 400,
+          });
+        }
       }
     }
   }
