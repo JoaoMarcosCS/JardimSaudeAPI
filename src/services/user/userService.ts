@@ -3,10 +3,11 @@ import connection from "../../database/config/data-source";
 import { Usuario } from "../../entities/Usuario";
 import bcryptjs from "bcryptjs";
 import { CustomError } from "express-handler-errors";
-import { Especialidade } from "src/entities/Especialidade";
+import { Especialidade } from "../../entities/Especialidade";
 import { Tratamento } from "src/entities/Tratamento";
-import { AuditoriaHospital } from "src/entities/AuditoriaHospital";
-import { Operacao } from "src/enums/auditoriaOpercoes";
+import { AuditoriaHospital } from "../../entities/AuditoriaHospital";
+import { Operacao } from "../../enums/auditoriaOpercoes";
+import { FiltrosDisponiveis } from "../../enums/filtrosDisponiveis";
 
 class UserService {
   private repo: Repository<Usuario>;
@@ -17,6 +18,44 @@ class UserService {
 
   constructor() {
     this.initialize();
+  }
+
+  async index(field: string, order: string) {
+    if (
+      field &&
+      Object.values(FiltrosDisponiveis).includes(field as FiltrosDisponiveis)
+    ) {
+      const orderOption = {};
+      orderOption[field] = order || "ASC";
+
+      const response = await this.repo.find({
+        where: {
+          nivel: 2,
+        },
+        order: orderOption,
+      });
+      return response;
+    } else {
+      const response = await this.repo.find({
+        where: {
+          nivel: 2,
+        },
+        order: {
+          name: "ASC",
+        },
+      });
+      return response;
+    }
+  }
+
+  async show(id: string) {
+    const response = await this.repo.findOne({
+      where: {
+        id: id as unknown as number,
+        nivel: 2,
+      },
+    });
+    return response;
   }
 
   async create(data: {

@@ -3,6 +3,19 @@ import userService from "../../services/user/userService";
 import { CustomError } from "express-handler-errors";
 
 class UserController {
+  async index(req: Request, res: Response) {
+    const response = await userService.index(
+      req.query.field as string,
+      req.query.order as string,
+    );
+    return res.status(200).json(response);
+  }
+
+  async show(req: Request, res: Response) {
+    const response = await userService.show(req.params.id);
+    return res.status(200).json(response);
+  }
+
   async store(req: Request, res: Response) {
     try {
       const response = await userService.create(req.body);

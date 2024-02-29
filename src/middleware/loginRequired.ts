@@ -38,7 +38,7 @@ const loginRequired = async (
     return next();
   } catch (e) {
     return res.status(401).json({
-      errors: [`Erro: ${e}`],
+      errors: [`Token expirado`],
     });
   }
 };
