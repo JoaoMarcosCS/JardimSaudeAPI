@@ -8,6 +8,7 @@ import { Tratamento } from "src/entities/Tratamento";
 import { AuditoriaHospital } from "../../entities/AuditoriaHospital";
 import { Operacao } from "../../enums/auditoriaOpercoes";
 import { FiltrosDisponiveis } from "../../enums/filtrosDisponiveis";
+import Hospital from "src/entities/Hospital";
 
 class UserService {
   private repo: Repository<Usuario>;
@@ -100,7 +101,25 @@ class UserService {
         .values(pagamentoMedico)
         .execute();
 
-      return { response, pagamentoRealizado };
+      const hospital = (await connection).getRepository(Hospital).findOne({
+        where: {
+          nome: "Jardim Saúde"
+        }
+      })
+
+      console.log("Orçamento antes do débito: " + hospital.orcamento)
+
+      hospital.orcamento -= pagamentoMedico.valor_transacao;
+
+      const debitadoOrcamento = (await connection).createQueryBuilder()
+        .update(Hospital)
+        .set({orcamento: hospital.orcamento})
+        .where("nome = :nome", { nome: hospital.nome })
+        .execute();
+      
+      console.log("Orçamento atual: " + hospital.orcamento)
+
+      return { response, pagamentoRealizado, debitadoOrcamento };
     } catch (error) {
       if (
         error instanceof QueryFailedError &&
@@ -108,14 +127,14 @@ class UserService {
       ) {
         throw new CustomError({
           code: "DUPLICATE_USER",
-          message: error.message,
+          message: "Estas informações já estão em uso por outro usuário",
           status: 400,
         });
       } else {
         if (error instanceof QueryFailedError) {
           throw new CustomError({
             code: "PAYMENTE_NOT_RECIVED",
-            message: error.message,
+            message: "Erro ao efetuar pagamento",
             status: 400,
           });
         }
@@ -158,14 +177,14 @@ class UserService {
 
     const existEmail = email
       ? await this.repo.findOne({
-          where: { email: email, id: Not(id) },
-        })
+        where: { email: email, id: Not(id) },
+      })
       : Promise.resolve(null);
 
     const existCrm = crm
       ? await this.repo.findOne({
-          where: { crm: crm, id: Not(id) },
-        })
+        where: { crm: crm, id: Not(id) },
+      })
       : Promise.resolve(null);
 
     const [emailResult, crmResult] = await Promise.all([existEmail, existCrm]);
