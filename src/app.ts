@@ -7,8 +7,6 @@ import "module-alias/register";
 
 dotenv.config();
 
-//seed();
-
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
