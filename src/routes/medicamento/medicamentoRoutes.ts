@@ -1,5 +1,11 @@
 import {Routes} from "express"
+import medicamentoController from "../../controllers/medicamentos/medicamentoController"
 
-const routes = Router()
+const route = Router()
 
-export default routes
+route.get("/", medicamentoController.index)
+route.get("/:id", medicamentoController.show)
+route.put("/:id", medicamentoController.operation) //essa rota precisa ter uma query para a operação que vai realizar
+route.post("/", medicamentoController.create)
+
+export default route
