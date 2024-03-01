@@ -10,6 +10,9 @@ export class AplicacaoMedicamento {
   @Column({ type: "timestamptz" })
   hora_aplicacao: Date;
 
+  @Column()
+  quantidade: number;
+
   @ManyToOne(
     () => Tratamento,
     (tratamento) => tratamento.aplicacoes_medicamentos,

@@ -47,12 +47,11 @@ class Auditoria {
     );
   }
 
-  async compraMedicamento(medicamento: Medicamento) {
+  async compraMedicamento(medicamento: Medicamento, quantidade: number) {
     const compraMedicamento = new AuditoriaHospital();
     compraMedicamento.data = new Date();
     compraMedicamento.tipoOperacao = Operacao.Compra;
-    compraMedicamento.valor_transacao =
-      medicamento.valor_unitario * medicamento.quantidade;
+    compraMedicamento.valor_transacao = medicamento.valor_unitario * quantidade;
     compraMedicamento.medicamento = medicamento;
 
     (await connection)

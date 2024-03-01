@@ -2,6 +2,10 @@ import { Medicamento } from "../../entities/Medicamento";
 import { Repository } from "typeorm";
 import connection from "../../database/config/data-source";
 import { MedicamentoFilter } from "../../enums/medicamentoFilter";
+import aplicacao from "../aplicacao/aplicacao";
+import { Tratamento } from "../../entities/Tratamento";
+import { CustomError } from "express-handler-errors";
+import auditoria from "../auditoria/auditoria";
 
 class MedicamentoService {
   private repo: Repository<Medicamento>;
@@ -51,12 +55,61 @@ class MedicamentoService {
     }
   }
 
-  //   // update para diminuir a quantidade do medicamento
-  //   // fazer validação da quantidade para não ficar negativo
-  //   async consume(data: { id: number; qtd: number }) {}
+  // update para diminuir a quantidade do medicamento
+  // fazer validação da quantidade para não ficar negativo
+  async opration(data: {
+    id_medicamento: number;
+    id_tratamento: number;
+    quantidade: number;
+    isAplication: boolean;
+  }) {
+    const { isAplication, id_medicamento, id_tratamento, quantidade } = data;
+    const medicamento = await this.repo.findOne({
+      where: {
+        id: id_medicamento,
+      },
+    });
 
-  //   // update para aumentar a quantidade em uma compra
-  //   async add() {}
+    if (isAplication) {
+      if (medicamento.quantidade < quantidade) {
+        throw new CustomError({
+          code: "INSUFFICIENT_QUANTITY",
+          message: "Não há quantidade suficiente desse medicamento",
+          status: 400,
+        });
+      }
+      await Promise.all([
+        aplicacao.create(
+          { id: id_medicamento } as Medicamento,
+          { id: id_tratamento } as Tratamento,
+          quantidade,
+        ),
+        this.repo
+          .createQueryBuilder()
+          .update(Medicamento)
+          .set({ quantidade: () => "quantidade - 1" })
+          .where("id = :id", { id: id_medicamento })
+          .execute(),
+      ]);
+    } else {
+      await Promise.all([
+        this.repo
+          .createQueryBuilder()
+          .update(Medicamento)
+          .set({ quantidade: () => `quantidade + ${quantidade}` })
+          .where("id = :id", { id: id_medicamento })
+          .execute(),
+
+        auditoria.compraMedicamento(
+          { id: id_medicamento } as Medicamento,
+          quantidade,
+        ),
+      ]);
+    }
+  }
+
+  // update para aumentar a quantidade em uma compra
+  async add() {}
 }
 
 export default new MedicamentoService();
