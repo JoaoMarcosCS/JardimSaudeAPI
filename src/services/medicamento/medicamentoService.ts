@@ -10,7 +10,7 @@ import auditoria from "../auditoria/auditoria";
 class MedicamentoService {
   private repo: Repository<Medicamento>;
 
-  async initialize() {
+  private async initialize() {
     this.repo = (await connection).getRepository(Medicamento);
   }
 
@@ -27,9 +27,6 @@ class MedicamentoService {
       where: {
         id: id,
       },
-      relations:{
-        especialidade: true,
-      }
     });
     return response;
   }
