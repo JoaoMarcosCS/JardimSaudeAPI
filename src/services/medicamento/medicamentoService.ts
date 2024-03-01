@@ -57,18 +57,17 @@ class MedicamentoService {
 
   // update para diminuir a quantidade do medicamento
   // fazer validação da quantidade para não ficar negativo
-  async operation(data: {
-    id_medicamento: number;
+  async operation(id:number, data: {
     id_tratamento: number;
     quantidade: number;
     isAplication: boolean;
   }) {
 
-    const { isAplication, id_medicamento, id_tratamento, quantidade } = data;
+    const { isAplication, id_tratamento, quantidade } = data;
 
     const medicamento = await this.repo.findOne({
       where: {
-        id: id_medicamento,
+        id: id,
       },
     });
 
@@ -82,7 +81,7 @@ class MedicamentoService {
       }
       await Promise.all([
         aplicacao.create(
-          { id: id_medicamento } as Medicamento,
+          { id: id } as Medicamento,
           { id: id_tratamento } as Tratamento,
           quantidade,
         ),
@@ -90,7 +89,7 @@ class MedicamentoService {
           .createQueryBuilder()
           .update(Medicamento)
           .set({ quantidade: () => "quantidade - 1" })
-          .where("id = :id", { id: id_medicamento })
+          .where("id = :id", { id: id })
           .execute(),
       ]);
     } else {
@@ -99,11 +98,11 @@ class MedicamentoService {
           .createQueryBuilder()
           .update(Medicamento)
           .set({ quantidade: () => `quantidade + ${quantidade}` })
-          .where("id = :id", { id: id_medicamento })
+          .where("id = :id", { id: id })
           .execute(),
 
         auditoria.compraMedicamento(
-          { id: id_medicamento } as Medicamento,
+          { id: id } as Medicamento,
           quantidade,
         ),
       ]);
