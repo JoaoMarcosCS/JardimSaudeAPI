@@ -21,7 +21,10 @@ class MedicamentoController {
 
   // // para aumentar ou diminuir em X a quantidade de um registro
   // // posso mandar a operação no body ou em uma query
-  // async operation(req: Request, res: Response) {}
+  async operation(req: Request, res: Response) {
+    const response = await medicamentoService.operation(req.body);
+    return res.status(200).json(response);
+  }
 
   // // na loja vai estar disponivel apenas os medicamentos que não estão no estoque
   // // para comprar medicamentos em estoque terá a opção na tela de estoque de comprar mais

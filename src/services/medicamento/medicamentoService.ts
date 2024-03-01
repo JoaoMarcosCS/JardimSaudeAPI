@@ -57,13 +57,15 @@ class MedicamentoService {
 
   // update para diminuir a quantidade do medicamento
   // fazer validação da quantidade para não ficar negativo
-  async opration(data: {
+  async operation(data: {
     id_medicamento: number;
     id_tratamento: number;
     quantidade: number;
     isAplication: boolean;
   }) {
+
     const { isAplication, id_medicamento, id_tratamento, quantidade } = data;
+
     const medicamento = await this.repo.findOne({
       where: {
         id: id_medicamento,
@@ -74,7 +76,7 @@ class MedicamentoService {
       if (medicamento.quantidade < quantidade) {
         throw new CustomError({
           code: "INSUFFICIENT_QUANTITY",
-          message: "Não há quantidade suficiente desse medicamento",
+          message: "Não há quantidade suficiente desse medicamento para aplicação",
           status: 400,
         });
       }
