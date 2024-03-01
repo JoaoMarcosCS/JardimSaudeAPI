@@ -44,9 +44,6 @@ class MedicamentoService {
 
       const response = await this.repo.findAndCount({
         order: orderOption,
-        relations:{
-          especialidade: true,
-        }
       });
 
       return response;
@@ -55,9 +52,6 @@ class MedicamentoService {
         order: {
           nome: "ASC",
         },
-        relations:{
-          especialidade: true,
-        }
       });
 
       return response;

@@ -29,6 +29,9 @@ class UserService {
           nivel: 2,
         },
         order: orderOption,
+        relations:{
+          especialidade: true,
+        }
       });
       return response;
     } else {
@@ -39,6 +42,9 @@ class UserService {
         order: {
           name: "ASC",
         },
+        relations:{
+          especialidade: true,
+        }
       });
       return response;
     }
@@ -50,6 +56,9 @@ class UserService {
         id: id,
         nivel: 2,
       },
+      relations:{
+        especialidade: true,
+      }
     });
     return response;
   }
