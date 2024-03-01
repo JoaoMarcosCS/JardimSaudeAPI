@@ -12,7 +12,7 @@ class UserController {
   }
 
   async show(req: Request, res: Response) {
-    const response = await userService.show(req.params.id);
+    const response = await userService.show(Number(req.params.id));
     return res.status(200).json(response);
   }
 

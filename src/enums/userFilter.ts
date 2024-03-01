@@ -1,4 +1,4 @@
-export enum FiltrosDisponiveis {
+export enum UserFilter {
   Name = "name",
   Salario = "salario",
   Email = "email",

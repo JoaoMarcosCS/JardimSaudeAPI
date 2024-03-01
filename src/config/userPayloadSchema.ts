@@ -5,7 +5,6 @@ const userPayloadSchema = z.object({
     .string()
     .email({ message: "Preencha com um email válido" })
     .optional(),
-  id: z.number().int().positive(),
   crm: z.string().optional(),
   salario: z.number().optional(),
   name: z.string().optional(),

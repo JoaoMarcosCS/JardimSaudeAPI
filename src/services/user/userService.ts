@@ -4,11 +4,9 @@ import { Usuario } from "../../entities/Usuario";
 import bcryptjs from "bcryptjs";
 import { CustomError } from "express-handler-errors";
 import { Especialidade } from "../../entities/Especialidade";
-import { Tratamento } from "src/entities/Tratamento";
-import { AuditoriaHospital } from "../../entities/AuditoriaHospital";
-import { Operacao } from "../../enums/auditoriaOpercoes";
-import { FiltrosDisponiveis } from "../../enums/filtrosDisponiveis";
-import auditoria from "../auditoria/auditoria"
+import { Tratamento } from "../../entities/Tratamento";
+import { UserFilter } from "../../enums/userFilter";
+import auditoria from "../auditoria/auditoria";
 
 class UserService {
   private repo: Repository<Usuario>;
@@ -22,10 +20,7 @@ class UserService {
   }
 
   async index(field: string, order: string) {
-    if (
-      field &&
-      Object.values(FiltrosDisponiveis).includes(field as FiltrosDisponiveis)
-    ) {
+    if (field && Object.values(UserFilter).includes(field as UserFilter)) {
       const orderOption = {};
       orderOption[field] = order || "ASC";
 
@@ -49,10 +44,10 @@ class UserService {
     }
   }
 
-  async show(id: string) {
+  async show(id: number) {
     const response = await this.repo.findOne({
       where: {
-        id: id as unknown as number,
+        id: id,
         nivel: 2,
       },
     });
@@ -85,9 +80,9 @@ class UserService {
         where: {
           email: data.email,
         },
-      });      
+      });
 
-      auditoria.pagamentoMedico(userCreated)
+      auditoria.pagamentoUsuario(userCreated);
 
       return { response };
     } catch (error) {
@@ -147,14 +142,14 @@ class UserService {
 
     const existEmail = email
       ? await this.repo.findOne({
-        where: { email: email, id: Not(id) },
-      })
+          where: { email: email, id: Not(id) },
+        })
       : Promise.resolve(null);
 
     const existCrm = crm
       ? await this.repo.findOne({
-        where: { crm: crm, id: Not(id) },
-      })
+          where: { crm: crm, id: Not(id) },
+        })
       : Promise.resolve(null);
 
     const [emailResult, crmResult] = await Promise.all([existEmail, existCrm]);

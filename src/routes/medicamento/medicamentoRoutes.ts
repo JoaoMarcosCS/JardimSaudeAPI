@@ -1,11 +1,12 @@
-import {Routes} from "express"
-import medicamentoController from "../../controllers/medicamentos/medicamentoController"
+import { Router } from "express";
+import medicamentoController from "../../controllers/medicamentos/medicamentoController";
+import loginRequired from "../../middleware/loginRequired";
 
-const route = Router()
+const router = Router();
 
-route.get("/", medicamentoController.index)
-route.get("/:id", medicamentoController.show)
-route.put("/:id", medicamentoController.operation) //essa rota precisa ter uma query para a operação que vai realizar
-route.post("/", medicamentoController.create)
+router.get("/", loginRequired, medicamentoController.index);
+router.get("/:id", loginRequired, medicamentoController.show);
+// router.put("/:id", medicamentoController.operation); //essa rota precisa ter uma query para a operação que vai realizar
+// router.post("/", medicamentoController.create);
 
-export default route
+export default router;
