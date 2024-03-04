@@ -17,12 +17,13 @@ export const loginService = async (data: {
   const user = await userRepo.findOne({
     where: {
       email: email,
+      empregado: true
     },
   });
   if (!user) {
     throw new CustomError({
       code: "USER_NOT_FOUND",
-      message: "Usuário não encontrado",
+      message: "Usuário não encontrado ou foi demitido",
       status: 404,
     });
   }
