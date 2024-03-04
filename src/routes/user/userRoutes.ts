@@ -28,7 +28,6 @@ router.put(
   "/",
   validateUserPayload,
   loginRequired,
-  nivelSecretaria,
   userController.update,
 );
 
