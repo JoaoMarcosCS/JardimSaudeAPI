@@ -5,7 +5,7 @@ import connection from "../../database/config/data-source"
 class EspecialidadeService {
     private repo: Repository<Especialidade>
 
-    async initialize(){
+    private async initialize(){
         this.repo = (await connection).getRepository(Especialidade);
     }
 

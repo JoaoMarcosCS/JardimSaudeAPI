@@ -1,4 +1,4 @@
-import { Not, QueryFailedError, Repository } from "typeorm";
+import { Not, QueryFailedError, Repository, Tree } from "typeorm";
 import connection from "../../database/config/data-source";
 import { Usuario } from "../../entities/Usuario";
 import bcryptjs from "bcryptjs";
@@ -7,6 +7,7 @@ import { Especialidade } from "../../entities/Especialidade";
 import { Tratamento } from "../../entities/Tratamento";
 import { UserFilter } from "../../enums/userFilter";
 import auditoria from "../auditoria/auditoria";
+import { string } from "zod";
 
 class UserService {
   private repo: Repository<Usuario>;
@@ -43,8 +44,8 @@ class UserService {
           name: "ASC",
         },
         relations:{
-          especialidade: true,
-        }
+          especialidade:true
+        },
       });
       return response;
     }
