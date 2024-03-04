@@ -19,10 +19,13 @@ class MedicamentoController {
     return res.status(200).json(response);
   }
 
-  // // para aumentar ou diminuir em X a quantidade de um registro
-  // // posso mandar a operação no body ou em uma query
+  // para aumentar ou diminuir em X a quantidade de um registro
+  // posso mandar a operação no body ou em uma query
   async operation(req: Request, res: Response) {
-    const response = await medicamentoService.operation(Number(req.params.id), req.body);
+    const response = await medicamentoService.operation(
+      Number(req.params.id),
+      req.body,
+    );
     return res.status(200).json(response);
   }
 
