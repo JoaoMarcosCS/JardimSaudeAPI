@@ -17,6 +17,9 @@ class EspecialidadeService {
         const response = await this.repo.findAndCount({
             order:{
                 nome: "asc"
+            },
+            relations:{
+                hospital: true
             }
         })
         return response;

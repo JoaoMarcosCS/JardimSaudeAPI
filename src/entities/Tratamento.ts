@@ -24,7 +24,7 @@ export class Tratamento {
   @Column({ type: "timestamptz" })
   inicio: Date;
 
-  @Column({ type: "timestamptz" })
+  @Column({ type: "timestamptz", nullable: true })
   termino: Date;
 
   @ManyToOne(() => Usuario, (usuario) => usuario.tratamentos, { cascade: true })
