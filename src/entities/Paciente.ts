@@ -1,4 +1,4 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Tratamento } from "./Tratamento";
 
 @Entity()
@@ -33,12 +33,6 @@ export class Paciente {
   @Column()
   telefone: string;
 
-  @Column()
-  status: string;
-
-  @Column()
-  queixas: string;
-
-  @OneToOne(() => Tratamento, (tratamento) => tratamento.paciente)
-  tratamento: Tratamento;
+  @OneToMany(() => Tratamento, (tratamento) => tratamento.paciente)
+  tratamentos: Tratamento[];
 }

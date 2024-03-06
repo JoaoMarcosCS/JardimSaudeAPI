@@ -3,7 +3,6 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Usuario } from "./Usuario";
@@ -27,10 +26,16 @@ export class Tratamento {
   @Column({ type: "timestamptz", nullable: true })
   termino: Date;
 
+  @Column()
+  status: string;
+
+  @Column()
+  queixas: string;
+
   @ManyToOne(() => Usuario, (usuario) => usuario.tratamentos, { cascade: true })
   medico_responsavel: Usuario;
 
-  @OneToOne(() => Paciente, (paciente) => paciente.tratamento) //são vários registro de um mesmo paciente em diferentes momentos
+  @ManyToOne(() => Paciente, (paciente) => paciente.tratamentos) //são vários registro de um mesmo paciente em diferentes momentos
   paciente: Paciente;
 
   @OneToMany(
