@@ -1,29 +1,19 @@
 import { Request, Response } from "express";
 import { loginService } from "../../services/login/loginService";
-import { CustomError } from "express-handler-errors";
 
 class LoginController {
   async sigin(req: Request, res: Response): Promise<Response> {
     const { email, senha } = req.body;
 
-    if (!email || !senha) {
-      return res.status(401).json({
-        errors: ["Credenciais vazias"],
+    const result = await loginService({ senha, email });
+
+    if (result.isError()) {
+      return res.status(400).json({
+        message: result.value.message,
       });
     }
 
-    try {
-      const response = await loginService({ senha, email });
-
-      return res.status(200).json(response);
-    } catch (error) {
-      if (error instanceof CustomError) {
-        return res.status(error.error.status).json({
-          message: error.error.message,
-          code: error.error.code,
-        });
-      }
-    }
+    return res.status(200).json(result.value);
   }
 }
 

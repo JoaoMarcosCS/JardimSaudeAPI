@@ -1,41 +1,37 @@
 import bcryptjs from "bcryptjs";
-import { CustomError } from "express-handler-errors";
 import { sign } from "jsonwebtoken";
 import dotenv from "dotenv";
 import connection from "../../database/config/data-source";
 import { Usuario } from "../../entities/Usuario";
+import { Either, error, success } from "../../errors/either";
+import { HandleResponseError } from "../../errors/handle-response-errors";
 
 dotenv.config();
+
+type Authentication = Either<HandleResponseError, { token: string }>;
 
 export const loginService = async (data: {
   senha: string;
   email: string;
-}): Promise<{ token: string }> => {
+}): Promise<Authentication> => {
   const { senha, email } = data;
 
-  const userRepo = (await connection).getRepository(Usuario);
-  const user = await userRepo.findOne({
+  const user = await (await connection).getRepository(Usuario).findOne({
     where: {
       email: email,
-      empregado: true
+      empregado: true,
     },
   });
   if (!user) {
-    throw new CustomError({
-      code: "USER_NOT_FOUND",
-      message: "Usuário não encontrado ou foi demitido",
-      status: 404,
-    });
+    return error(
+      new HandleResponseError("Usuário não encontrado ou foi demitido", 404),
+    );
   }
 
   const senhaCorreta = await bcryptjs.compare(senha, user.senha);
 
   if (!senhaCorreta) {
-    throw new CustomError({
-      code: "INVALID_PASSWORD",
-      message: "Senha incorreta",
-      status: 401,
-    });
+    return error(new HandleResponseError("Senha incorreta", 400));
   }
 
   const { id, name, nivel } = user;
@@ -44,5 +40,5 @@ export const loginService = async (data: {
     expiresIn: process.env.TOKEN_EXPIRATION,
   });
 
-  return { token };
+  return success({ token });
 };

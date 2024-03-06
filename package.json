@@ -32,6 +32,7 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.4",
     "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
     "express-handler-errors": "^2.3.1",
     "jsonwebtoken": "^9.0.2",
     "module-alias": "^2.2.3",

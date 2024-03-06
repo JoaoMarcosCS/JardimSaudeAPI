@@ -1,13 +1,15 @@
-import { Not, QueryFailedError, Repository, Tree } from "typeorm";
+import { Not, QueryFailedError, Repository } from "typeorm";
 import connection from "../../database/config/data-source";
 import { Usuario } from "../../entities/Usuario";
 import bcryptjs from "bcryptjs";
-import { CustomError } from "express-handler-errors";
 import { Especialidade } from "../../entities/Especialidade";
 import { Tratamento } from "../../entities/Tratamento";
 import { UserFilter } from "../../enums/userFilter";
 import auditoria from "../auditoria/auditoria";
-import { string } from "zod";
+import { Either, error, success } from "../../errors/either";
+import { HandleResponseError } from "../../errors/handle-response-errors";
+
+type Response = Either<HandleResponseError, { ok: boolean }>;
 
 class UserService {
   private repo: Repository<Usuario>;
@@ -30,9 +32,9 @@ class UserService {
           nivel: 2,
         },
         order: orderOption,
-        relations:{
+        relations: {
           especialidade: true,
-        }
+        },
       });
       return response;
     } else {
@@ -43,8 +45,8 @@ class UserService {
         order: {
           name: "ASC",
         },
-        relations:{
-          especialidade:true
+        relations: {
+          especialidade: true,
         },
       });
       return response;
@@ -57,9 +59,15 @@ class UserService {
         id: id,
         nivel: 2,
       },
-      relations:{
+      relations: {
         especialidade: true,
-      }
+      },
+      select: {
+        especialidade: {
+          nome: true,
+          medicos: false,
+        },
+      },
     });
     return response;
   }
@@ -75,11 +83,11 @@ class UserService {
     especialidade?: Especialidade;
     empregado: boolean;
     tratamentos?: Tratamento[];
-  }) {
+  }): Promise<Response> {
     data.senha = await bcryptjs.hash(data.senha, 10);
 
     try {
-      const response = await this.repo
+      await this.repo
         .createQueryBuilder()
         .insert()
         .into(Usuario)
@@ -92,32 +100,25 @@ class UserService {
         },
       });
 
-      auditoria.pagamentoUsuario(userCreated);
+      await auditoria.pagamentoUsuario(userCreated);
 
-      return { response };
-    } catch (error) {
+      return success({ ok: true });
+    } catch (e) {
       if (
-        error instanceof QueryFailedError &&
-        error.message.includes("duplicate key")
+        e instanceof QueryFailedError &&
+        e.message.includes("duplicate key")
       ) {
-        throw new CustomError({
-          code: "DUPLICATE_USER",
-          message: "Estas informações já estão em uso por outro usuário",
-          status: 400,
-        });
-      } else {
-        if (error instanceof QueryFailedError) {
-          throw new CustomError({
-            code: "PAYMENTE_NOT_RECIVED",
-            message: "Erro ao efetuar pagamento",
-            status: 400,
-          });
-        }
+        return error(
+          new HandleResponseError(
+            "Dados já estão em uso por outro usuário",
+            400,
+          ),
+        );
       }
     }
   }
 
-  async delete(id: number) {
+  async delete(id: number): Promise<Response> {
     const response = await this.repo
       .createQueryBuilder()
       .update(Usuario)
@@ -126,29 +127,27 @@ class UserService {
       .execute();
 
     if (response.affected === 0) {
-      throw new CustomError({
-        code: "USER_NOT_FOUND",
-        message: "Usuário não encontrado",
-        status: 404,
-      });
+      return error(new HandleResponseError("Usuário não encontrado", 404));
     }
 
-    return response;
+    return success({ ok: true });
   }
 
-  async update(data: {
-    id: number;
-    name?: string;
-    crm?: string;
-    senha?: string;
-    email?: string;
-    nascimento?: Date;
-    nivel?: number;
-    salario?: number;
-    especialidade?: Especialidade;
-    empregado?: boolean;
-  }) {
-    const { crm, email, id } = data;
+  async update(
+    id: number,
+    data: {
+      name?: string;
+      crm?: string;
+      senha?: string;
+      email?: string;
+      nascimento?: Date;
+      nivel?: number;
+      salario?: number;
+      especialidade?: Especialidade;
+      empregado?: boolean;
+    },
+  ): Promise<Response> {
+    const { crm, email } = data;
 
     const existEmail = email
       ? await this.repo.findOne({
@@ -165,37 +164,30 @@ class UserService {
     const [emailResult, crmResult] = await Promise.all([existEmail, existCrm]);
 
     if (emailResult) {
-      throw new CustomError({
-        code: "EMAIL_ALREADY_EXIST",
-        message: "Este email já está em uso por outro usuário",
-        status: 400,
-      });
+      return error(new HandleResponseError("Este email já está em uso.", 400));
     }
 
     if (crmResult) {
-      throw new CustomError({
-        code: "CRM_ALREADY_EXIST",
-        message: "Esta crm é utilizada por outro profissional",
-        status: 400,
-      });
+      return error(
+        new HandleResponseError(
+          "Esta crm é utilizada por outro profissional",
+          400,
+        ),
+      );
     }
 
     const response = await this.repo
       .createQueryBuilder()
       .update(Usuario)
       .set(data)
-      .where("id = :id", { id: data.id })
+      .where("id = :id", { id: id })
       .execute();
 
     if (response.affected === 0) {
-      throw new CustomError({
-        code: "USER_NOT_FOUND",
-        message: "Usuário não encontrado",
-        status: 404,
-      });
+      return error(new HandleResponseError("Usuário não encontrado", 404));
     }
 
-    return response;
+    return success({ ok: true });
   }
 }
 

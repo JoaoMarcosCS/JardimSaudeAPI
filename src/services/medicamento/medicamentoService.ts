@@ -4,8 +4,11 @@ import connection from "../../database/config/data-source";
 import { MedicamentoFilter } from "../../enums/medicamentoFilter";
 import aplicacao from "../aplicacao/aplicacao";
 import { Tratamento } from "../../entities/Tratamento";
-import { CustomError } from "express-handler-errors";
 import auditoria from "../auditoria/auditoria";
+import { Either, error, success } from "../../errors/either";
+import { HandleResponseError } from "../../errors/handle-response-errors";
+
+type Response = Either<HandleResponseError, { ok: boolean }>;
 
 class MedicamentoService {
   private repo: Repository<Medicamento>;
@@ -57,12 +60,14 @@ class MedicamentoService {
 
   // update para diminuir a quantidade do medicamento
   // fazer validação da quantidade para não ficar negativo
-  async operation(id:number, data: {
-    id_tratamento: number;
-    quantidade: number;
-    isAplication: boolean;
-  }) {
-
+  async operation(
+    id: number,
+    data: {
+      id_tratamento?: number;
+      quantidade: number;
+      isAplication: boolean;
+    },
+  ): Promise<Response> {
     const { isAplication, id_tratamento, quantidade } = data;
 
     const medicamento = await this.repo.findOne({
@@ -71,13 +76,18 @@ class MedicamentoService {
       },
     });
 
-    if (isAplication) {
+    if (!medicamento) {
+      return error(new HandleResponseError("Esse medicamento não existe", 404));
+    }
+
+    if (isAplication && id_tratamento) {
       if (medicamento.quantidade < quantidade) {
-        throw new CustomError({
-          code: "INSUFFICIENT_QUANTITY",
-          message: "Não há quantidade suficiente desse medicamento para aplicação",
-          status: 400,
-        });
+        return error(
+          new HandleResponseError(
+            "Não há quantidade suficiente desse medicamento para aplicação",
+            400,
+          ),
+        );
       }
       await Promise.all([
         aplicacao.create(
@@ -92,6 +102,8 @@ class MedicamentoService {
           .where("id = :id", { id: id })
           .execute(),
       ]);
+
+      return success({ ok: true });
     } else {
       await Promise.all([
         this.repo
@@ -101,11 +113,9 @@ class MedicamentoService {
           .where("id = :id", { id: id })
           .execute(),
 
-        auditoria.compraMedicamento(
-          { id: id } as Medicamento,
-          quantidade,
-        ),
+        auditoria.compraMedicamento(medicamento, quantidade),
       ]);
+      return success({ ok: true });
     }
   }
 

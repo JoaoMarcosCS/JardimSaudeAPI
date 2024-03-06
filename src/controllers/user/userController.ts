@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import userService from "../../services/user/userService";
-import { CustomError } from "express-handler-errors";
 
 class UserController {
   async index(req: Request, res: Response) {
@@ -17,47 +16,41 @@ class UserController {
   }
 
   async store(req: Request, res: Response) {
-    try {
-      const response = await userService.create(req.body);
-      return res.status(200).json(response);
-    } catch (e) {
-      if (e instanceof CustomError) {
-        return res.status(e.error.status).json({
-          message: e.error.message,
-          code: e.error.code,
-        });
-      }
+    const result = await userService.create(req.body);
+
+    if (result.isError()) {
+      return res.status(400).json({
+        message: result.value.message,
+      });
     }
+
+    return res.status(200).json(result.value);
   }
 
   async delete(req: Request, res: Response) {
-    const { id } = req.body;
-    try {
-      const response = await userService.delete(id);
-      return res.status(200).json(response);
-    } catch (e) {
-      if (e instanceof CustomError) {
-        return res.status(e.error.status).json({
-          message: e.error.message,
-          code: e.error.code,
-        });
-      }
+    const id = req.params.id;
+    const result = await userService.delete(Number(id));
+
+    if (result.isError()) {
+      //console.log("Status code:" + result.value.status);
+      return res.status(404).json({
+        message: result.value.message,
+      });
     }
+    return res.json(result.value);
   }
 
   async update(req: Request, res: Response) {
     const data = req.body;
-    try {
-      const response = await userService.update(data);
-      return res.status(200).json(response);
-    } catch (e) {
-      if (e instanceof CustomError) {
-        return res.status(e.error.status).json({
-          message: e.error.message,
-          code: e.error.code,
-        });
-      }
+    const result = await userService.update(Number(req.params.id), data);
+
+    if (result.isError()) {
+      return res.status(400).json({
+        message: result.value.message,
+      });
     }
+
+    return res.status(200).json(result.value);
   }
 }
 

@@ -18,17 +18,12 @@ router.post(
   userController.store,
 );
 router.delete(
-  "/",
+  "/:id",
   validateUserPayload,
   loginRequired,
   nivelSecretaria,
   userController.delete,
 );
-router.put(
-  "/",
-  validateUserPayload,
-  loginRequired,
-  userController.update,
-);
+router.put("/:id", validateUserPayload, loginRequired, userController.update);
 
 export default router;
