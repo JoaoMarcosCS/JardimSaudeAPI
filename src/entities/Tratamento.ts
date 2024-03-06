@@ -17,7 +17,7 @@ export class Tratamento {
   @Column()
   nome: string;
 
-  @Column()
+  @Column("decimal", { precision: 10, scale: 2 })
   valor: number;
 
   @Column({ type: "timestamptz" })
