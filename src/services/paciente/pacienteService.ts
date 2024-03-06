@@ -1,10 +1,10 @@
-import { Paciente } from "../../entities/Paciente";
-import { Repository } from "typeorm";
+import { Not, Repository } from "typeorm";
 import connection from "../../database/config/data-source";
 import PacienteInterface from "../../interface/paciente-interface";
 import { HandleResponseError } from "../../errors/handle-response-errors";
 import { Either, error, success } from "../../errors/either";
 import { PacienteFilter } from "../../enums/pacienteFilter";
+import { Paciente } from "../../entities/Paciente";
 
 type Response = Either<HandleResponseError, { ok: boolean }>;
 
@@ -82,6 +82,65 @@ class PacienteService {
       .into(Paciente)
       .values(data)
       .execute();
+
+    return success({ ok: true });
+  }
+
+  async update(
+    id: number,
+    data: {
+      nome?: string;
+      sexo?: string;
+      nascimento?: Date;
+      altura?: number;
+      uf?: string;
+      cidade?: string;
+      bairro?: string;
+      rua?: string;
+      cpf?: string;
+      telefone?: string;
+      email?: string;
+    },
+  ): Promise<Response> {
+    const { cpf, email } = data;
+
+    const existEmail = email
+      ? await this.repo.findOne({
+          where: { email: email, id: Not(id) },
+        })
+      : Promise.resolve(null);
+
+    const existCpf = cpf
+      ? await this.repo.findOne({
+          where: { cpf: cpf, id: Not(id) },
+        })
+      : Promise.resolve(null);
+
+    const [emailResult, cpfResult] = await Promise.all([existEmail, existCpf]);
+
+    if (emailResult) {
+      return error(new HandleResponseError("Este email já está em uso.", 400));
+    }
+
+    if (cpfResult) {
+      return error(
+        new HandleResponseError(
+          "Esta cpf já é utilizada por outro paciente",
+          400,
+        ),
+      );
+    }
+
+    const response = await this.repo
+      .createQueryBuilder()
+      .update(Paciente)
+      .set(data)
+      .where("id = :id", { id: id })
+      .execute();
+
+    if (response.affected === 0) {
+      return error(new HandleResponseError("Usuário não encontrado", 404));
+    }
 
     return success({ ok: true });
   }

@@ -26,6 +26,21 @@ class PacienteController {
 
     return res.status(200).json(result.value);
   }
+
+  async update(req: Request, res: Response) {
+    const result = await pacienteService.update(
+      Number(req.params.id),
+      req.body,
+    );
+
+    if (result.isError()) {
+      return res.status(400).json({
+        message: result.value.message,
+      });
+    }
+
+    return res.status(200).json(result.value);
+  }
 }
 
 export default new PacienteController();
