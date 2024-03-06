@@ -12,7 +12,7 @@ export class Paciente {
   @Column()
   nascimento: Date;
 
-  @Column()
+  @Column("decimal", { precision: 10, scale: 2 })
   altura: number;
 
   @Column()
@@ -25,6 +25,9 @@ export class Paciente {
   bairro: string;
 
   @Column()
+  rua: string;
+
+  @Column({ unique: true })
   cpf: string;
 
   @Column()
@@ -32,6 +35,9 @@ export class Paciente {
 
   @Column()
   telefone: string;
+
+  @Column()
+  sexo: string;
 
   @OneToMany(() => Tratamento, (tratamento) => tratamento.paciente)
   tratamentos: Tratamento[];

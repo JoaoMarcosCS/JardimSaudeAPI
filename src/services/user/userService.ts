@@ -27,7 +27,7 @@ class UserService {
       const orderOption = {};
       orderOption[field] = order || "ASC";
 
-      const response = await this.repo.find({
+      const response = await this.repo.findAndCount({
         where: {
           nivel: 2,
         },

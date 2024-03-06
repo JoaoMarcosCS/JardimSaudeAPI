@@ -4,6 +4,7 @@ import loginRouter from "./routes/login/loginRoutes";
 import userRouter from "./routes/user/userRoutes";
 import medicamentoRouter from "./routes/medicamento/medicamentoRoutes";
 import especialidadeRouter from "./routes/especialidade/especialidadeRoutes";
+import pacienteRouter from "./routes/paciente/pacienteRouter";
 import "module-alias/register";
 //import { seed } from "./database/seeders/seed";
 
@@ -18,6 +19,7 @@ app.use("/login", loginRouter);
 app.use("/usuario", userRouter);
 app.use("/medicamento", medicamentoRouter);
 app.use("/especialidade", especialidadeRouter);
+app.use("/paciente", pacienteRouter);
 
 app.listen(3000, () => {
   console.log("Servidor rodando: http://localhost:3000");
