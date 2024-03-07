@@ -21,7 +21,7 @@ app.use("/usuario", userRouter);
 app.use("/medicamento", medicamentoRouter);
 app.use("/especialidade", especialidadeRouter);
 app.use("/paciente", pacienteRouter);
-app.use("/tratamento", tratamentoRouter );
+app.use("/tratamento", tratamentoRouter);
 
 app.listen(3000, () => {
   console.log("Servidor rodando: http://localhost:3000");

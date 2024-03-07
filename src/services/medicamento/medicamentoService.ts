@@ -98,7 +98,7 @@ class MedicamentoService {
         this.repo
           .createQueryBuilder()
           .update(Medicamento)
-          .set({ quantidade: () => "quantidade - 1" })
+          .set({ quantidade: () => `quantidade - ${quantidade}` })
           .where("id = :id", { id: id })
           .execute(),
       ]);
