@@ -1,10 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { z } from "zod";
-
-const loginPayloadSchema = z.object({
-  email: z.string().email({ message: "Preencha com um email válido" }),
-  senha: z.string().min(6).max(15),
-});
+import loginPayloadSchema from "../schema/loginPayload";
 
 const validateLoginPayload = (
   req: Request,

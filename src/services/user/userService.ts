@@ -1,4 +1,4 @@
-import { Not, QueryFailedError, Repository } from "typeorm";
+import { Repository } from "typeorm";
 import connection from "../../database/config/data-source";
 import { Usuario } from "../../entities/Usuario";
 import bcryptjs from "bcryptjs";
@@ -86,36 +86,22 @@ class UserService {
   }): Promise<Response> {
     data.senha = await bcryptjs.hash(data.senha, 10);
 
-    try {
-      await this.repo
-        .createQueryBuilder()
-        .insert()
-        .into(Usuario)
-        .values(data)
-        .execute();
+    await this.repo
+      .createQueryBuilder()
+      .insert()
+      .into(Usuario)
+      .values(data)
+      .execute();
 
-      const userCreated = await this.repo.findOne({
-        where: {
-          email: data.email,
-        },
-      });
+    const userCreated = await this.repo.findOne({
+      where: {
+        email: data.email,
+      },
+    });
 
-      await auditoria.pagamentoUsuario(userCreated);
+    await auditoria.pagamentoUsuario(userCreated);
 
-      return success({ ok: true });
-    } catch (e) {
-      if (
-        e instanceof QueryFailedError &&
-        e.message.includes("duplicate key")
-      ) {
-        return error(
-          new HandleResponseError(
-            "Dados já estão em uso por outro usuário",
-            400,
-          ),
-        );
-      }
-    }
+    return success({ ok: true });
   }
 
   async delete(id: number): Promise<Response> {
@@ -141,41 +127,10 @@ class UserService {
       senha?: string;
       email?: string;
       nascimento?: Date;
-      nivel?: number;
       salario?: number;
       especialidade?: Especialidade;
-      empregado?: boolean;
     },
   ): Promise<Response> {
-    const { crm, email } = data;
-
-    const existEmail = email
-      ? await this.repo.findOne({
-          where: { email: email, id: Not(id) },
-        })
-      : Promise.resolve(null);
-
-    const existCrm = crm
-      ? await this.repo.findOne({
-          where: { crm: crm, id: Not(id) },
-        })
-      : Promise.resolve(null);
-
-    const [emailResult, crmResult] = await Promise.all([existEmail, existCrm]);
-
-    if (emailResult) {
-      return error(new HandleResponseError("Este email já está em uso.", 400));
-    }
-
-    if (crmResult) {
-      return error(
-        new HandleResponseError(
-          "Esta crm é utilizada por outro profissional",
-          400,
-        ),
-      );
-    }
-
     const response = await this.repo
       .createQueryBuilder()
       .update(Usuario)

@@ -2,7 +2,9 @@ import loginRequired from "../../middleware/loginRequired";
 import userController from "../../controllers/user/userController";
 import { Router } from "express";
 import nivelSecretaria from "../../middleware/nivelSecretaria";
-import validateUserPayload from "../../middleware/validateUserPayload";
+import validateCreateUser from "../../middleware/validateCreateUser";
+import validateUpdateUser from "../../middleware/validateUpdateUser";
+("../../middleware/");
 
 const router = Router();
 
@@ -12,18 +14,12 @@ router.get("/", loginRequired, nivelSecretaria, userController.index);
 
 router.post(
   "/",
-  validateUserPayload,
   loginRequired,
+  validateCreateUser,
   nivelSecretaria,
   userController.store,
 );
-router.delete(
-  "/:id",
-  validateUserPayload,
-  loginRequired,
-  nivelSecretaria,
-  userController.delete,
-);
-router.put("/:id", validateUserPayload, loginRequired, userController.update);
+router.delete("/:id", loginRequired, nivelSecretaria, userController.delete);
+router.put("/:id", loginRequired, validateUpdateUser, userController.update);
 
 export default router;
