@@ -7,6 +7,6 @@ const router = Router();
 router.get("/", loginRequired, medicamentoController.index);
 router.get("/:id", loginRequired, medicamentoController.show);
 router.put("/:id", loginRequired, medicamentoController.operation); //essa rota precisa ter uma query para a operação que vai realizar
-// router.post("/", medicamentoController.create);
+router.post("/", medicamentoController.store);
 
 export default router;

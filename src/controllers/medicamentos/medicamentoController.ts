@@ -8,7 +8,7 @@ class MedicamentoController {
     return res.status(200).json(response);
   }
 
-  // para mostrar a lista de medicamentos
+  // para mostrar a lista de medicamentos em estoque
   async index(req: Request, res: Response) {
     const response = await medicamentoService.index(
       req.query.field as string,
@@ -17,8 +17,11 @@ class MedicamentoController {
     return res.status(200).json(response);
   }
 
-  // para aumentar ou diminuir em X a quantidade de um registro
-  // posso mandar a operação no body ou em uma query
+  async store(req:Request, res:Response){
+    const result = await medicamentoService.create(req.body);
+    return res.status(200).json(result);
+  }
+
   async operation(req: Request, res: Response) {
     const result = await medicamentoService.operation(
       Number(req.params.id),
