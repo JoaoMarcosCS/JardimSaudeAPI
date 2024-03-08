@@ -9,6 +9,7 @@ import { Either, error, success } from "../../errors/either";
 import { HandleResponseError } from "../../errors/handle-response-errors";
 import MedicamentoInterface from "../../interface/medicamentoInterface";
 
+
 type Response = Either<HandleResponseError, { ok: boolean }>;
 
 class MedicamentoService {
@@ -25,15 +26,25 @@ class MedicamentoService {
   // esse método vai criar um novo registro de um novo medicamento
   // no controller precisa fazer uma validação nova se vai criar um medicamento ou atualizar a quantidade
   async create(data: MedicamentoInterface) {
-    await this.repo.save(data);
-
-    const medicamento = await this.repo.findOne({
-        order: {
-          id: 'DESC',
-        },
+    
+    const existMedicamento = await this.repo.findOne({
+      where:{
+        codigo: data.codigo
+      }
     })
 
-    await auditoria.compraMedicamento(medicamento, medicamento.quantidade);
+    if(existMedicamento){
+      const response = await this.operation(existMedicamento.id,{
+        quantidade: data.quantidade,
+        isAplication: false
+      })
+
+      return {response}
+    }
+
+    await this.repo.createQueryBuilder().insert().into(Medicamento).values(data).execute();
+
+    await auditoria.compraMedicamento(data as Medicamento, data.quantidade);
 
     return {ok:true};
   }

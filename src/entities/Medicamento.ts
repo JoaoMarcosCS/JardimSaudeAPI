@@ -25,6 +25,9 @@ export class Medicamento {
   @Column()
   tipo: string;
 
+  @Column({unique: true})
+  codigo:number;
+
   @OneToMany(
     () => AplicacaoMedicamento,
     (aplicacaoMedicamentos) => aplicacaoMedicamentos.medicamentos,

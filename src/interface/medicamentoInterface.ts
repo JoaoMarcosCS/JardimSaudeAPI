@@ -5,4 +5,5 @@ export default interface MedicamentoInterface {
   descricao: string;
   valor_unitario: number;
   peso: number;
+  codigo: number
 }

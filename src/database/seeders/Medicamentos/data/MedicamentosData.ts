@@ -9,6 +9,8 @@ export const medicamentosData: MedicamentoInterface[] = [
       "fármaco narcótico de alto poder analgésico usada principalmente para aliviar dores intensas, agudas e crônicas.",
     valor_unitario: 50,
     peso: 10,
+    codigo:1
+
   },
   {
     nome: "Fentanila",
@@ -18,6 +20,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "É um opioide utilizado como medicação para a dor e também pode ser usado juntamente com outros medicamentos para a anestesia. Ele tem um rápido início de acção e os seus efeitos geralmente duram menos de uma hora ou duas.",
     valor_unitario: 70,
     peso: 10,
+    codigo:2
   },
   {
     nome: "Penicilina",
@@ -27,6 +30,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "Antibióticos do grupo dos betalactâmicos profusamente utilizados no tratamento de infecções causadas por bactérias sensíveis.",
     valor_unitario: 40,
     peso: 10,
+    codigo:3
   },
   {
     nome: "Cefazolina",
@@ -36,6 +40,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "É um antibiótico do grupo das Cefalosporinas da primeira geração, mais conhecido como Kefazol.",
     valor_unitario: 30,
     peso: 10,
+    codigo:4
   },
   {
     nome: "Adrenalina",
@@ -45,6 +50,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "Produzido nas adrenais que está relacionado com diferentes funções, como o aumento do nível de glicose e do ritmo cardíaco.",
     valor_unitario: 80,
     peso: 10,
+    codigo:5
   },
   {
     nome: "Dopamina",
@@ -54,6 +60,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "É um neurotransmissor responsável por levar informações do cérebro para as várias partes do corpo.",
     valor_unitario: 100,
     peso: 10,
+    codigo:6
   },
   {
     nome: "Omeprazol",
@@ -63,6 +70,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "Utilizado para tratar problemas relacionados ao excesso de ácido no estômago.",
     valor_unitario: 15,
     peso: 10,
+    codigo:7
   },
   {
     nome: "Insulina",
@@ -72,6 +80,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "Utilizado no tratamento de diabetes para controlar os níveis de glicose no sangue.",
     valor_unitario: 35,
     peso: 10,
+    codigo:8
   },
   {
     nome: "Warfarina",
@@ -80,6 +89,7 @@ export const medicamentosData: MedicamentoInterface[] = [
     descricao: "Utilizado para prevenir a formação de coágulos sanguíneos.",
     valor_unitario: 40,
     peso: 10,
+    codigo:9
   },
   {
     nome: "Ciprofloxacino",
@@ -88,6 +98,7 @@ export const medicamentosData: MedicamentoInterface[] = [
     descricao: "utilizado no tratamento de infecções bacterianas.",
     valor_unitario: 18,
     peso: 10,
+    codigo:10
   },
   {
     nome: "Atenolol",
@@ -97,6 +108,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "utilizado para tratar a pressão arterial elevada e outros problemas cardíacos.",
     valor_unitario: 67,
     peso: 10,
+    codigo:11
   },
   {
     nome: "Ranitidina",
@@ -106,6 +118,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "Usado para tratar úlceras estomacais, refluxo ácido e outros distúrbios digestivos.",
     valor_unitario: 12,
     peso: 10,
+    codigo:12
   },
   {
     nome: "Lisinopril",
@@ -115,6 +128,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "Usado para tratar a pressão arterial elevada e insuficiência cardíaca.",
     valor_unitario: 28,
     peso: 10,
+    codigo:13
   },
   {
     nome: "Escitalopram",
@@ -124,6 +138,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "utilizado no tratamento de transtornos de ansiedade e depressão.",
     valor_unitario: 35,
     peso: 10,
+    codigo:14
   },
   {
     nome: "Ibuprofeno",
@@ -133,6 +148,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "usado para aliviar dores e reduzir inflamações, febre e sintomas gripais.",
     valor_unitario: 8,
     peso: 10,
+    codigo:15
   },
   {
     nome: "Hidroclorotiazida",
@@ -141,6 +157,7 @@ export const medicamentosData: MedicamentoInterface[] = [
     descricao: "utilizado no tratamento da hipertensão e retenção de líquidos.",
     valor_unitario: 14,
     peso: 10,
+    codigo:16
   },
   {
     nome: "Diazepam",
@@ -150,6 +167,7 @@ export const medicamentosData: MedicamentoInterface[] = [
       "utilizado para tratar transtornos de ansiedade, insônia e convulsões.",
     valor_unitario: 24,
     peso: 10,
+    codigo:17
   },
   {
     nome: "Metformina",
@@ -158,6 +176,7 @@ export const medicamentosData: MedicamentoInterface[] = [
     descricao: "usado no tratamento de diabetes mellitus tipo 2.",
     valor_unitario: 22,
     peso: 10,
+    codigo:18
   },
   {
     nome: "Sinvastatina",
@@ -166,6 +185,7 @@ export const medicamentosData: MedicamentoInterface[] = [
     descricao: "utilizado para reduzir os níveis de colesterol no sangue.",
     valor_unitario: 8,
     peso: 10,
+    codigo:19
   },
   {
     nome: "Sertralina",
@@ -175,5 +195,6 @@ export const medicamentosData: MedicamentoInterface[] = [
       "utilizado no tratamento de transtornos de humor, depressão e ansiedade.",
     valor_unitario: 32,
     peso: 10,
+    codigo:20
   },
 ];

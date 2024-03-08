@@ -22,4 +22,7 @@ export class Shopping {
 
   @Column()
   tipo: string;
+
+  @Column()
+  codigo: number
 }
