@@ -1,10 +1,11 @@
 import { Tratamento } from "../../entities/Tratamento";
 import { Repository } from "typeorm";
 import connection from "../../database/config/data-source";
-import TratamentoInterface from "../../interface/tratamento-interface";
 import { Either, error, success } from "../../errors/either";
 import { HandleResponseError } from "../../errors/handle-response-errors";
 import { tratamentosDisponiveis } from "../../enums/tratamentos";
+import TratamentoInterface from "../../interface/tratamento-interface";
+import auditoria from "../../services/auditoria/auditoria";
 
 type Response = Either<HandleResponseError, { ok: boolean }>;
 
@@ -67,6 +68,8 @@ class TratamentoService {
   }
 
   async create(data: TratamentoInterface) {
+  //se nós fazermos a atribuição dessa forma e se não tivermos a validação
+  // no schema, não importa se n req enviarmos um number ou objeto
     const tratamento = new Tratamento();
     tratamento.inicio = data.inicio;
     tratamento.valor = data.valor;
@@ -77,7 +80,7 @@ class TratamentoService {
     tratamento.aplicacoes_medicamentos = data.aplicacoes_medicamentos;
     tratamento.paciente = data.id_paciente;
     tratamento.medico_responsavel = data.id_medico;
-
+    
     await this.repo.save(tratamento);
 
     return { ok: true };
@@ -95,6 +98,14 @@ class TratamentoService {
       return error(new HandleResponseError("Tratamento não encontrado", 404));
     }
 
+    const tratamento = await this.repo.findOne({
+      where:{
+        id:id
+      }
+    })
+    
+    await auditoria.recebimentoTratamento(tratamento)
+
     return success({ ok: true });
   }
 
@@ -109,7 +120,13 @@ class TratamentoService {
     if (response.affected == 0) {
       return error(new HandleResponseError("Tratamento não encontrado", 404));
     }
-
+    const tratamento = await this.repo.findOne({
+      where:{
+        id:id
+      }
+    })
+    
+    await auditoria.recebimentoTratamento(tratamento)
     return success({ ok: true });
   }
 }

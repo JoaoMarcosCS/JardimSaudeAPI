@@ -1,14 +1,18 @@
-import { auditoriaInterface } from "./auditoriaInterface";
+import { Especialidade } from "../../entities/Especialidade";
+import { Tratamento } from "../../entities/Tratamento";
 
-export interface UsuarioInterface {
-  id: number;
+interface UsuarioInterface {
   name: string;
-  nascimento: Date;
-  email: string;
-  crm?: string;
-  senha: string;
-  salario: number;
-  nivel: number;
-  especialidade_id?: number;
-  pagamento: auditoriaInterface[];
+    crm?: string;
+    senha: string;
+    email: string;
+    nascimento: Date;
+    nivel: number;
+    salario: number;
+    especialidade?: Especialidade;
+    empregado: boolean;
+    tratamentos?: Tratamento[];
 }
+
+
+export default UsuarioInterface

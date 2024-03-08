@@ -3,11 +3,12 @@ import connection from "../../database/config/data-source";
 import { Usuario } from "../../entities/Usuario";
 import bcryptjs from "bcryptjs";
 import { Especialidade } from "../../entities/Especialidade";
-import { Tratamento } from "../../entities/Tratamento";
 import { UserFilter } from "../../enums/userFilter";
 import auditoria from "../auditoria/auditoria";
 import { Either, error, success } from "../../errors/either";
 import { HandleResponseError } from "../../errors/handle-response-errors";
+import UsuarioInterface from "src/interface/user/usuarioInterface";
+
 
 type Response = Either<HandleResponseError, { ok: boolean }>;
 
@@ -72,18 +73,7 @@ class UserService {
     return response;
   }
 
-  async create(data: {
-    name: string;
-    crm?: string;
-    senha: string;
-    email: string;
-    nascimento: Date;
-    nivel: number;
-    salario: number;
-    especialidade?: Especialidade;
-    empregado: boolean;
-    tratamentos?: Tratamento[];
-  }): Promise<Response> {
+  async create(data: UsuarioInterface): Promise<Response> {
     data.senha = await bcryptjs.hash(data.senha, 10);
 
     await this.repo

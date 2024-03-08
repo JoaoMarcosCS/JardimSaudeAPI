@@ -118,9 +118,6 @@ class MedicamentoService {
       return success({ ok: true });
     }
   }
-
-  // update para aumentar a quantidade em uma compra
-  async add() {}
 }
 
 export default new MedicamentoService();
