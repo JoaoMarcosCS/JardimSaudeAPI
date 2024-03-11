@@ -21,7 +21,6 @@ export default class Hospital {
  */
   //o segundo argumento é para definir como será a chave estrangeira em Hospital para acessar as especialidades relacionada
   @OneToMany(() => Especialidade, (especialidade) => especialidade.hospital, {
-    eager: true,
     onDelete: "CASCADE",
   })
   especialidades: Especialidade[]; //vai ser uma propriedade(chave estrangeira) de um obejto instanciado e vai ser um array

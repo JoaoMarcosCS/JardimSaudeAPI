@@ -41,7 +41,7 @@ export class Tratamento {
   @OneToMany(
     () => AplicacaoMedicamento,
     (aplicacaoMedicamento) => aplicacaoMedicamento.tratamento,
-    { nullable: true, eager: true, onDelete: "CASCADE" },
+    { nullable: true, onDelete: "CASCADE" },
   )
   aplicacoes_medicamentos: AplicacaoMedicamento[];
 }
