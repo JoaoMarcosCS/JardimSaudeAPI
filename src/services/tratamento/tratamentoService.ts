@@ -103,7 +103,11 @@ class TratamentoService {
         id:id
       }
     })
-    
+
+    tratamento.valor += tratamento.aplicacoes_medicamentos.reduce(
+      (custoMedicamentos, medicamento) => custoMedicamentos + (medicamento.medicamento.valor_unitario *  medicamento.quantidade_aplicada),0
+    )
+
     await auditoria.recebimentoTratamento(tratamento)
 
     return success({ ok: true });
@@ -125,6 +129,11 @@ class TratamentoService {
         id:id
       }
     })
+
+    tratamento.valor += tratamento.aplicacoes_medicamentos.reduce(
+      (custoMedicamentos, medicamento) =>
+       custoMedicamentos + (medicamento.medicamento.valor_unitario *  medicamento.quantidade_aplicada),0
+    )
     
     await auditoria.recebimentoTratamento(tratamento)
     return success({ ok: true });

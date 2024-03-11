@@ -1,11 +1,12 @@
+import loginRequired from "../../middleware/loginRequired";
 import pacienteController from "../../controllers/paciente/pacienteController";
 import { Router } from "express";
 
 const router = Router();
 
-router.post("/", pacienteController.store);
-router.get("/", pacienteController.index);
-router.get("/:id", pacienteController.show);
-router.put("/:id", pacienteController.update);
+router.post("/", loginRequired, pacienteController.store);
+router.get("/", loginRequired, pacienteController.index);
+router.get("/:id",loginRequired, pacienteController.show);
+router.put("/:id", loginRequired, pacienteController.update);
 
 export default router;

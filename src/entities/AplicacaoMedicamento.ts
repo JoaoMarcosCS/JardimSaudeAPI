@@ -11,7 +11,7 @@ export class AplicacaoMedicamento {
   hora_aplicacao: Date;
 
   @Column()
-  quantidade: number;
+  quantidade_aplicada: number;
 
   @ManyToOne(
     () => Tratamento,
@@ -23,5 +23,5 @@ export class AplicacaoMedicamento {
   @ManyToOne(() => Medicamento, (medicamento) => medicamento.aplicacoes, {
     cascade: true,
   })
-  medicamentos: Medicamento;
+  medicamento: Medicamento;
 }
