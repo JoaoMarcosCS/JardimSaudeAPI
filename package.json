@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node src/app.ts",
+    "start": "ts-node src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch \"src/\" -r \"tsconfig-paths/register\" --exec \"ts-node src/app.ts\" -e ts ",
+    "dev": "nodemon --watch \"src/\" -r \"tsconfig-paths/register\" --exec \"ts-node src/server.ts\" -e ts ",
     "typeorm": "typeorm-ts-node-commonjs"
   },
   "keywords": [],

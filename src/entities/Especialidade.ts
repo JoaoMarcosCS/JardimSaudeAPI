@@ -22,6 +22,9 @@ export class Especialidade {
   })
   hospital: Hospital; // vai ser uma propriedade de cada registro
 
-  @OneToMany(() => Usuario, (usuario) => usuario.especialidade, { eager: true })
+  @OneToMany(() => Usuario, (usuario) => usuario.especialidade, {
+    onDelete: "CASCADE"
+  })
   medicos: Usuario[];
+  
 }

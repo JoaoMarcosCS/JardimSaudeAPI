@@ -9,9 +9,6 @@ export default class Hospital {
   @Column({ unique: true })
   nome: string;
 
-  @Column()
-  leitos_disponiveis: number;
-
   @Column("decimal", { precision: 10, scale: 2 })
   orcamento: number;
 

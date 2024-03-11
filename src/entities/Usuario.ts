@@ -46,7 +46,6 @@ export class Usuario {
 
   @OneToMany(() => Tratamento, (tratamento) => tratamento.medico_responsavel, {
     nullable: true,
-    eager: true,
     onDelete: "CASCADE",
   })
   tratamentos: Tratamento[];
@@ -54,9 +53,7 @@ export class Usuario {
   @OneToMany(
     () => AuditoriaHospital,
     (auditoriaHospital) => auditoriaHospital.usuario,
-    //eager permite que os registros em auditoriaHospital sejam carregados na chave definida
     {
-      eager: true,
       onDelete: "CASCADE",
     },
   )
