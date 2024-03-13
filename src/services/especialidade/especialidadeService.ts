@@ -18,6 +18,9 @@ class EspecialidadeService {
       order: {
         nome: "asc",
       },
+      relations:{
+        medicos: true
+      }
     });
     return response;
   }

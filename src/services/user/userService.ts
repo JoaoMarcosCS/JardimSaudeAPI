@@ -63,12 +63,6 @@ class UserService {
       relations: {
         especialidade: true,
       },
-      select: {
-        especialidade: {
-          nome: true,
-          medicos: false,
-        },
-      },
     });
     return response;
   }
