@@ -28,16 +28,21 @@
     "typescript": "4.5.2"
   },
   "dependencies": {
+    "@types/node-schedule": "^2.1.6",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.4",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "express-handler-errors": "^2.3.1",
+    "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
     "module-alias": "^2.2.3",
+    "node-schedule": "^2.1.1",
     "pg": "^8.4.0",
     "reflect-metadata": "^0.1.13",
+    "schedule": "^0.5.0",
     "typeorm": "0.3.20",
     "zod": "^3.22.4"
   },

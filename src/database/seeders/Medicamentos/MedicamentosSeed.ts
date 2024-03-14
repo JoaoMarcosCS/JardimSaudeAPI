@@ -14,6 +14,7 @@ for (let i = 0; i < medicamentosData.length; i++) {
   medicamento.quantidade = medicamentosData[i].quantidade;
   medicamento.valor_unitario = medicamentosData[i].valor_unitario;
   medicamento.tipo = medicamentosData[i].tipo;
+  medicamento.codigo = medicamentosData[i].codigo
 
   const auditoriaCompraMedicamento = new AuditoriaHospital();
 

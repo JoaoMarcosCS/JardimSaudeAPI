@@ -11,7 +11,7 @@ for (let i = 0; i < shoppingData.length; i++) {
   shopping.quantidade = shoppingData[i].quantidade;
   shopping.valor_unitario = shoppingData[i].valor_unitario;
   shopping.tipo = shoppingData[i].tipo;
-  shopping.codigo = i;
+  shopping.codigo = i + 1;
 
   shoppings.push(shopping);
 }

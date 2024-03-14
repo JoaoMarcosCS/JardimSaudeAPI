@@ -6,9 +6,14 @@ import medicamentoRouter from "./routes/medicamento/medicamentoRoutes";
 import especialidadeRouter from "./routes/especialidade/especialidadeRoutes";
 import pacienteRouter from "./routes/paciente/pacienteRouter";
 import tratamentoRouter from "./routes/tratamento/tratamentoRouter";
-import hospitalRouter from "./routes/hospital/hospitalRoutes"
+import hospitalRouter from "./routes/hospital/hospitalRoutes";
 import "module-alias/register";
-//import { seed } from "./database/seeders/seed";
+import helmet from "helmet";
+import cors from "cors";
+import * as schedule from "node-schedule";
+import { pagamentosRecebimentos } from "./services/pagamentosRecebimentos/pagamentos";
+import { corsOptions } from "./config/corsOptions";
+// import { seed } from "./database/seeders/seed";
 
 dotenv.config();
 
@@ -24,5 +29,15 @@ app.use("/especialidade", especialidadeRouter);
 app.use("/paciente", pacienteRouter);
 app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
+
+// seed();
+
+app.use(cors(corsOptions));
+app.use(helmet());
+
+//executa o pagamento todo dia 5 do mês as 00h
+schedule.scheduleJob("0 0 5 * *", async () => {
+  await pagamentosRecebimentos();
+});
 
 export default app;

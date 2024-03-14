@@ -25,12 +25,12 @@ export class Medicamento {
   @Column()
   tipo: string;
 
-  @Column({unique: true})
-  codigo:number;
+  @Column({ unique: true })
+  codigo: number;
 
   @OneToMany(
     () => AplicacaoMedicamento,
-    (aplicacaoMedicamentos) => aplicacaoMedicamentos.medicamentos,
+    (aplicacaoMedicamentos) => aplicacaoMedicamentos.medicamento,
     { nullable: true, onDelete: "CASCADE" },
   )
   aplicacoes: AplicacaoMedicamento[];

@@ -68,8 +68,8 @@ class TratamentoService {
   }
 
   async create(data: TratamentoInterface) {
-  //se nós fazermos a atribuição dessa forma e se não tivermos a validação
-  // no schema, não importa se n req enviarmos um number ou objeto
+    //se nós fazermos a atribuição dessa forma e se não tivermos a validação
+    // no schema, não importa se n req enviarmos um number ou objeto
     const tratamento = new Tratamento();
     tratamento.inicio = data.inicio;
     tratamento.valor = data.valor;
@@ -80,62 +80,107 @@ class TratamentoService {
     tratamento.aplicacoes_medicamentos = data.aplicacoes_medicamentos;
     tratamento.paciente = data.id_paciente;
     tratamento.medico_responsavel = data.id_medico;
-    
+
     await this.repo.save(tratamento);
 
     return { ok: true };
   }
 
   async finishTratamento(id: number): Promise<Response> {
-    const response = await this.repo
-      .createQueryBuilder()
-      .update(Tratamento)
-      .set({ status: "Finalizado" })
-      .where("id =:id", { id: id })
-      .execute();
+    const tratamento = await this.repo.findOne({
+      where: {
+        id: id,
+      },
+      relations: {
+        aplicacoes_medicamentos: {
+          medicamento: true,
+        },
+      },
+    });
 
-    if (response.affected == 0) {
+    if (!tratamento) {
       return error(new HandleResponseError("Tratamento não encontrado", 404));
     }
 
-    const tratamento = await this.repo.findOne({
-      where:{
-        id:id
-      }
-    })
+    const valorAplicacoes = tratamento.aplicacoes_medicamentos.reduce(
+      (custoMedicamentos, aplicacao) =>
+        custoMedicamentos +
+        aplicacao.medicamento.valor_unitario * aplicacao.quantidade_aplicada,
+      0,
+    );
+    console.log("Valor do tratamento: " + tratamento.valor);
+    console.log("Valor das aplicações: " + valorAplicacoes);
 
-    tratamento.valor += tratamento.aplicacoes_medicamentos.reduce(
-      (custoMedicamentos, medicamento) => custoMedicamentos + (medicamento.medicamento.valor_unitario *  medicamento.quantidade_aplicada),0
-    )
+    tratamento.valor = Number(tratamento.valor) + valorAplicacoes;
 
-    await auditoria.recebimentoTratamento(tratamento)
+    console.log("Valor final do tratamento: " + tratamento.valor);
+    const response = await this.repo
+      .createQueryBuilder()
+      .update(Tratamento)
+      .set({ status: "Finalizado", valor: () => `valor + ${valorAplicacoes}` })
+      .where("id =:id", { id: id })
+      .execute();
+
+    if (response.affected === 0) {
+      return error(
+        new HandleResponseError(
+          "Não foi possível finalizar o tratamento!",
+          400,
+        ),
+      );
+    }
+
+    await auditoria.recebimentoTratamento(tratamento);
 
     return success({ ok: true });
   }
 
   async cancelTratamento(id: number): Promise<Response> {
+    const tratamento = await this.repo.findOne({
+      where: {
+        id: id,
+      },
+      relations: {
+        aplicacoes_medicamentos: {
+          medicamento: true,
+        },
+      },
+    });
+
+    if (!tratamento) {
+      return error(new HandleResponseError("Tratamento não encontrado", 404));
+    }
+
+    const valorAplicacoes = tratamento.aplicacoes_medicamentos.reduce(
+      (custoMedicamentos, aplicacao) =>
+        custoMedicamentos +
+        aplicacao.medicamento.valor_unitario * aplicacao.quantidade_aplicada,
+      0,
+    );
+    console.log("Valor do tratamento: " + tratamento.valor);
+    console.log("Valor das aplicações: " + valorAplicacoes);
+
+    tratamento.valor = Number(tratamento.valor) + valorAplicacoes;
+
+    console.log("Valor final do tratamento: " + tratamento.valor);
     const response = await this.repo
       .createQueryBuilder()
       .update(Tratamento)
-      .set({ status: "Cancelado" })
+      .set({ status: "Cancelado", valor: () => `valor + ${valorAplicacoes}` })
       .where("id =:id", { id: id })
       .execute();
 
-    if (response.affected == 0) {
-      return error(new HandleResponseError("Tratamento não encontrado", 404));
+    if (response.affected === 0) {
+      return error(
+        new HandleResponseError(
+          "Não foi possível finalizar o tratamento!",
+          400,
+        ),
+      );
     }
-    const tratamento = await this.repo.findOne({
-      where:{
-        id:id
-      }
-    })
 
-    tratamento.valor += tratamento.aplicacoes_medicamentos.reduce(
-      (custoMedicamentos, medicamento) =>
-       custoMedicamentos + (medicamento.medicamento.valor_unitario *  medicamento.quantidade_aplicada),0
-    )
-    
-    await auditoria.recebimentoTratamento(tratamento)
+    await auditoria.recebimentoTratamento(tratamento);
+
     return success({ ok: true });
   }
 }

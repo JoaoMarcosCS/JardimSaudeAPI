@@ -1,9 +1,9 @@
-import hospitalController from "@controllers/hospital/hospitalController";
-import loginRequired from "@middlewares/loginRequired";
+import hospitalController from "../../controllers/hospital/hospitalController";
+import loginRequired from "../../middleware/loginRequired";
 import { Router } from "express";
 
 const router = Router();
 
-router.get("/", loginRequired, hospitalController.index)
+router.get("/", loginRequired, hospitalController.index);
 
-export default router
+export default router;

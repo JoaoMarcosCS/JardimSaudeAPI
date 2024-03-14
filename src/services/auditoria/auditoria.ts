@@ -142,7 +142,7 @@ class Auditoria {
     const recebimentoTratamento = new AuditoriaHospital();
     recebimentoTratamento.data = new Date();
     recebimentoTratamento.tipoOperacao = Operacao.Pagamento;
-    recebimentoTratamento.valor_transacao = tratamento.valor;
+    recebimentoTratamento.valor_transacao = Number(tratamento.valor);
     recebimentoTratamento.tratamento = tratamento;
 
     await this.repo
@@ -158,9 +158,16 @@ class Auditoria {
       },
     });
 
-    console.log("-Orçamento antes do recebimento: " + hospital.orcamento);
+    console.log("Valor a ser recebido: " + tratamento.valor);
+    console.log(
+      "-Orçamento antes do recebimento: " +
+        hospital.orcamento +
+        " tipo: " +
+        typeof hospital.orcamento,
+    );
 
-    hospital.orcamento += recebimentoTratamento.valor_transacao;
+    hospital.orcamento =
+      Number(hospital.orcamento) + recebimentoTratamento.valor_transacao;
 
     const debitadoOrcamento = await this.hospital
       .createQueryBuilder()
@@ -170,7 +177,7 @@ class Auditoria {
       .execute();
 
     console.log(
-      "-Orçamento atual: " +
+      "-Orçamento depois do recebimento: " +
         hospital.orcamento +
         " | Variavel do response da query: " +
         debitadoOrcamento,

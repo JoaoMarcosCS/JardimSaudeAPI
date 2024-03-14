@@ -22,9 +22,9 @@ class Aplicacao {
   ) {
     const aplicacao = new AplicacaoMedicamento();
     aplicacao.hora_aplicacao = new Date();
-    aplicacao.medicamentos = medicamento;
+    aplicacao.medicamento = medicamento;
     aplicacao.tratamento = tratamento;
-    aplicacao.quantidade = quantidade;
+    aplicacao.quantidade_aplicada = quantidade;
 
     const response = await this.repo
       .createQueryBuilder()
