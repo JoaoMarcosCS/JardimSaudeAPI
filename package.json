@@ -2,7 +2,7 @@
   "name": "jardimsaude",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/server.ts",
