@@ -8,7 +8,7 @@ import validateUpdateUser from "../../middleware/validateUpdateUser";
 
 const router = Router();
 
-router.get("/:id", loginRequired, nivelSecretaria, userController.show);
+router.get("/:id", loginRequired, userController.show);
 
 router.get("/", loginRequired, nivelSecretaria, userController.index);
 

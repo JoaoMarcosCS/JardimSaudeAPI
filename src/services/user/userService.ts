@@ -9,7 +9,6 @@ import { Either, error, success } from "../../errors/either";
 import { HandleResponseError } from "../../errors/handle-response-errors";
 import UsuarioInterface from "src/interface/user/usuarioInterface";
 
-
 type Response = Either<HandleResponseError, { ok: boolean }>;
 
 class UserService {
@@ -62,6 +61,7 @@ class UserService {
       },
       relations: {
         especialidade: true,
+        tratamentos: true,
       },
     });
     return response;
