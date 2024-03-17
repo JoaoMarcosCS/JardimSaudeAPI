@@ -62,6 +62,7 @@ class UserService {
       relations: {
         especialidade: true,
         tratamentos: true,
+        pagamento: true,
       },
     });
     return response;
