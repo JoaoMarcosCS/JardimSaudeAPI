@@ -28,9 +28,7 @@ class UserService {
       orderOption[field] = order || "ASC";
 
       const response = await this.repo.findAndCount({
-        where: {
-          nivel: 2,
-        },
+        
         order: orderOption,
         relations: {
           especialidade: true,
@@ -39,9 +37,6 @@ class UserService {
       return response;
     } else {
       const response = await this.repo.find({
-        where: {
-          nivel: 2,
-        },
         order: {
           name: "ASC",
         },
@@ -57,7 +52,6 @@ class UserService {
     const response = await this.repo.findOne({
       where: {
         id: id,
-        nivel: 2,
       },
       relations: {
         especialidade: true,
