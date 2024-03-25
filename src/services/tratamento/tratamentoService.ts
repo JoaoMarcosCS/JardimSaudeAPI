@@ -117,7 +117,7 @@ class TratamentoService {
     const response = await this.repo
       .createQueryBuilder()
       .update(Tratamento)
-      .set({ status: "Finalizado", valor: () => `valor + ${valorAplicacoes}` })
+      .set({ status: "Finalizado", valor: () => `valor + ${valorAplicacoes}`, termino: new Date() })
       .where("id =:id", { id: id })
       .execute();
 
@@ -166,7 +166,7 @@ class TratamentoService {
     const response = await this.repo
       .createQueryBuilder()
       .update(Tratamento)
-      .set({ status: "Cancelado", valor: () => `valor + ${valorAplicacoes}` })
+      .set({ status: "Cancelado", valor: () => `valor + ${valorAplicacoes}`, termino: new Date() })
       .where("id =:id", { id: id })
       .execute();
 
