@@ -17,7 +17,7 @@ const tratamentosFisioterapeuticos = <Tratamento[]>[];
 let indexQueixas:number;
 let indexNomes: number;
 
-for (let i = 0; i < 24; i++) {
+for (let i = 0; i < 55; i++) {
     
     indexQueixas = randomInteger(0, (queixasTratamentos.length-1));
     indexNomes = randomInteger(0,(nomesTratamentosFisioterapeuticos.length-1));
@@ -37,7 +37,6 @@ for (let i = 0; i < 24; i++) {
     tratamentoEmAndamento.nome = nomesTratamentosFisioterapeuticos[indexNomes].nome;
     tratamentoEmAndamento.queixas = queixasTratamentos[indexQueixas];
     tratamentoEmAndamento.inicio =  generateRandomDate(new Date(2023, 0, 1), new Date(2024, 1, 29));
-    tratamentoEmAndamento.termino = addBusinessDays(tratamentoEmAndamento.inicio, Math.floor(Math.random() * 7) + 7);
 
     indexQueixas = randomInteger(0, (queixasTratamentos.length-1));
     indexNomes = randomInteger(0,(nomesTratamentosFisioterapeuticos.length-1));
