@@ -12,7 +12,7 @@ function randomInteger(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-const tratamentosFisioterapeuticos = <Tratamento[]>[];
+const tratamentosFisioterapeuticosCancelados = <Tratamento[]>[];
 
 let indexQueixas:number;
 let indexNomes: number;
@@ -29,7 +29,7 @@ for (let i = 0; i < 24; i++) {
     tratamento.inicio =  generateRandomDate(new Date(2023, 0, 1), new Date(2024, 1, 29));
     tratamento.termino = addBusinessDays(tratamento.inicio, Math.floor(Math.random() * 7) + 7);
 
-    tratamentosFisioterapeuticos.push(tratamento);
+    tratamentosFisioterapeuticosCancelados.push(tratamento);
 }
 
-export default tratamentosFisioterapeuticos;
+export default tratamentosFisioterapeuticosCancelados;

@@ -12,7 +12,7 @@ function randomInteger(min:number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-const tratamentosOdontologicos = <Tratamento[]>[];
+const tratamentosOdontologicosFinalizados = <Tratamento[]>[];
 
 let indexQueixas:number;
 let indexNomes: number;
@@ -29,7 +29,7 @@ for (let i = 0; i < 73; i++) {
     tratamentoOdontologico.inicio =  generateRandomDate(new Date(2023, 0, 1), new Date(2024, 1, 29));
     tratamentoOdontologico.termino = addBusinessDays(tratamentoOdontologico.inicio, Math.floor(Math.random() * 7) + 7); // Pelo menos uma semana de tratamento
 
-    tratamentosOdontologicos.push(tratamentoOdontologico);
+    tratamentosOdontologicosFinalizados.push(tratamentoOdontologico);
 }
 
-export default tratamentosOdontologicos;
+export default tratamentosOdontologicosFinalizados;

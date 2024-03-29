@@ -19,6 +19,7 @@ import { Medicamento } from "../../entities/Medicamento";
 import { Shopping } from "../../entities/Shopping";
 import { shoppings } from "./Shopping/ShoppingSeed";
 
+
 export const seed = async () => {
   let i = 0;
   for (const medico of medicos) {

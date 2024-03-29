@@ -2,9 +2,17 @@ import { Paciente } from "../../../entities/Paciente";
 import { pacientesData } from "./data/PacienteData";
 
 const pacientes = <Paciente[]>[]
+const cpfVistos = {};
 
 for(let i=0; i<pacientesData.length; i++){
     const paciente = new Paciente();
+    const cpf = pacientesData[i].cpf;
+
+    if (cpfVistos[cpf]) {
+        continue;
+    }
+    
+    cpfVistos[cpf] = true;
     paciente.altura = pacientesData[i].altura
     paciente.bairro = pacientesData[i].bairro
     paciente.cidade = pacientesData[i].cidade
