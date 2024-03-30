@@ -29,7 +29,9 @@ import tratamentosOftalmologicos from "./Tratamentos/Oftalmologia/tratamentos";
 import tratamentosNefrologicos from "./Tratamentos/Nefrologia/tratamentos";
 import tratamentosGastroenterologico from "./Tratamentos/Gastroenterologista/tratamentos";
 import pacientes from "./Pacientes/PacienteSeed";
+import { Paciente } from "../../entities/Paciente";
 
+//TODO é necessário colocar as entidades para serem cadastradas na query
 
 export const seed = async () => {
 
@@ -242,6 +244,12 @@ export const seed = async () => {
       .insert()
       .into(Especialidade)
       .values(especialidades)
+      .execute();
+    await (await connection)
+      .createQueryBuilder()
+      .insert()
+      .into(Paciente)
+      .values(pacientes)
       .execute();
     await (await connection)
       .createQueryBuilder()
