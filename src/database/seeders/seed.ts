@@ -31,6 +31,7 @@ import tratamentosGastroenterologico from "./Tratamentos/Gastroenterologista/tra
 import pacientes from "./Pacientes/PacienteSeed";
 import { Paciente } from "../../entities/Paciente";
 import { Tratamento } from "../../entities/Tratamento";
+import { Operacao } from "../../enums/auditoriaOpercoes";
 
 //TODO é necessário colocar as entidades para serem cadastradas na query
 
@@ -65,6 +66,7 @@ export const seed = async () => {
   const medicosOdontologicos = medicos.filter((medico) => medico.especialidade.nome === "Odontologia");
   let j = 0;
   for (let k = 0; k < tratamentosOdontologicos.length; k++) {
+
     if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
@@ -86,11 +88,11 @@ export const seed = async () => {
     if (j === medicosCardiacos.length) {
       j = 0;
     }
-      tratamentosCardiacos[k].medico_responsavel = medicosCardiacos[j]
-      tratamentosCardiacos[k].paciente = pacientes[pacienteIndex];
-      j++
-      pacienteIndex++;
-    
+    tratamentosCardiacos[k].medico_responsavel = medicosCardiacos[j]
+    tratamentosCardiacos[k].paciente = pacientes[pacienteIndex];
+    j++
+    pacienteIndex++;
+
   }
 
   const medicosPediatras = medicos.filter((medico) => medico.especialidade.nome === "Pediatria");
@@ -102,11 +104,11 @@ export const seed = async () => {
     if (j === medicosPediatras.length) {
       j = 0;
     }
-      tratamentosPediatricos[k].medico_responsavel = medicosPediatras[j]
-      tratamentosPediatricos[k].paciente = pacientes[pacienteIndex];
-      j++;
-      pacienteIndex++;
-   
+    tratamentosPediatricos[k].medico_responsavel = medicosPediatras[j]
+    tratamentosPediatricos[k].paciente = pacientes[pacienteIndex];
+    j++;
+    pacienteIndex++;
+
   }
 
   const medicosOrtopedistas = medicos.filter((medico) => medico.especialidade.nome === "Ortopedia");
@@ -118,12 +120,12 @@ export const seed = async () => {
     if (j === medicosOrtopedistas.length) {
       j = 0;
     }
-   
-      tratamentosOrtopedicos[k].medico_responsavel = medicosOrtopedistas[j]
-      tratamentosOrtopedicos[k].paciente = pacientes[pacienteIndex];
-      j++;
-      pacienteIndex++
-   
+
+    tratamentosOrtopedicos[k].medico_responsavel = medicosOrtopedistas[j]
+    tratamentosOrtopedicos[k].paciente = pacientes[pacienteIndex];
+    j++;
+    pacienteIndex++
+
   }
 
   const medicosOncologicos = medicos.filter((medico) => medico.especialidade.nome === "Oncologia");
@@ -135,10 +137,10 @@ export const seed = async () => {
     if (j === medicosOncologicos.length) {
       j = 0;
     }
-      tratamentosOncologicos[k].medico_responsavel = medicosOncologicos[j]
-      tratamentosOncologicos[k].paciente = pacientes[pacienteIndex];
-      j++
-      pacienteIndex++
+    tratamentosOncologicos[k].medico_responsavel = medicosOncologicos[j]
+    tratamentosOncologicos[k].paciente = pacientes[pacienteIndex];
+    j++
+    pacienteIndex++
   }
 
   const medicosFisioterapeutas = medicos.filter((medico) => medico.especialidade.nome === "Fisioterapia");
@@ -150,10 +152,10 @@ export const seed = async () => {
     if (j === medicosFisioterapeutas.length) {
       j = 0;
     }
-      tratamentosFisioterapeuticos[k].medico_responsavel = medicosFisioterapeutas[j]
-      tratamentosFisioterapeuticos[k].paciente = pacientes[pacienteIndex];
-      j++;
-      pacienteIndex++
+    tratamentosFisioterapeuticos[k].medico_responsavel = medicosFisioterapeutas[j]
+    tratamentosFisioterapeuticos[k].paciente = pacientes[pacienteIndex];
+    j++;
+    pacienteIndex++
   }
 
   const medicosUTI = medicos.filter((medico) => medico.especialidade.nome === "UTI (Unidade de Tratamento Intensivo)");
@@ -166,10 +168,10 @@ export const seed = async () => {
       j = 0;
     }
 
-      tratamentosUTI[k].medico_responsavel = medicosUTI[j]
-      tratamentosUTI[k].paciente = pacientes[pacienteIndex];
-      j++;
-      pacienteIndex++
+    tratamentosUTI[k].medico_responsavel = medicosUTI[j]
+    tratamentosUTI[k].paciente = pacientes[pacienteIndex];
+    j++;
+    pacienteIndex++
 
   }
 
@@ -182,11 +184,11 @@ export const seed = async () => {
     if (j === medicosOftalmologista.length) {
       j = 0;
     }
-      tratamentosOftalmologicos[k].medico_responsavel = medicosOftalmologista[j]
-      tratamentosOftalmologicos[k].paciente = pacientes[pacienteIndex];
-      j++;
-      pacienteIndex++
-  
+    tratamentosOftalmologicos[k].medico_responsavel = medicosOftalmologista[j]
+    tratamentosOftalmologicos[k].paciente = pacientes[pacienteIndex];
+    j++;
+    pacienteIndex++
+
   }
 
   const medicosNefrologista = medicos.filter((medico) => medico.especialidade.nome === "Nefrologia");
@@ -198,11 +200,11 @@ export const seed = async () => {
     if (j === medicosNefrologista.length) {
       j = 0;
     }
- 
-      tratamentosNefrologicos[k].medico_responsavel = medicosNefrologista[j]
-      tratamentosNefrologicos[k].paciente = pacientes[pacienteIndex];
-      j++;
-      pacienteIndex++
+
+    tratamentosNefrologicos[k].medico_responsavel = medicosNefrologista[j]
+    tratamentosNefrologicos[k].paciente = pacientes[pacienteIndex];
+    j++;
+    pacienteIndex++
 
   }
 
@@ -215,16 +217,36 @@ export const seed = async () => {
     if (j === medicosGastro.length) {
       j = 0;
     }
-      tratamentosGastroenterologico[k].medico_responsavel = medicosGastro[j]
-      tratamentosGastroenterologico[k].paciente = pacientes[pacienteIndex];
-      j++
-      pacienteIndex++;
- 
+    tratamentosGastroenterologico[k].medico_responsavel = medicosGastro[j]
+    tratamentosGastroenterologico[k].paciente = pacientes[pacienteIndex];
+    j++
+    pacienteIndex++;
+
   }
 
   const tratamentos = tratamentosCardiacos.concat(tratamentosFisioterapeuticos, tratamentosGastroenterologico, tratamentosNefrologicos, tratamentosOdontologicos, tratamentosOftalmologicos, tratamentosOncologicos, tratamentosOrtopedicos, tratamentosPediatricos, tratamentosUTI);
 
+  let auditoriasRecebimentoTratamentos = <AuditoriaHospital[]>[];
+
+  const recebimentoTratamentos = Number(tratamentos.reduce((montante, tratamento) => {
+    if (tratamento.status === 'Cancelado' || tratamento.status === 'Finalizado') {
+      const auditoriaTratamento = new AuditoriaHospital();
+      auditoriaTratamento.tipoOperacao = Operacao.Recebimento;
+      auditoriaTratamento.data = tratamento.termino;
+      auditoriaTratamento.tratamento = tratamento;
+      auditoriaTratamento.valor_transacao = tratamento.valor
+      auditoriasRecebimentoTratamentos.push(auditoriaTratamento);
+      tratamento.auditoriasTratamentos = [auditoriaTratamento];
+      return montante + tratamento.valor;
+    }
+    return montante
+  }, 0))
+
+
+
   hospital.especialidades = especialidades;
+
+  hospital.orcamento += recebimentoTratamentos;
 
   hospital.orcamento -= auditoriasCompraMedicamentos.reduce(
     (total, auditoria) => total + auditoria.valor_transacao,
@@ -300,6 +322,12 @@ export const seed = async () => {
       .insert()
       .into(AuditoriaHospital)
       .values(auditoriasPagamentoSecretarias)
+      .execute();
+      await (await connection)
+      .createQueryBuilder()
+      .insert()
+      .into(AuditoriaHospital)
+      .values(auditoriasRecebimentoTratamentos)
       .execute();
     await (await connection)
       .createQueryBuilder()

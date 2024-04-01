@@ -22,9 +22,6 @@ export class Paciente {
   cidade: string;
 
   @Column()
-  bairro: string;
-
-  @Column()
   rua: string;
 
   @Column({ unique: true })

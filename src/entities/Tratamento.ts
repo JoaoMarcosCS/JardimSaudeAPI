@@ -1,13 +1,16 @@
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Usuario } from "./Usuario";
 import { Paciente } from "./Paciente";
 import { AplicacaoMedicamento } from "./AplicacaoMedicamento";
+import { AuditoriaHospital } from "./AuditoriaHospital";
 
 @Entity()
 export class Tratamento {
@@ -44,4 +47,10 @@ export class Tratamento {
     { nullable: true, onDelete: "CASCADE" },
   )
   aplicacoes_medicamentos: AplicacaoMedicamento[];
+
+  @OneToMany(
+    () => AuditoriaHospital, (auditoriaHospital) => auditoriaHospital.tratamento,
+    {nullable: true, onDelete: 'CASCADE'},
+  )
+  auditoriasTratamentos: AuditoriaHospital[];
 }

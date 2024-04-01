@@ -40,7 +40,7 @@ export class AuditoriaHospital {
   )
   medicamento: Medicamento;
 
-  @OneToOne(() => Tratamento, (tratamento) => tratamento.valor, {
+  @ManyToOne(() => Tratamento, (tratamento) => tratamento.auditoriasTratamentos, {
     nullable: true,
   })
   tratamento: Tratamento;
