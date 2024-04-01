@@ -30,46 +30,51 @@ import tratamentosNefrologicos from "./Tratamentos/Nefrologia/tratamentos";
 import tratamentosGastroenterologico from "./Tratamentos/Gastroenterologista/tratamentos";
 import pacientes from "./Pacientes/PacienteSeed";
 import { Paciente } from "../../entities/Paciente";
+import { Tratamento } from "../../entities/Tratamento";
 
 //TODO é necessário colocar as entidades para serem cadastradas na query
 
 export const seed = async () => {
 
   let i = 0;
-  for (const medico of medicos) {
+  let contagemMedicos = 0;
+  //console.log(`Quantidade de médicos: ${medicos.length}\nMedico na posição 10: ${medicos[10].name}, ${medicos[10].especialidade}`)
+  for (let p = 0; p < medicos.length; p++) {
     if (i < especialidades.length) {
-      medico.especialidade = especialidades[i];
+      medicos[p].especialidade = especialidades[i];
+      //console.log(`\n-----------------\nIndex I:${i}\nContagem médicos: ${contagemMedicos}\nMedico: ${medicos[p].name}\nEspecialidade: ${medicos[p].especialidade.nome}`)
       i++;
+      contagemMedicos++;
     } else {
       i = 0;
+      medicos[p].especialidade = especialidades[i];
+      contagemMedicos++;
+      i++;
     }
-    console.log("Senha: " + medico.senha);
-    medico.senha = await brcyptjs.hash(medico.senha, 10);
-    console.log("Hash: " + medico.senha);
+
+    medicos[p].senha = await brcyptjs.hash(medicos[p].senha, 10);
   }
+
   for (const secretaria of secretarias) {
-    console.log("Senha secretaria: " + secretaria.senha);
+    //console.log("Senha secretaria: " + secretaria.senha);
     secretaria.senha = await brcyptjs.hash(secretaria.senha, 10);
-    console.log("Hash secretaria: " + secretaria.senha);
+    //console.log("Hash secretaria: " + secretaria.senha);
   }
 
   let pacienteIndex = 0;
   const medicosOdontologicos = medicos.filter((medico) => medico.especialidade.nome === "Odontologia");
   let j = 0;
   for (let k = 0; k < tratamentosOdontologicos.length; k++) {
-
     if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicosOdontologicos.length) {
-      tratamentosOdontologicos[k].paciente = pacientes[pacienteIndex];
-      tratamentosOdontologicos[k].medico_responsavel = medicosOdontologicos[j]
-      j++;
-      pacienteIndex++;
-    } else {
+    if (j === medicosOdontologicos.length) {
       j = 0;
-      pacienteIndex++;
     }
+    tratamentosOdontologicos[k].paciente = pacientes[pacienteIndex];
+    tratamentosOdontologicos[k].medico_responsavel = medicosOdontologicos[j]
+    j++;
+    pacienteIndex++;
   }
 
   const medicosCardiacos = medicos.filter((medico) => medico.especialidade.nome === "Cardiologia");
@@ -78,14 +83,14 @@ export const seed = async () => {
     if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicosCardiacos.length) {
-      tratamentosCardiacos[k].medico_responsavel = medicosCardiacos[j]
-      j++;
-      pacienteIndex++;
-    } else {
+    if (j === medicosCardiacos.length) {
       j = 0;
-      pacienteIndex++;
     }
+      tratamentosCardiacos[k].medico_responsavel = medicosCardiacos[j]
+      tratamentosCardiacos[k].paciente = pacientes[pacienteIndex];
+      j++
+      pacienteIndex++;
+    
   }
 
   const medicosPediatras = medicos.filter((medico) => medico.especialidade.nome === "Pediatria");
@@ -94,14 +99,14 @@ export const seed = async () => {
     if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicosPediatras.length) {
+    if (j === medicosPediatras.length) {
+      j = 0;
+    }
       tratamentosPediatricos[k].medico_responsavel = medicosPediatras[j]
+      tratamentosPediatricos[k].paciente = pacientes[pacienteIndex];
       j++;
       pacienteIndex++;
-    } else {
-      j = 0;
-      pacienteIndex++
-    }
+   
   }
 
   const medicosOrtopedistas = medicos.filter((medico) => medico.especialidade.nome === "Ortopedia");
@@ -110,14 +115,15 @@ export const seed = async () => {
     if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicosOrtopedistas.length) {
+    if (j === medicosOrtopedistas.length) {
+      j = 0;
+    }
+   
       tratamentosOrtopedicos[k].medico_responsavel = medicosOrtopedistas[j]
+      tratamentosOrtopedicos[k].paciente = pacientes[pacienteIndex];
       j++;
       pacienteIndex++
-    } else {
-      j = 0;
-      pacienteIndex++
-    }
+   
   }
 
   const medicosOncologicos = medicos.filter((medico) => medico.especialidade.nome === "Oncologia");
@@ -126,14 +132,13 @@ export const seed = async () => {
     if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicosOncologicos.length) {
+    if (j === medicosOncologicos.length) {
+      j = 0;
+    }
       tratamentosOncologicos[k].medico_responsavel = medicosOncologicos[j]
+      tratamentosOncologicos[k].paciente = pacientes[pacienteIndex];
       j++
       pacienteIndex++
-    } else {
-      j = 0;
-      pacienteIndex++
-    }
   }
 
   const medicosFisioterapeutas = medicos.filter((medico) => medico.especialidade.nome === "Fisioterapia");
@@ -142,14 +147,13 @@ export const seed = async () => {
     if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicosFisioterapeutas.length) {
+    if (j === medicosFisioterapeutas.length) {
+      j = 0;
+    }
       tratamentosFisioterapeuticos[k].medico_responsavel = medicosFisioterapeutas[j]
+      tratamentosFisioterapeuticos[k].paciente = pacientes[pacienteIndex];
       j++;
       pacienteIndex++
-    } else {
-      j = 0;
-      pacienteIndex++;
-    }
   }
 
   const medicosUTI = medicos.filter((medico) => medico.especialidade.nome === "UTI (Unidade de Tratamento Intensivo)");
@@ -158,63 +162,67 @@ export const seed = async () => {
     if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicosUTI.length) {
+    if (j === medicosUTI.length) {
+      j = 0;
+    }
+
       tratamentosUTI[k].medico_responsavel = medicosUTI[j]
+      tratamentosUTI[k].paciente = pacientes[pacienteIndex];
       j++;
       pacienteIndex++
-    } else {
-      j = 0;
-      pacienteIndex++;
-    }
+
   }
 
   const medicosOftalmologista = medicos.filter((medico) => medico.especialidade.nome === "Oftalmologia");
   j = 0;
   for (let k = 0; k < tratamentosOftalmologicos.length; k++) {
-    if(pacienteIndex === pacientes.length){
+    if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicosOftalmologista.length) {
+    if (j === medicosOftalmologista.length) {
+      j = 0;
+    }
       tratamentosOftalmologicos[k].medico_responsavel = medicosOftalmologista[j]
+      tratamentosOftalmologicos[k].paciente = pacientes[pacienteIndex];
       j++;
       pacienteIndex++
-    } else {
-      j = 0;
-      pacienteIndex++
-    }
+  
   }
 
-  const medicoNefrologista = medicos.filter((medico) => medico.especialidade.nome === "Nefrologia");
+  const medicosNefrologista = medicos.filter((medico) => medico.especialidade.nome === "Nefrologia");
   j = 0;
   for (let k = 0; k < tratamentosNefrologicos.length; k++) {
-    if(pacienteIndex === pacientes.length){
+    if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicoNefrologista.length) {
-      tratamentosNefrologicos[k].medico_responsavel = medicoNefrologista[j]
+    if (j === medicosNefrologista.length) {
+      j = 0;
+    }
+ 
+      tratamentosNefrologicos[k].medico_responsavel = medicosNefrologista[j]
+      tratamentosNefrologicos[k].paciente = pacientes[pacienteIndex];
       j++;
       pacienteIndex++
-    } else {
-      j = 0;
-      pacienteIndex++;
-    }
+
   }
 
-  const medicoGastro = medicos.filter((medico) => medico.especialidade.nome === "Gastroenterologista");
+  const medicosGastro = medicos.filter((medico) => medico.especialidade.nome === "Gastroenterologista");
   j = 0;
   for (let k = 0; k < tratamentosGastroenterologico.length; k++) {
-    if(pacienteIndex === pacientes.length){
+    if (pacienteIndex === pacientes.length) {
       pacienteIndex = 0;
     }
-    if (j < medicoGastro.length) {
-      tratamentosGastroenterologico[k].medico_responsavel = medicoGastro[j]
+    if (j === medicosGastro.length) {
+      j = 0;
+    }
+      tratamentosGastroenterologico[k].medico_responsavel = medicosGastro[j]
+      tratamentosGastroenterologico[k].paciente = pacientes[pacienteIndex];
       j++
       pacienteIndex++;
-    } else {
-      j = 0;
-      pacienteIndex++;
-    }
+ 
   }
+
+  const tratamentos = tratamentosCardiacos.concat(tratamentosFisioterapeuticos, tratamentosGastroenterologico, tratamentosNefrologicos, tratamentosOdontologicos, tratamentosOftalmologicos, tratamentosOncologicos, tratamentosOrtopedicos, tratamentosPediatricos, tratamentosUTI);
 
   hospital.especialidades = especialidades;
 
@@ -268,6 +276,12 @@ export const seed = async () => {
       .insert()
       .into(Medicamento)
       .values(medicamentos)
+      .execute();
+    await (await connection)
+      .createQueryBuilder()
+      .insert()
+      .into(Tratamento)
+      .values(tratamentos)
       .execute();
     await (await connection)
       .createQueryBuilder()
