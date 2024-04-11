@@ -5,7 +5,7 @@ import { Operacao } from "../../enums/auditoriaOpercoes";
 import Hospital from "../../entities/Hospital";
 
 export const pagamentosRecebimentos = async () => {
-  const verbaGovernamental = 300000;
+  const verbaGovernamental = 1000000000;
   const funcionarios = await (await connection).getRepository(Usuario).find({
     where: {
       empregado: true,
@@ -52,7 +52,7 @@ export const pagamentosRecebimentos = async () => {
   }
   hospital.orcamento = Number(hospital.orcamento) - totalSalario;
 
-  console.log("Orçamento depois do pagamento: " + hospital.orcamento);
+  console.log("Orçamento do hospital depois do pagamento: " + hospital.orcamento);
 
   await (await connection)
     .createQueryBuilder()

@@ -33,17 +33,14 @@ import { Paciente } from "../../entities/Paciente";
 import { Tratamento } from "../../entities/Tratamento";
 import { Operacao } from "../../enums/auditoriaOpercoes";
 
-//TODO é necessário colocar as entidades para serem cadastradas na query
 
 export const seed = async () => {
 
   let i = 0;
   let contagemMedicos = 0;
-  //console.log(`Quantidade de médicos: ${medicos.length}\nMedico na posição 10: ${medicos[10].name}, ${medicos[10].especialidade}`)
   for (let p = 0; p < medicos.length; p++) {
     if (i < especialidades.length) {
       medicos[p].especialidade = especialidades[i];
-      //console.log(`\n-----------------\nIndex I:${i}\nContagem médicos: ${contagemMedicos}\nMedico: ${medicos[p].name}\nEspecialidade: ${medicos[p].especialidade.nome}`)
       i++;
       contagemMedicos++;
     } else {
@@ -57,9 +54,7 @@ export const seed = async () => {
   }
 
   for (const secretaria of secretarias) {
-    //console.log("Senha secretaria: " + secretaria.senha);
     secretaria.senha = await brcyptjs.hash(secretaria.senha, 10);
-    //console.log("Hash secretaria: " + secretaria.senha);
   }
 
   let pacienteIndex = 0;
