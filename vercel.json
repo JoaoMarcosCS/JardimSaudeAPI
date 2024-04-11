@@ -11,31 +11,5 @@
       "src": "(.*)",
       "dest": "src/server.ts"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "src/server.ts"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    },
-    {
-      "source": "https://bug-free-system-qgvxv594765c97rx-3000.app.github.dev/",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    }
   ]
 }
