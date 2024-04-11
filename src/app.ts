@@ -12,7 +12,8 @@ import helmet from "helmet";
 import cors from "cors";
 import * as schedule from "node-schedule";
 import { pagamentosRecebimentos } from "./services/pagamentosRecebimentos/pagamentos";
-import { corsOptions } from "./config/corsOptions";
+// import { corsOptions } from "./config/corsOptions";
+
 //import { seed } from "./database/seeders/seed";
 
 dotenv.config();
@@ -31,6 +32,9 @@ app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
 
 //seed();
+const corsOptions = {
+  origin: 'https://bug-free-system-qgvxv594765c97rx-3000.app.github.dev'
+};
 
 app.use(cors(corsOptions));
 app.use(helmet());
