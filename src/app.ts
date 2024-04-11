@@ -32,11 +32,9 @@ app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
 
 //seed();
-const corsOptions = {
-  origin: 'https://bug-free-system-qgvxv594765c97rx-3000.app.github.dev'
-};
 
-app.use(cors(corsOptions));
+
+app.use(cors());
 app.use(helmet());
 
 //executa o pagamento todo dia 5 do mês as 00h
