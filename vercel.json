@@ -11,16 +11,5 @@
       "src": "(.*)",
       "dest": "src/server.ts"
     }
-  ],
-  "headers": [
-    {
-      "source": "(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    }
   ]
 }
