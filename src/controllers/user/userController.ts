@@ -12,7 +12,7 @@ class UserController {
 
   
   async returnTotalRegister(req: Request, res:Response){
-    const response = await userService.returnTotalRegister();
+    console.log("Macacoooooo");
     return res.status(200).json("Deu certo");
   }
 
