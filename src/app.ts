@@ -12,8 +12,9 @@ import helmet from "helmet";
 import cors from "cors";
 import * as schedule from "node-schedule";
 import { pagamentosRecebimentos } from "./services/pagamentosRecebimentos/pagamentos";
-import { corsOptions } from "./config/corsOptions";
-// import { seed } from "./database/seeders/seed";
+// import { corsOptions } from "./config/corsOptions";
+
+//import { seed } from "./database/seeders/seed";
 
 dotenv.config();
 
@@ -30,9 +31,10 @@ app.use("/paciente", pacienteRouter);
 app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
 
-// seed();
+//seed();
 
-app.use(cors(corsOptions));
+
+app.use(cors());
 app.use(helmet());
 
 //executa o pagamento todo dia 5 do mês as 00h

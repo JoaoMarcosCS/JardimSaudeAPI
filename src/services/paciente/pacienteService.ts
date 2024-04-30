@@ -19,6 +19,11 @@ class PacienteService {
     this.initialize();
   }
 
+  async returnTotalRegister(){
+    const response = await this.repo.count();
+    return response;
+  }
+
   async show(id: number) {
     const response = await this.repo.find({
       where: {

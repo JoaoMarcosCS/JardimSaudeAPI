@@ -10,6 +10,12 @@ class UserController {
     return res.status(200).json(response);
   }
 
+  
+  async returnTotalRegister(req: Request, res:Response){
+    console.log("Macacoooooo");
+    return res.status(200).json("Deu certo");
+  }
+
   async show(req: Request, res: Response) {
     const response = await userService.show(Number(req.params.id));
     return res.status(200).json(response);

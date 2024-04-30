@@ -23,6 +23,10 @@ class MedicamentoService {
     this.initialize();
   }
 
+  async returnTotalRegister(){
+    const response = await this.repo.count();
+    return response;
+  }
   // esse método vai criar um novo registro de um novo medicamento
   // no controller precisa fazer uma validação nova se vai criar um medicamento ou atualizar a quantidade
   async create(data: MedicamentoInterface) {

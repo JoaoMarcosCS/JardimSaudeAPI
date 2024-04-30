@@ -141,7 +141,7 @@ class Auditoria {
   async recebimentoTratamento(tratamento: Tratamento) {
     const recebimentoTratamento = new AuditoriaHospital();
     recebimentoTratamento.data = new Date();
-    recebimentoTratamento.tipoOperacao = Operacao.Pagamento;
+    recebimentoTratamento.tipoOperacao = Operacao.Recebimento;
     recebimentoTratamento.valor_transacao = Number(tratamento.valor);
     recebimentoTratamento.tratamento = tratamento;
 

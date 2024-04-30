@@ -1,0 +1,23 @@
+export const queixasTratamentosOdontologicos = [
+    "Dor de dente",
+    "Gengivas inflamadas",
+    "Sangramento na gengiva",
+    "Dificuldade para mastigar",
+    "Dente quebrado",
+    "Sensibilidade nos dentes",
+    "Mau hálito persistente",
+    "Cárie dentária",
+    "Dificuldade para abrir a boca completamente",
+    "Abscesso dental",
+    "Dor na mandíbula",
+    "Desgaste excessivo dos dentes (bruxismo)",
+    "Boca seca (xerostomia)",
+    "Dor ao comer alimentos quentes ou frios",
+    "Lesões na mucosa oral (aftas, úlceras)",
+    "Dor facial ou na articulação temporomandibular (ATM)",
+    "Inchaço na face",
+    "Dificuldade para falar corretamente",
+    "Dentes tortos ou desalinhados",
+    "Dor ao usar aparelho ortodôntico",
+    "Dor nos dentes ou gengivas ao escovar ou passar o fio dental"
+]

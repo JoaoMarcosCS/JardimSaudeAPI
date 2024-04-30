@@ -4,13 +4,13 @@ import { Router } from "express";
 import nivelSecretaria from "../../middleware/nivelSecretaria";
 import validateCreateUser from "../../middleware/validateCreateUser";
 import validateUpdateUser from "../../middleware/validateUpdateUser";
-("../../middleware/");
 
 const router = Router();
 
 router.get("/:id", loginRequired, userController.show);
 
 router.get("/", loginRequired, nivelSecretaria, userController.index);
+router.get("/totalRegisters", userController.returnTotalRegister)
 
 router.post(
   "/",

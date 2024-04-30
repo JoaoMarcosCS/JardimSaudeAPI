@@ -1,6 +1,5 @@
 export const medicosData = [
-  {
-    name: "Ana Silva",
+  {name: "Ana Silva",
     email: "ana.silva@gmail.com",
     crm: "CRM-SP 98765",
     senha: "AnaSilva12345",

@@ -1,0 +1,22 @@
+export const queixas = [
+    "Febre",
+    "Tosse",
+    "Coriza",
+    "Dor de garganta",
+    "Dor de ouvido",
+    "Dor abdominal",
+    "Vômitos",
+    "Diarreia",
+    "Constipação",
+    "Dor de cabeça",
+    "Falta de apetite",
+    "Irritabilidade",
+    "Problemas de sono",
+    "Erupção cutânea",
+    "Dificuldades respiratórias",
+    "Problemas de crescimento",
+    "Dificuldades de aprendizagem",
+    "Problemas comportamentais",
+    "Desenvolvimento motor atrasado",
+    "Desenvolvimento da linguagem atrasado"
+];

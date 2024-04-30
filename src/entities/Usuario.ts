@@ -26,6 +26,9 @@ export class Usuario {
   @Column({ nullable: true, unique: true })
   crm: string;
 
+  @Column({ nullable: true, unique: true })
+  cpf: string;
+
   @Column({ unique: true })
   senha: string;
 
