@@ -11,6 +11,7 @@ const router = Router();
 router.get("/:id", loginRequired, userController.show);
 
 router.get("/", loginRequired, nivelSecretaria, userController.index);
+router.get("/totalRegisters", loginRequired, userController.returnTotalRegister)
 
 router.post(
   "/",

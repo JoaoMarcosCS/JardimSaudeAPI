@@ -7,6 +7,12 @@ class TratamentoController {
     return res.status(200).json(result);
   }
 
+  
+  async returnTotalRegister(req: Request, res:Response){
+    const response = await tratamentoService.returnTotalRegister();
+    return res.status(200).json(response);
+  }
+
   async index(req: Request, res: Response) {
     const result = await tratamentoService.index(
       req.query.field as string,

@@ -14,5 +14,6 @@ router.put(
   medicamentoController.operation,
 ); //essa rota precisa ter uma query para a operação que vai realizar
 router.post("/", loginRequired, nivelSecretaria, medicamentoController.store);
+router.get("/totalRegisters", loginRequired, medicamentoController.returnTotalRegister)
 
 export default router;

@@ -22,6 +22,11 @@ class UserService {
     this.initialize();
   }
 
+  async returnTotalRegister(){
+    const response = await this.repo.count();
+    return response;
+  }
+
   async index(field: string, order: string) {
     if (field && Object.values(UserFilter).includes(field as UserFilter)) {
       const orderOption = {};

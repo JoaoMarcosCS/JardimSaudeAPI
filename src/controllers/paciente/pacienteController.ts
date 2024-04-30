@@ -7,6 +7,12 @@ class PacienteController {
     return res.status(200).json(response);
   }
 
+  
+  async returnTotalRegister(req: Request, res:Response){
+    const response = await pacienteService.returnTotalRegister();
+    return res.status(200).json(response);
+  }
+
   async index(req: Request, res: Response) {
     const response = await pacienteService.index(
       req.query.field as string,

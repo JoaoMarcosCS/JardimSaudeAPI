@@ -20,6 +20,11 @@ class TratamentoService {
     this.initialize();
   }
 
+  async returnTotalRegister(){
+    const response = await this.repo.count();
+    return response;
+  }
+  
   async show(id: number) {
     const tratamento = await this.repo.findOne({
       where: {

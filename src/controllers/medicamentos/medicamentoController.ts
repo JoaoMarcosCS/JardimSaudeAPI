@@ -8,7 +8,11 @@ class MedicamentoController {
     return res.status(200).json(response);
   }
 
-  // para mostrar a lista de medicamentos em estoque
+  async returnTotalRegister(req: Request, res:Response){
+    const response = await medicamentoService.returnTotalRegister();
+    return res.status(200).json(response);
+  }
+
   async index(req: Request, res: Response) {
     const response = await medicamentoService.index(
       req.query.field as string,
