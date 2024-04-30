@@ -4,7 +4,6 @@ import { Router } from "express";
 import nivelSecretaria from "../../middleware/nivelSecretaria";
 import validateCreateUser from "../../middleware/validateCreateUser";
 import validateUpdateUser from "../../middleware/validateUpdateUser";
-("../../middleware/");
 
 const router = Router();
 
