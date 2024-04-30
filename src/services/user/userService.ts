@@ -29,7 +29,7 @@ class UserService {
 
       const response = await this.repo.findAndCount({
         where: {
-          nivel: 2,
+          empregado: true,
         },
         order: orderOption,
         relations: {
@@ -40,7 +40,7 @@ class UserService {
     } else {
       const response = await this.repo.find({
         where: {
-          nivel: 2,
+          empregado: true,
         },
         order: {
           name: "ASC",
@@ -57,7 +57,6 @@ class UserService {
     const response = await this.repo.findOne({
       where: {
         id: id,
-        nivel: 2,
       },
       relations: {
         especialidade: true,
