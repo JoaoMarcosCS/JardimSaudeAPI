@@ -15,7 +15,6 @@ router.post(
 );
 router.get("/", loginRequired, tratamentoController.index);
 router.get("/:id", loginRequired, tratamentoController.show);
-router.get("/totalRegisters", loginRequired, tratamentoController.returnTotalRegister)
 router.put(
   "/:id/:operation",
   loginRequired,
