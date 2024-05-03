@@ -53,7 +53,7 @@ class TratamentoService {
       const response = await this.repo.findAndCount({
         order: orderOption,
         relations: {
-          medico_responsavel: true,
+          medico_responsavel: {especialidade:true},
           paciente: true,
         },
       });
