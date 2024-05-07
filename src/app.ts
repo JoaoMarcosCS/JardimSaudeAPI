@@ -7,12 +7,12 @@ import especialidadeRouter from "./routes/especialidade/especialidadeRoutes";
 import pacienteRouter from "./routes/paciente/pacienteRouter";
 import tratamentoRouter from "./routes/tratamento/tratamentoRouter";
 import hospitalRouter from "./routes/hospital/hospitalRoutes";
+import findPacienteByCPF from "./routes/paciente/findPacienteByCPF"
 import "module-alias/register";
 import helmet from "helmet";
 import cors from "cors";
 import * as schedule from "node-schedule";
 import { pagamentosRecebimentos } from "./services/pagamentosRecebimentos/pagamentos";
-import incrementOneInOrcamento from "./services/incrementOneInOrcamento/incrementOneInOrcamento";
 // import { corsOptions } from "./config/corsOptions";
 
 //import { seed } from "./database/seeders/seed";
@@ -31,6 +31,7 @@ app.use("/especialidade", especialidadeRouter);
 app.use("/paciente", pacienteRouter);
 app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
+app.use("/findPacienteByCPF", findPacienteByCPF)
 
 //seed();
 
@@ -41,10 +42,6 @@ app.use(helmet());
 //executa o pagamento todo dia 5 do mês as 00h
 schedule.scheduleJob("0 0 5 * *", async () => {
   await pagamentosRecebimentos();
-});
-
-schedule.scheduleJob('*/1 * * * *', async () => {
-  await incrementOneInOrcamento.incremet();
 });
 
 export default app;

@@ -1,3 +1,4 @@
+
 import pacienteService from "../../services/paciente/pacienteService";
 import { Request, Response } from "express";
 
@@ -10,6 +11,11 @@ class PacienteController {
   
   async returnTotalRegister(req: Request, res:Response){
     const response = await pacienteService.returnTotalRegister();
+    return res.status(200).json(response);
+  }
+
+  async findPacienteByCPF(req: Request, res: Response){
+    const response = await pacienteService.findPacienteByCPF(req.params.cpf)
     return res.status(200).json(response);
   }
 

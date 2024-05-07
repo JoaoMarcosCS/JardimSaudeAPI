@@ -1,3 +1,4 @@
+
 import { Not, Repository } from "typeorm";
 import connection from "../../database/config/data-source";
 import PacienteInterface from "../../interface/paciente-interface";
@@ -21,6 +22,16 @@ class PacienteService {
 
   async returnTotalRegister(){
     const response = await this.repo.count();
+    return response;
+  }
+
+  async findPacienteByCPF(cpf:string){
+    const response = await this.repo.findOne({
+      where: {
+        cpf: cpf
+      }
+    })
+    
     return response;
   }
 
