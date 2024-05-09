@@ -9,7 +9,6 @@ const router = Router();
 
 router.post(
   "/",
-  validateCreateTratamento,
   nivelSecretaria,
   tratamentoController.store,
 );
