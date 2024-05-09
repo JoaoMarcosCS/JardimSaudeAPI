@@ -8,6 +8,12 @@ const nivelSecretaria = async (
 ) => {
   const { authorization } = req.headers;
 
+  if (!authorization) {
+    return res.status(401).json({
+      errors: ["Token não encontrado"],
+    });
+  }
+
   const [, token] = authorization.split(" ");
 
   const { nivel } = jwt.verify(token, process.env.TOKEN_SECRET) as JwtPayload;
