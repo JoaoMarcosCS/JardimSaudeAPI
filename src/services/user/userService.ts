@@ -60,7 +60,7 @@ class UserService {
       },
       relations: {
         especialidade: true,
-        tratamentos: {paciente:true, medico_responsavel:true, aplicacoes_medicamentos:true},
+        tratamentos: {paciente:true, medico_responsavel:{especialidade:true}, aplicacoes_medicamentos:true},
         pagamento: true,
       },
     });
