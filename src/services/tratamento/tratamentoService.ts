@@ -20,21 +20,21 @@ class TratamentoService {
     this.initialize();
   }
 
-  async returnTotalRegister(){
+  async returnTotalRegister() {
     const response = await this.repo.count();
     return response;
   }
-  
+
   async show(id: number) {
     const tratamento = await this.repo.findOne({
       where: {
         id: id,
       },
       relations: {
-        medico_responsavel: true,
+        medico_responsavel: { especialidade: true },
         paciente: true,
         aplicacoes_medicamentos: {
-          medicamento:true,
+          medicamento: true,
         },
       },
     });
@@ -55,8 +55,11 @@ class TratamentoService {
       const response = await this.repo.findAndCount({
         order: orderOption,
         relations: {
-          medico_responsavel: {especialidade:true},
+          medico_responsavel: { especialidade: true },
           paciente: true,
+          aplicacoes_medicamentos: {
+            medicamento: true
+          }
         },
       });
       return response;
@@ -66,8 +69,11 @@ class TratamentoService {
           nome: "ASC",
         },
         relations: {
-          medico_responsavel: true,
+          medico_responsavel: { especialidade: true },
           paciente: true,
+          aplicacoes_medicamentos: {
+            medicamento: true
+          }
         },
       });
       return response;
