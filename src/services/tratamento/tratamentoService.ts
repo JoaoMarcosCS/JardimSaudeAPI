@@ -33,7 +33,9 @@ class TratamentoService {
       relations: {
         medico_responsavel: true,
         paciente: true,
-        aplicacoes_medicamentos: true,
+        aplicacoes_medicamentos: {
+          medicamento:true,
+        },
       },
     });
 
