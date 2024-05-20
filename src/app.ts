@@ -35,7 +35,7 @@ app.use("/paciente", pacienteRouter);
 app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
 app.use("/findPacienteByCPF", findPacienteByCPF);
-app.use("/returnTotalTratamentoById", returnTotalTratamentosById);
+app.use("/returnTotalTratamentosById", returnTotalTratamentosById);
 
 //seed();
 
