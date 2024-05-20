@@ -196,5 +196,18 @@ class TratamentoService {
 
     return success({ ok: true });
   }
+
+  async returnTotalTratamentoById(medicoId:number){
+    const response = await this.repo.count({
+      where:{
+        medico_responsavel:{
+          id: medicoId
+
+        }
+      }
+    })
+
+    return response;
+  }
 }
 export default new TratamentoService();

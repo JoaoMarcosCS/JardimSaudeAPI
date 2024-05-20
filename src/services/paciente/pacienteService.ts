@@ -160,6 +160,8 @@ class PacienteService {
 
     return success({ ok: true });
   }
+
+  
 }
 
 export default new PacienteService();

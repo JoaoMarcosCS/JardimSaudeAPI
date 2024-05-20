@@ -134,6 +134,8 @@ class UserService {
 
     return success({ ok: true });
   }
+
+ 
 }
 
 export default new UserService();

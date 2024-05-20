@@ -58,6 +58,12 @@ class TratamentoController {
       });
     }
   }
+
+  async returnTotalTratamentoById(req: Request, res:Response){
+    const medicoId = Number(req.params.medicoId);
+    const response = await tratamentoService.returnTotalTratamentoById(medicoId);
+    return res.status(200).json(response);
+  }
 }
 
 export default new TratamentoController();
