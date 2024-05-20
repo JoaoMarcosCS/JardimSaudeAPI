@@ -13,8 +13,9 @@ import "module-alias/register";
 import helmet from "helmet";
 import cors from "cors";
 import * as schedule from "node-schedule";
+import {IncrementOneInOrcamento} from "./services/incrementOneInOrcamento/incrementOneInOrcamento"
 import { pagamentosRecebimentos } from "./services/pagamentosRecebimentos/pagamentos";
-import incrementOneInOrcamento from "@services/incrementOneInOrcamento/incrementOneInOrcamento";
+
 // import { corsOptions } from "./config/corsOptions";
 
 //import { seed } from "./database/seeders/seed";
@@ -43,7 +44,7 @@ app.use(cors());
 app.use(helmet());
 
 schedule.scheduleJob("*/1 * * * *", async () => {
-  await incrementOneInOrcamento.incremet();
+  await IncrementOneInOrcamento();
 });
 
 //executa o pagamento todo dia 5 do mês as 00h
