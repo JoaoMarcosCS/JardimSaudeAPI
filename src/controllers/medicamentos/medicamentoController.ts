@@ -8,6 +8,11 @@ class MedicamentoController {
     return res.status(200).json(response);
   }
 
+  async returnMedicamentosByNome(req:Request, res: Response){
+    const response = await medicamentoService.returnMedicamentosByNome(req.params.nome);
+    return res.status(200).json(response);
+  }
+
   async returnTotalRegister(req: Request, res:Response){
     const response = await medicamentoService.returnTotalRegister();
     return res.status(200).json(response);
@@ -43,7 +48,6 @@ class MedicamentoController {
 
   // // na loja vai estar disponivel apenas os medicamentos que não estão no estoque
   // // para comprar medicamentos em estoque terá a opção na tela de estoque de comprar mais
-  // async create(req: Request, res: Response) {}
 }
 
 export default new MedicamentoController();

@@ -1,5 +1,5 @@
 import { Medicamento } from "../../entities/Medicamento";
-import { Repository } from "typeorm";
+import { Like, Repository } from "typeorm";
 import connection from "../../database/config/data-source";
 import { MedicamentoFilter } from "../../enums/medicamentoFilter";
 import aplicacao from "../aplicacao/aplicacao";
@@ -8,6 +8,7 @@ import auditoria from "../auditoria/auditoria";
 import { Either, error, success } from "../../errors/either";
 import { HandleResponseError } from "../../errors/handle-response-errors";
 import MedicamentoInterface from "../../interface/medicamentoInterface";
+import { string } from "zod";
 
 
 type Response = Either<HandleResponseError, { ok: boolean }>;
@@ -21,6 +22,16 @@ class MedicamentoService {
 
   constructor() {
     this.initialize();
+  }
+
+  async returnMedicamentosByNome(nome: string){
+    const response = await this.repo.find({
+      where:{
+        nome:Like(`%${nome}%`)
+      }
+    });
+
+    return response;
   }
 
   async returnTotalRegister(){

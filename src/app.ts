@@ -15,6 +15,7 @@ import cors from "cors";
 import * as schedule from "node-schedule";
 import {IncrementOneInOrcamento} from "./services/incrementOneInOrcamento/incrementOneInOrcamento"
 import { pagamentosRecebimentos } from "./services/pagamentosRecebimentos/pagamentos";
+import returnMedicamentosByNome from "./routes/medicamento/returnMedicamentosByNome";
 
 // import { corsOptions } from "./config/corsOptions";
 
@@ -36,6 +37,7 @@ app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
 app.use("/findPacienteByCPF", findPacienteByCPF);
 app.use("/returnTotalTratamentosById", returnTotalTratamentosById);
+app.use("/returnMedicamentosByNome", returnMedicamentosByNome)
 
 //seed();
 
