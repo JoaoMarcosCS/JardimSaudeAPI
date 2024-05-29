@@ -10,7 +10,6 @@ router.get("/:id", loginRequired, medicamentoController.show);
 router.put(
   "/:id",
   loginRequired,
-  nivelSecretaria,
   medicamentoController.operation,
 ); //essa rota precisa ter uma query para a operação que vai realizar
 router.post("/", loginRequired, nivelSecretaria, medicamentoController.store);
