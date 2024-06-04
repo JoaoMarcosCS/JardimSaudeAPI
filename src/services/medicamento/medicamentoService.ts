@@ -28,6 +28,7 @@ class MedicamentoService {
     const response = await this.repo.createQueryBuilder('medicamento')
     .select(['medicamento.nome', 'medicamento.id', 'medicamento.peso'])
     .where('LOWER(medicamento.nome) LIKE LOWER(:nome)', { nome: `%${nome}%` })
+    .andWhere(`medicamento.quantidade >= 1`)
     .getMany();
 
     return response;
