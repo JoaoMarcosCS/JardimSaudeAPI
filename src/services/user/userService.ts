@@ -65,7 +65,9 @@ class UserService {
           medico_responsavel: {
             especialidade: true
           },
-          aplicacoes_medicamentos: true
+          aplicacoes_medicamentos: {
+            medicamento:true
+          }
         },
         pagamento: true,
       },
