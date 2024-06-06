@@ -1,5 +1,5 @@
 import { Tratamento } from "../../entities/Tratamento";
-import { Repository } from "typeorm";
+import { In, Repository } from "typeorm";
 import connection from "../../database/config/data-source";
 import { Either, error, success } from "../../errors/either";
 import { HandleResponseError } from "../../errors/handle-response-errors";
@@ -202,8 +202,8 @@ class TratamentoService {
       where:{
         medico_responsavel:{
           id: medicoId
-
-        }
+        },
+        status:In(["Finalizado", "Cancelado"])
       }
     })
 
