@@ -2,7 +2,6 @@ import tratamentoController from "../../controllers/tratamento/tratamentoControl
 import { Router } from "express";
 import loginRequired from "../../middleware/loginRequired";
 import { nivelMedico } from "../../middleware/nivelMedico";
-import nivelSecretaria from "@middlewares/nivelSecretaria";
 
 const router = Router();
 
