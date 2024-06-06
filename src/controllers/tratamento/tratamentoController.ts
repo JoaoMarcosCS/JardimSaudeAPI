@@ -64,6 +64,24 @@ class TratamentoController {
     return res.status(200).json(response);
   }
 
+  async fetchTotalTratamentosCanceladosById(req: Request, res:Response){
+    const medicoId = Number(req.params.medicoId);
+    const response = await tratamentoService.fetchTotalTratamentosCanceladosById(medicoId);
+    return res.status(200).json(response);   
+  }
+
+  async fetchTotalTratamentosFinalizadosById(req: Request, res:Response){
+    const medicoId = Number(req.params.medicoId);
+    const response = await tratamentoService.fetchTotalTratamentosFinalizadosById(medicoId);
+    return res.status(200).json(response);   
+  }
+
+  async fetchTotalTratamentosEmAndamentoById(req: Request, res:Response){
+    const medicoId = Number(req.params.medicoId);
+    const response = await tratamentoService.fetchTotalTratamentosEmAndamentoById(medicoId);
+    return res.status(200).json(response);   
+  }
+
   async fetchTratamentosCanceladosById(req: Request, res:Response){
     const medicoId = Number(req.params.medicoId);
     const response = await tratamentoService.fetchTratamentosCanceladosById(medicoId);

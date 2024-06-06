@@ -210,6 +210,42 @@ class TratamentoService {
     return response;
   }
 
+  async fetchTotalTratamentosCanceladosById(medicoId:number){
+    const response = await this.repo.count({
+      where:{
+        medico_responsavel:{
+          id:medicoId
+        },
+        status:"Cancelado"
+      }
+    })
+    return response;
+  }
+
+  async fetchTotalTratamentosEmAndamentoById(medicoId:number){
+    const response = await this.repo.count({
+      where:{
+        medico_responsavel:{
+          id:medicoId
+        },
+        status:"Em andamento"
+      }
+    })
+    return response;
+  }
+
+  async fetchTotalTratamentosFinalizadosById(medicoId:number){
+    const response = await this.repo.count({
+      where:{
+        medico_responsavel:{
+          id:medicoId
+        },
+        status:"Finalizado"
+      }
+    })
+    return response;
+  }
+
   async fetchTratamentosFinalizadosById(medicoId:number){
     const response = await this.repo.find({
       where:{
