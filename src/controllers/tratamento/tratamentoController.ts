@@ -6,10 +6,9 @@ class TratamentoController {
     const result = await tratamentoService.create(req.body);
     return res.status(200).json(result);
   }
-
   
-  async returnTotalRegister(req: Request, res:Response){
-    const response = await tratamentoService.returnTotalRegister();
+  async fetchTotalRegister(req: Request, res:Response){
+    const response = await tratamentoService.fetchTotalRegister();
     return res.status(200).json(response);
   }
 
@@ -59,9 +58,27 @@ class TratamentoController {
     }
   }
 
-  async returnTotalTratamentoById(req: Request, res:Response){
+  async fetchTotalTratamentoById(req: Request, res:Response){
     const medicoId = Number(req.params.medicoId);
-    const response = await tratamentoService.returnTotalTratamentoById(medicoId);
+    const response = await tratamentoService.fetchTotalTratamentoById(medicoId);
+    return res.status(200).json(response);
+  }
+
+  async fetchTratamentosCanceladosById(req: Request, res:Response){
+    const medicoId = Number(req.params.medicoId);
+    const response = await tratamentoService.fetchTratamentosCanceladosById(medicoId);
+    return res.status(200).json(response);
+  }
+
+  async fetchTratamentosFinalizadosById(req: Request, res:Response){
+    const medicoId = Number(req.params.medicoId);
+    const response = await tratamentoService.fetchTratamentosFinalizadosById(medicoId);
+    return res.status(200).json(response);
+  }
+
+  async fetchTratamentosEmAndamentoById(req: Request, res:Response){
+    const medicoId = Number(req.params.medicoId);
+    const response = await tratamentoService.fetchTratamentosEmAndamentoById(medicoId);
     return res.status(200).json(response);
   }
 }

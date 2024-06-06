@@ -8,7 +8,7 @@ import pacienteRouter from "./routes/paciente/pacienteRouter";
 import tratamentoRouter from "./routes/tratamento/tratamentoRouter";
 import hospitalRouter from "./routes/hospital/hospitalRoutes";
 import findPacienteByCPF from "./routes/paciente/findPacienteByCPF"
-import returnTotalTratamentosById from "./routes/tratamento/returnTotalTratamentosById"
+import fetchTotalTratamentoById from "./routes/tratamento/fetchTotalTratamentosById"
 import "module-alias/register";
 import helmet from "helmet";
 import cors from "cors";
@@ -36,7 +36,7 @@ app.use("/paciente", pacienteRouter);
 app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
 app.use("/findPacienteByCPF", findPacienteByCPF);
-app.use("/returnTotalTratamentosById", returnTotalTratamentosById);
+app.use("/tratamentos", fetchTotalTratamentoById);
 app.use("/returnMedicamentosByNome", returnMedicamentosByNome)
 
 //seed();

@@ -20,7 +20,7 @@ class TratamentoService {
     this.initialize();
   }
 
-  async returnTotalRegister() {
+  async fetchTotalRegister() {
     const response = await this.repo.count();
     return response;
   }
@@ -197,7 +197,7 @@ class TratamentoService {
     return success({ ok: true });
   }
 
-  async returnTotalTratamentoById(medicoId:number){
+  async fetchTotalTratamentoById(medicoId:number){
     const response = await this.repo.count({
       where:{
         medico_responsavel:{
@@ -207,6 +207,42 @@ class TratamentoService {
       }
     })
 
+    return response;
+  }
+
+  async fetchTratamentosFinalizadosById(medicoId:number){
+    const response = await this.repo.find({
+      where:{
+        medico_responsavel:{
+          id:medicoId
+        },
+        status:"Finalizado"
+      }
+  })
+    return response;
+  }
+
+  async fetchTratamentosCanceladosById(medicoId:number){
+    const response = await this.repo.find({
+      where:{
+        medico_responsavel:{
+          id:medicoId
+        },
+        status:"Cancelado"
+      }
+    })
+    return response;
+  }
+
+  async fetchTratamentosEmAndamentoById(medicoId:number){
+    const response = await this.repo.find({
+      where:{
+        medico_responsavel:{
+          id:medicoId
+        },
+        status:"Em andamento"
+      }
+    })
     return response;
   }
 }
