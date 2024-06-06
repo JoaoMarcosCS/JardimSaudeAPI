@@ -8,7 +8,7 @@ const router = Router();
 
 router.get("/total/:medicoId", loginRequired, nivelMedico, tratamentoController.fetchTotalTratamentoById);
 router.get("/finalizados/:medicoId", loginRequired, nivelMedico, tratamentoController.fetchTratamentosFinalizadosById);
-router.get("/cancelados/:medicoId", loginRequired, nivelSecretaria, tratamentoController.fetchTratamentosCanceladosById);
-router.get("/emAndamento/:medicoId", loginRequired, nivelSecretaria, tratamentoController.fetchTratamentosEmAndamentoById);
+router.get("/cancelados/:medicoId", loginRequired, nivelMedico, tratamentoController.fetchTratamentosCanceladosById);
+router.get("/emAndamento/:medicoId", loginRequired, nivelMedico, tratamentoController.fetchTratamentosEmAndamentoById);
 
 export default router;
