@@ -1,7 +1,7 @@
 
 import { In, Not, Repository } from "typeorm";
 import connection from "../../database/config/data-source";
-import { Shopping } from "@entities/Shopping";
+import { Shopping } from "../../entities/Shopping";
 
 class ShppingService {
   private repo: Repository<Shopping>;
