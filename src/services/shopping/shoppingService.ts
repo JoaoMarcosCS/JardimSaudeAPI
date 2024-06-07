@@ -25,7 +25,7 @@ class ShppingService {
   }
 
   async index() {
-    const response = await this.repo.findAndCount({
+    const response = await this.repo.find({
         order: {
           nome: "ASC",
         },

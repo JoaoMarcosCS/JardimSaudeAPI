@@ -40,7 +40,7 @@ app.use("/hospital", hospitalRouter);
 app.use("/findPacienteByCPF", findPacienteByCPF);
 app.use("/pacientes", fetchPacienteByMedicoId);
 app.use("/tratamentos", fetchTotalTratamentoById);
-app.use("/shopping", shoppingRouter)
+// app.use("/shopping", shoppingRouter);
 app.use("/returnMedicamentosByNome", returnMedicamentosByNome)
 
 //seed();
