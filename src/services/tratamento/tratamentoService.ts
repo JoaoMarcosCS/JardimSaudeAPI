@@ -311,5 +311,10 @@ class TratamentoService {
     })
     return response;
   }
+
+  async fetchTotalPacientesByMedicoId(medicoId:number){
+    const response = await this.repo.query("SELECT COUNT(DISTINCT tratamento.paciente.cpf) as count FROM tratamento WHERE tratamento.medico_responsavel.id = ?",[medicoId])
+    return response;
+  }
 }
 export default new TratamentoService();
