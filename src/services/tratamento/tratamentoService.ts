@@ -241,16 +241,6 @@ class TratamentoService {
           id:medicoId
         },
         status:"Finalizado"
-      },
-      order:{
-        nome:"ASC"
-      },
-      relations:{
-        medico_responsavel:{especialidade:true},
-        aplicacoes_medicamentos:{
-          medicamento:true
-        },
-        paciente:true
       }
     })
     return response;
