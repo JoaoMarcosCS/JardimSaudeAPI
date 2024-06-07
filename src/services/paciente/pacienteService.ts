@@ -175,6 +175,7 @@ class PacienteService {
         }
       }
     });
+    return response;
   }
   
 }
