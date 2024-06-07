@@ -190,6 +190,9 @@ class PacienteService {
       },
       order:{
         nome: "ASC"
+      },
+      relations:{
+       tratamentos:true
       }
     });
 
