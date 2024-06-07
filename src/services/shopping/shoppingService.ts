@@ -15,10 +15,10 @@ class ShppingService {
     this.initialize();
   }
 
-  async show(codigo: number) {
+  async show(id: number) {
     const response = await this.repo.find({
       where: {
-        codigo:codigo
+        id:id
       },
     });
 
