@@ -1,4 +1,4 @@
-import shoppingService from "@services/shopping/shoppingService";
+import shoppingService from "../../services/shopping/shoppingService";
 import { Request, Response } from "express";
 
 class ShoppingController {
