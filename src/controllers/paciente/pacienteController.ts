@@ -8,7 +8,6 @@ class PacienteController {
     return res.status(200).json(response);
   }
 
-  
   async returnTotalRegister(req: Request, res:Response){
     const response = await pacienteService.returnTotalRegister();
     return res.status(200).json(response);
@@ -52,6 +51,11 @@ class PacienteController {
     }
 
     return res.status(200).json(result.value);
+  }
+
+  async fetchTotalPacientesByMedicoId(req:Request, res: Response){
+    const response = await pacienteService.fetchTotalPacientesByMedicoId(Number(req.params.medicoId));
+    return res.status(200).json(response);
   }
 }
 

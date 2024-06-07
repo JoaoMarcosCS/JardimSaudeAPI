@@ -9,6 +9,7 @@ import tratamentoRouter from "./routes/tratamento/tratamentoRouter";
 import hospitalRouter from "./routes/hospital/hospitalRoutes";
 import findPacienteByCPF from "./routes/paciente/findPacienteByCPF"
 import fetchTotalTratamentoById from "./routes/tratamento/fetchTotalTratamentosById"
+import fetchTotalPacientesByMedicoId from "./routes/paciente/fetchTotalPacientesByMedicoId"
 import "module-alias/register";
 import helmet from "helmet";
 import cors from "cors";
@@ -36,6 +37,7 @@ app.use("/paciente", pacienteRouter);
 app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
 app.use("/findPacienteByCPF", findPacienteByCPF);
+app.use("/fetchTotalPacientesByMedicoId",fetchTotalPacientesByMedicoId );
 app.use("/tratamentos", fetchTotalTratamentoById);
 app.use("/returnMedicamentosByNome", returnMedicamentosByNome)
 

@@ -1,5 +1,5 @@
 
-import { Not, Repository } from "typeorm";
+import { In, Not, Repository } from "typeorm";
 import connection from "../../database/config/data-source";
 import PacienteInterface from "../../interface/paciente-interface";
 import { HandleResponseError } from "../../errors/handle-response-errors";
@@ -59,7 +59,10 @@ class PacienteService {
       const response = await this.repo.findAndCount({
         order: orderOption,
         relations: {
-          tratamentos: true,
+          tratamentos:{
+            medico_responsavel:true
+          },
+
         },
       });
       return response;
@@ -161,6 +164,18 @@ class PacienteService {
     return success({ ok: true });
   }
 
+  async fetchTotalPacientesByMedicoId(medicoId:number){
+    const response = await this.repo.count({
+      where:{
+        tratamentos:{
+          status:In(["Finalizado", "Cancelado"]),
+          medico_responsavel:{
+            id:medicoId
+          }
+        }
+      }
+    });
+  }
   
 }
 
