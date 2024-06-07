@@ -57,6 +57,11 @@ class PacienteController {
     const response = await pacienteService.fetchTotalPacientesByMedicoId(Number(req.params.medicoId));
     return res.status(200).json(response);
   }
+
+  async fetchPacientesByMedicoId(req:Request, res: Response){
+    const response = await pacienteService.fetchPacientesByMedicoId(Number(req.params.medicoId));
+    return res.status(200).json(response);
+  }
 }
 
 export default new PacienteController();

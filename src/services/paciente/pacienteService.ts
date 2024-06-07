@@ -177,6 +177,24 @@ class PacienteService {
     });
     return response;
   }
+
+  async fetchPacientesByMedicoId(medicoId: number){
+    const response = await this.repo.find({
+      where:{
+        tratamentos:{
+          medico_responsavel:{
+            id:medicoId
+          },
+          status:In(["Finalizado", "Cancelado"])
+        }
+      },
+      order:{
+        nome: "ASC"
+      }
+    });
+
+    return response;
+  }
   
 }
 

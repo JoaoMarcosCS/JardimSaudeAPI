@@ -5,6 +5,7 @@ import { nivelMedico } from "../../middleware/nivelMedico";
 
 const router = Router();
 
-router.get("/:medicoId", loginRequired, nivelMedico, pacienteController.fetchTotalPacientesByMedicoId);
+router.get("/fetchTotalPacientesByMedicoId/:medicoId", loginRequired, nivelMedico, pacienteController.fetchTotalPacientesByMedicoId);
+router.get("/fetchPacientesByMedicoId/:medicoId", loginRequired, nivelMedico, pacienteController.fetchPacientesByMedicoId);
 
 export default router;
