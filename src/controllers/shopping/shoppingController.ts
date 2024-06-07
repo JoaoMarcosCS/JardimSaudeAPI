@@ -4,10 +4,7 @@ import { Request, Response } from "express";
 class ShoppingController {
 
     async index(req: Request, res: Response) {
-        const response = await shoppingService.index(
-            req.query.field as string,
-            req.query.order as string,
-        );
+        const response = await shoppingService.index();
         return res.status(200).json(response);
     }
 
