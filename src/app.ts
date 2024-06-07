@@ -10,6 +10,7 @@ import hospitalRouter from "./routes/hospital/hospitalRoutes";
 import findPacienteByCPF from "./routes/paciente/findPacienteByCPF"
 import fetchTotalTratamentoById from "./routes/tratamento/fetchTotalTratamentosById"
 import fetchPacienteByMedicoId from "./routes/paciente/fetchTotalPacientesByMedicoId";
+import shoppingRouter from "./routes/shopping/shoppingRouter"
 import "module-alias/register";
 import helmet from "helmet";
 import cors from "cors";
@@ -39,6 +40,7 @@ app.use("/hospital", hospitalRouter);
 app.use("/findPacienteByCPF", findPacienteByCPF);
 app.use("/pacientes", fetchPacienteByMedicoId);
 app.use("/tratamentos", fetchTotalTratamentoById);
+app.use("/shopping", shoppingRouter)
 app.use("/returnMedicamentosByNome", returnMedicamentosByNome)
 
 //seed();
