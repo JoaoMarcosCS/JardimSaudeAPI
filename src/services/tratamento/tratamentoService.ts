@@ -291,24 +291,26 @@ class TratamentoService {
   }
 
   async fetchTratamentosEmAndamentoById(medicoId:number){
-    const response = await this.repo.find({
-      where:{
-        medico_responsavel:{
-          id:medicoId
-        },
-        status:"Em andamento"
-      },
-      order:{
-        nome:"ASC"
-      },
-      relations:{
-        medico_responsavel:{especialidade:true},
-        aplicacoes_medicamentos:{
-          medicamento:true
-        },
-        paciente:true
-      }
-    })
+    // const response = await this.repo.find({
+    //   where:{
+    //     medico_responsavel:{
+    //       id:medicoId
+    //     },
+    //     status:"Em andamento"
+    //   },
+    //   order:{
+    //     nome:"ASC"
+    //   },
+    //   relations:{
+    //     medico_responsavel:{especialidade:true},
+    //     aplicacoes_medicamentos:{
+    //       medicamento:true
+    //     },
+    //     paciente:true
+    //   }
+    // })
+    // return response;
+    const response = await this.repo.query("SELECT COUNT(DISTINCT tratamento.paciente.cpf) as count FROM tratamento WHERE tratamento.medico_responsavel.id = ?",[medicoId])
     return response;
   }
 
