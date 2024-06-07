@@ -241,6 +241,16 @@ class TratamentoService {
           id:medicoId
         },
         status:"Finalizado"
+      },
+      order:{
+        nome:"ASC"
+      },
+      relations:{
+        medico_responsavel:{especialidade:true},
+        aplicacoes_medicamentos:{
+          medicamento:true
+        },
+        paciente:true
       }
     })
     return response;
@@ -253,6 +263,16 @@ class TratamentoService {
           id:medicoId
         },
         status:"Finalizado"
+      },
+      order:{
+        nome:"ASC"
+      },
+      relations:{
+        medico_responsavel:{especialidade:true},
+        aplicacoes_medicamentos:{
+          medicamento:true
+        },
+        paciente:true
       }
   })
     return response;
@@ -265,6 +285,16 @@ class TratamentoService {
           id:medicoId
         },
         status:"Cancelado"
+      },
+      order:{
+        nome:"ASC"
+      },
+      relations:{
+        medico_responsavel:{especialidade:true},
+        aplicacoes_medicamentos:{
+          medicamento:true
+        },
+        paciente:true
       }
     })
     return response;
@@ -277,6 +307,16 @@ class TratamentoService {
           id:medicoId
         },
         status:"Em andamento"
+      },
+      order:{
+        nome:"ASC"
+      },
+      relations:{
+        medico_responsavel:{especialidade:true},
+        aplicacoes_medicamentos:{
+          medicamento:true
+        },
+        paciente:true
       }
     })
     return response;
