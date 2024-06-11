@@ -7,6 +7,6 @@ import nivelSecretaria from "../../middleware/nivelSecretaria";;
 const router = Router();
 
 router.get("/", loginRequired, nivelSecretaria, shoppingController.index);
-router.get("/:id", loginRequired,nivelSecretaria, shoppingController.show);
+router.get("/:nome", loginRequired,nivelSecretaria, shoppingController.show);
 
 export default router;

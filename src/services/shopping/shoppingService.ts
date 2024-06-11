@@ -14,12 +14,11 @@ class ShppingService {
     this.initialize();
   }
 
-  async show(id: number) {
-    const response = await this.repo.find({
-      where: {
-        id:id
-      },
-    });
+  async findMedicamentosByNome(nome: string){
+    const response = await this.repo.createQueryBuilder()
+    .select(['shopping.nome', 'shopping.id', 'shopping.peso'])
+    .where('LOWER(shopping.nome) LIKE LOWER(:nome)', { nome: `%${nome}%` })
+    .getMany();
 
     return response;
   }

@@ -9,7 +9,7 @@ class ShoppingController {
     }
 
     async show(req: Request, res: Response) {
-        const response = await shoppingService.show(Number(req.params.id));
+        const response = await shoppingService.findMedicamentosByNome(req.params.nome);
         return res.status(200).json(response);
       }
 }
