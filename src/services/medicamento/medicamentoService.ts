@@ -24,6 +24,16 @@ class MedicamentoService {
     this.initialize();
   }
 
+  async returnValorTotalEmEstoque(){
+    const medicamentos = await this.repo.find();
+
+    const valorTotalEmEstoque = medicamentos.reduce((total, medicamento) => {
+      return total + (medicamento.quantidade * medicamento.valor_unitario)
+    }, 0);
+
+    return valorTotalEmEstoque;
+  }
+
   async returnMedicamentosByNome(nome: string){
     const response = await this.repo.createQueryBuilder('medicamento')
     .select(['medicamento.nome', 'medicamento.id', 'medicamento.peso'])

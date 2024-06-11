@@ -13,6 +13,11 @@ class MedicamentoController {
     return res.status(200).json(response);
   }
 
+  async returnValorTotalEmEstoque(req:Request, res: Response){
+    const response = await medicamentoService.returnValorTotalEmEstoque();
+    return res.status(200).json(response);
+  }
+
   async returnDefaultMedicamentos(req:Request, res: Response){
     const response = await medicamentoService.returnDefaultMedicamentos();
     return res.status(200).json(response);

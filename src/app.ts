@@ -19,6 +19,7 @@ import {IncrementOneInOrcamento} from "./services/incrementOneInOrcamento/increm
 import { pagamentosRecebimentos } from "./services/pagamentosRecebimentos/pagamentos";
 import returnMedicamentosByNome from "./routes/medicamento/returnMedicamentosByNome";
 import returnDefaultMedicamentos from "./routes/medicamento/returnDefaultMedicamentos";
+import returnValorTotalEmEstoque from "./routes/medicamento/returnValorTotalEmEstoque";
 
 // import { corsOptions } from "./config/corsOptions";
 
@@ -44,6 +45,7 @@ app.use("/tratamentos", fetchTotalTratamentoById);
 app.use("/shopping", shoppingRouter);
 app.use("/returnDefaultMedicamentos", returnDefaultMedicamentos)
 app.use("/returnMedicamentosByNome", returnMedicamentosByNome)
+app.use("/returnValorTotalEmEstoque", returnValorTotalEmEstoque)
 
 //seed();
 
