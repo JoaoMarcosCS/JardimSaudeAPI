@@ -13,6 +13,11 @@ class MedicamentoController {
     return res.status(200).json(response);
   }
 
+  async returnDefaultMedicamentos(req:Request, res: Response){
+    const response = await medicamentoService.returnDefaultMedicamentos();
+    return res.status(200).json(response);
+  }
+
   async returnTotalRegister(req: Request, res:Response){
     const response = await medicamentoService.returnTotalRegister();
     return res.status(200).json(response);

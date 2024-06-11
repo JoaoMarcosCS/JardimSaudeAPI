@@ -34,6 +34,16 @@ class MedicamentoService {
     return response;
   }
 
+  async returnDefaultMedicamentos(){
+    const response = await this.repo.createQueryBuilder('medicamento')
+    .select(['medicamento.nome', 'medicamento.id', 'medicamento.peso'])
+    .andWhere(`medicamento.quantidade >= 1`)
+    .take(10)
+    .getMany();
+
+    return response;
+  }
+
   async returnTotalRegister(){
     const response = await this.repo.count();
     return response;

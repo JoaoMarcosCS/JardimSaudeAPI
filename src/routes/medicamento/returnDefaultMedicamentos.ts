@@ -4,6 +4,6 @@ import loginRequired from "../../middleware/loginRequired";
 
 const router = Router();
 
-router.get("/:nome", loginRequired, medicamentoController.returnMedicamentosByNome);
+router.get("/", loginRequired, medicamentoController.returnDefaultMedicamentos);
 
 export default router;

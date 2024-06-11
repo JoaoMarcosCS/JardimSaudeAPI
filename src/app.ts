@@ -18,6 +18,7 @@ import * as schedule from "node-schedule";
 import {IncrementOneInOrcamento} from "./services/incrementOneInOrcamento/incrementOneInOrcamento"
 import { pagamentosRecebimentos } from "./services/pagamentosRecebimentos/pagamentos";
 import returnMedicamentosByNome from "./routes/medicamento/returnMedicamentosByNome";
+import returnDefaultMedicamentos from "./routes/medicamento/returnDefaultMedicamentos";
 
 // import { corsOptions } from "./config/corsOptions";
 
@@ -41,6 +42,7 @@ app.use("/findPacienteByCPF", findPacienteByCPF);
 app.use("/pacientes", fetchPacienteByMedicoId);
 app.use("/tratamentos", fetchTotalTratamentoById);
 app.use("/shopping", shoppingRouter);
+app.use("/returnDefaultMedicamentos", returnDefaultMedicamentos)
 app.use("/returnMedicamentosByNome", returnMedicamentosByNome)
 
 //seed();
