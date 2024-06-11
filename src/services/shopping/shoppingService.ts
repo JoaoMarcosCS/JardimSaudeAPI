@@ -23,6 +23,15 @@ class ShppingService {
     return response;
   }
 
+  async returnDefaultShoppings(){
+    const response = await this.repo.createQueryBuilder('shopping')
+    .select(['shopping.nome', 'shopping.codigo', 'shopping.peso'])
+    .take(10)
+    .getMany();
+
+    return response;
+  }
+
   async index() {
     const response = await this.repo.find({
         order: {

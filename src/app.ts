@@ -20,6 +20,7 @@ import { pagamentosRecebimentos } from "./services/pagamentosRecebimentos/pagame
 import returnMedicamentosByNome from "./routes/medicamento/returnMedicamentosByNome";
 import returnDefaultMedicamentos from "./routes/medicamento/returnDefaultMedicamentos";
 import returnValorTotalEmEstoque from "./routes/medicamento/returnValorTotalEmEstoque";
+import returnDefaultShoppings from "./routes/shopping/returnDefaultShoppings";
 
 // import { corsOptions } from "./config/corsOptions";
 
@@ -46,6 +47,7 @@ app.use("/shopping", shoppingRouter);
 app.use("/returnDefaultMedicamentos", returnDefaultMedicamentos)
 app.use("/returnMedicamentosByNome", returnMedicamentosByNome)
 app.use("/returnValorTotalEmEstoque", returnValorTotalEmEstoque)
+app.use("/returnDefaultShoppings", returnDefaultShoppings)
 
 //seed();
 

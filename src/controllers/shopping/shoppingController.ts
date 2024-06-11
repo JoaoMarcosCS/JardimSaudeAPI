@@ -8,6 +8,11 @@ class ShoppingController {
         return res.status(200).json(response);
     }
 
+    async returnDefaultShoppings(req: Request, res: Response) {
+        const response = await shoppingService.returnDefaultShoppings();
+        return res.status(200).json(response);
+    }
+
     async show(req: Request, res: Response) {
         const response = await shoppingService.findMedicamentosByNome(req.params.nome);
         return res.status(200).json(response);
