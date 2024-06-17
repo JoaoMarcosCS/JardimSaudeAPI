@@ -48,7 +48,7 @@ class MedicamentoService {
     const response = await this.repo.createQueryBuilder('medicamento')
     .select(['medicamento.nome', 'medicamento.id', 'medicamento.peso'])
     .andWhere(`medicamento.quantidade >= 1`)
-    .take(10)
+    .take(5)
     .getMany();
 
     return response;

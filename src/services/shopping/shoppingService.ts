@@ -26,7 +26,7 @@ class ShppingService {
   async returnDefaultShoppings(){
     const response = await this.repo.createQueryBuilder('shopping')
     .select(['shopping.nome', 'shopping.codigo', 'shopping.peso'])
-    .take(10)
+    .take(5)
     .getMany();
 
     return response;
