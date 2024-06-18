@@ -16,7 +16,7 @@ class ShppingService {
 
   async findMedicamentosByNome(nome: string){
     const response = await this.repo.createQueryBuilder("shopping")
-    .select(['shopping.nome', 'shopping.codigo', 'shopping.peso'])
+    .select()
     .where('LOWER(shopping.nome) LIKE LOWER(:nome)', { nome: `%${nome}%` })
     .getMany();
 
