@@ -47,7 +47,7 @@ app.use("/shopping", shoppingRouter);
 app.use("/returnDefaultMedicamentos", returnDefaultMedicamentos)
 app.use("/returnMedicamentosByNome", returnMedicamentosByNome)
 app.use("/returnValorTotalEmEstoque", returnValorTotalEmEstoque)
-app.use("/returnDefaultShoppings", returnDefaultShoppings)
+app.use("/returnDefaultShopping", returnDefaultShoppings)
 
 //seed();
 
