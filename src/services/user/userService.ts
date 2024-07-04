@@ -35,6 +35,17 @@ class UserService {
         relations: {
           especialidade: true,
         },
+        select:{
+          name: true,
+          nascimento:true,
+          cpf:true,
+          crm:true,
+          email:true,
+          empregado:true,
+          id:true,
+          nivel:true,
+          salario:true,
+        },
       });
       return response;
     } else {
