@@ -42,6 +42,17 @@ class UserService {
         where: {
           empregado: true,
         },
+        select:{
+          name: true,
+          nascimento:true,
+          cpf:true,
+          crm:true,
+          email:true,
+          empregado:true,
+          id:true,
+          nivel:true,
+          salario:true,
+        },
         order: {
           name: "ASC",
         },
