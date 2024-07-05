@@ -82,15 +82,6 @@ class UserService {
       },
       relations: {
         especialidade: true,
-        tratamentos: {
-          paciente: true,
-          medico_responsavel: {
-            especialidade: true
-          },
-          aplicacoes_medicamentos: {
-            medicamento:true
-          }
-        },
         pagamento: true,
       },
     });
