@@ -29,6 +29,9 @@ class TratamentoService {
     const tratamento = await this.repo.findOne({
       where: {
         id: id,
+        medico_responsavel:{
+          empregado:true
+        }
       },
       relations: {
         medico_responsavel: { especialidade: true },
@@ -37,6 +40,8 @@ class TratamentoService {
           medicamento: true,
         },
       },
+      
+      
     });
 
     return tratamento;
@@ -61,6 +66,11 @@ class TratamentoService {
             medicamento: true
           }
         },
+        where:{
+          medico_responsavel:{
+            empregado:true
+          }
+        }
       });
       return response;
     } else {
@@ -75,6 +85,11 @@ class TratamentoService {
             medicamento: true
           }
         },
+        where:{
+          medico_responsavel:{
+            empregado:true
+          }
+        }
       });
       return response;
     }
@@ -197,116 +212,116 @@ class TratamentoService {
     return success({ ok: true });
   }
 
-  async fetchTotalTratamentoById(medicoId:number){
+  async fetchTotalTratamentoById(medicoId: number) {
     const response = await this.repo.count({
-      where:{
-        medico_responsavel:{
+      where: {
+        medico_responsavel: {
           id: medicoId
         },
-        status:In(["Finalizado", "Cancelado"])
+        status: In(["Finalizado", "Cancelado"])
       }
     })
 
     return response;
   }
 
-  async fetchTotalTratamentosCanceladosById(medicoId:number){
+  async fetchTotalTratamentosCanceladosById(medicoId: number) {
     const response = await this.repo.count({
-      where:{
-        medico_responsavel:{
-          id:medicoId
+      where: {
+        medico_responsavel: {
+          id: medicoId
         },
-        status:"Cancelado"
+        status: "Cancelado"
       }
     })
     return response;
   }
 
-  async fetchTotalTratamentosEmAndamentoById(medicoId:number){
+  async fetchTotalTratamentosEmAndamentoById(medicoId: number) {
     const response = await this.repo.count({
-      where:{
-        medico_responsavel:{
-          id:medicoId
+      where: {
+        medico_responsavel: {
+          id: medicoId
         },
-        status:"Em andamento"
+        status: "Em andamento"
       }
     })
     return response;
   }
 
-  async fetchTotalTratamentosFinalizadosById(medicoId:number){
+  async fetchTotalTratamentosFinalizadosById(medicoId: number) {
     const response = await this.repo.count({
-      where:{
-        medico_responsavel:{
-          id:medicoId
+      where: {
+        medico_responsavel: {
+          id: medicoId
         },
-        status:"Finalizado"
+        status: "Finalizado"
       }
     })
     return response;
   }
 
-  async fetchTratamentosFinalizadosById(medicoId:number){
+  async fetchTratamentosFinalizadosById(medicoId: number) {
     const response = await this.repo.find({
-      where:{
-        medico_responsavel:{
-          id:medicoId
+      where: {
+        medico_responsavel: {
+          id: medicoId
         },
-        status:"Finalizado"
+        status: "Finalizado"
       },
-      order:{
-        nome:"ASC"
+      order: {
+        nome: "ASC"
       },
-      relations:{
-        medico_responsavel:{especialidade:true},
-        aplicacoes_medicamentos:{
-          medicamento:true
+      relations: {
+        medico_responsavel: { especialidade: true },
+        aplicacoes_medicamentos: {
+          medicamento: true
         },
-        paciente:true
-      }
-  })
-    return response;
-  }
-
-  async fetchTratamentosCanceladosById(medicoId:number){
-    const response = await this.repo.find({
-      where:{
-        medico_responsavel:{
-          id:medicoId
-        },
-        status:"Cancelado"
-      },
-      order:{
-        nome:"ASC"
-      },
-      relations:{
-        medico_responsavel:{especialidade:true},
-        aplicacoes_medicamentos:{
-          medicamento:true
-        },
-        paciente:true
+        paciente: true
       }
     })
     return response;
   }
 
-  async fetchTratamentosEmAndamentoById(medicoId:number){
+  async fetchTratamentosCanceladosById(medicoId: number) {
     const response = await this.repo.find({
-      where:{
-        medico_responsavel:{
-          id:medicoId
+      where: {
+        medico_responsavel: {
+          id: medicoId
         },
-        status:"Em andamento"
+        status: "Cancelado"
       },
-      order:{
-        nome:"ASC"
+      order: {
+        nome: "ASC"
       },
-      relations:{
-        medico_responsavel:{especialidade:true},
-        aplicacoes_medicamentos:{
-          medicamento:true
+      relations: {
+        medico_responsavel: { especialidade: true },
+        aplicacoes_medicamentos: {
+          medicamento: true
         },
-        paciente:true
+        paciente: true
+      }
+    })
+    return response;
+  }
+
+  async fetchTratamentosEmAndamentoById(medicoId: number) {
+    const response = await this.repo.find({
+      where: {
+        medico_responsavel: {
+          id: medicoId
+        },
+        status: "Em andamento"
+      },
+      order: {
+        nome: "ASC"
+      },
+      relations: {
+        medico_responsavel: { especialidade: true },
+        aplicacoes_medicamentos: {
+          medicamento: true
+        },
+        paciente: true
       }
     })
     return response;
