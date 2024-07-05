@@ -69,6 +69,7 @@ class UserService {
         },
         relations: {
           especialidade: true,
+          pagamento:true,
         },
       });
       return response;
