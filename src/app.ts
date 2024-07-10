@@ -9,7 +9,7 @@ import tratamentoRouter from "./routes/tratamento/tratamentoRouter";
 import hospitalRouter from "./routes/hospital/hospitalRoutes";
 import findPacienteByCPF from "./routes/paciente/findPacienteByCPF"
 import fetchTotalTratamentoById from "./routes/tratamento/fetchTotalTratamentosById"
-import fetchPacienteByMedicoId from "./routes/paciente/fetchTotalPacientesByMedicoId";
+import fetchPacienteByMedicoId from "./routes/paciente/fetchPacientesByMedicoId";
 import shoppingRouter from "./routes/shopping/shoppingRouter"
 import "module-alias/register";
 import helmet from "helmet";
@@ -21,6 +21,7 @@ import returnMedicamentosByNome from "./routes/medicamento/returnMedicamentosByN
 import returnDefaultMedicamentos from "./routes/medicamento/returnDefaultMedicamentos";
 import returnValorTotalEmEstoque from "./routes/medicamento/returnValorTotalEmEstoque";
 import returnDefaultShoppings from "./routes/shopping/returnDefaultShoppings";
+import fetchPacientesByMedicoId from "./routes/paciente/fetchPacientesByMedicoId";
 
 // import { corsOptions } from "./config/corsOptions";
 
@@ -42,6 +43,7 @@ app.use("/tratamento", tratamentoRouter);
 app.use("/hospital", hospitalRouter);
 app.use("/findPacienteByCPF", findPacienteByCPF);
 app.use("/pacientes", fetchPacienteByMedicoId);
+app.use("/pacientesByMedicoId", fetchPacientesByMedicoId)
 app.use("/tratamentos", fetchTotalTratamentoById);
 app.use("/shopping", shoppingRouter);
 app.use("/returnDefaultMedicamentos", returnDefaultMedicamentos)

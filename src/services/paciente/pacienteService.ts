@@ -177,6 +177,7 @@ class PacienteService {
     });
     return response;
   }
+  async
 
   async fetchPacientesByMedicoId(medicoId: number){
     const response = await this.repo.find({
