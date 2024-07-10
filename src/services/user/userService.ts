@@ -92,12 +92,18 @@ class UserService {
   async create(data: UsuarioInterface): Promise<Response> {
     data.senha = await bcryptjs.hash(data.senha, 10);
 
-    await this.repo
-      .createQueryBuilder()
-      .insert()
-      .into(Usuario)
-      .values(data)
-      .execute();
+    const novoUsuario = new Usuario();
+
+    novoUsuario.name = data.name;
+    novoUsuario.cpf = data.cpf;
+    novoUsuario.crm = data.crm;
+    novoUsuario.email = data.email;
+    novoUsuario.empregado = data.empregado;
+    novoUsuario.especialidade = data.id_especialidade;
+    novoUsuario.nascimento = new Date(data.nascimento);
+    novoUsuario.nivel = data.nivel;
+    novoUsuario.salario = data.salario;
+    novoUsuario.senha = data.senha;
 
     const userCreated = await this.repo.findOne({
       where: {

@@ -3,15 +3,16 @@ import { Tratamento } from "../../entities/Tratamento";
 
 interface UsuarioInterface {
   name: string;
-    crm?: string;
-    senha: string;
-    email: string;
-    nascimento: Date;
-    nivel: number;
-    salario: number;
-    especialidade?: Especialidade;
-    empregado: boolean;
-    tratamentos?: Tratamento[];
+  crm?: string;
+  senha: string;
+  email: string;
+  cpf: string;
+  nascimento: Date | string;
+  nivel: number;
+  salario: number;
+  id_especialidade?: Especialidade;
+  empregado: boolean;
+  tratamentos?: Tratamento[];
 }
 
 

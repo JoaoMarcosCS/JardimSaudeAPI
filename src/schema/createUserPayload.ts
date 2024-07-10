@@ -17,7 +17,7 @@ const createUserPayload = z.object({
       invalid_type_error: "O CRM precis ser uma string, exemplo: CRM-SP-1234",
     })
     .optional(),
-  nascimento: z.date({ required_error: "Informe uma data de nascimento " }),
+  nascimento: z.string({ required_error: "Informe uma data de nascimento " }),
   nivel: z.number({ required_error: "Informe o nível do usuário" }).refine(
     (nivel) => {
       return nivel == 1 || nivel == 2;
