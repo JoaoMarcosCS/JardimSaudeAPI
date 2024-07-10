@@ -102,7 +102,7 @@ class UserService {
     novoUsuario.especialidade = data.id_especialidade;
     novoUsuario.nascimento = new Date(data.nascimento);
     novoUsuario.nivel = data.nivel;
-    novoUsuario.salario = Number(data.salario);
+    novoUsuario.salario = data.salario;
     novoUsuario.senha = data.senha;
 
     const userCreated = await this.repo.findOne({

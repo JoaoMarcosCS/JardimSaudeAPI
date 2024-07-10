@@ -24,7 +24,7 @@ const createUserPayload = z.object({
     },
     { message: "O nível do usuário só pode ser 1(secretária) ou 2(médico)" },
   ),
-  salario: z.string({ required_error: "Informe o salário do funcionário" }),
+  salario: z.number({ required_error: "Informe o salário do funcionário" }),
   empregado: z.boolean(),
 });
 
