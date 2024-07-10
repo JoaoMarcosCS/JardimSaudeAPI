@@ -9,7 +9,7 @@ interface UsuarioInterface {
   cpf: string;
   nascimento: Date | string;
   nivel: number;
-  salario: number;
+  salario: string;
   id_especialidade?: Especialidade;
   empregado: boolean;
   tratamentos?: Tratamento[];
