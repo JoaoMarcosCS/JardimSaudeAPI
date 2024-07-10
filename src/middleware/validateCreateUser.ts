@@ -15,7 +15,7 @@ const validateCreateUser = async (
 
     const existEmail = email
       ? await (await connection).getRepository(Usuario).findOne({
-          where: { email: email },
+          where: { email: email, empregado: true },
         })
       : Promise.resolve(null);
 
