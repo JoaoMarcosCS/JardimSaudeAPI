@@ -8,8 +8,7 @@ const createUserPayload = z.object({
   name: z.string({ required_error: "Informe o nome do usuário" }),
   senha: z
     .string({ required_error: "Informe uma senha válida" })
-    .min(6, { message: "A senha deve ter no mínimo 6 caracteres" })
-    .max(15, { message: "A senha deve ter no máximo 15 caracteres" }),
+    .min(6, { message: "A senha deve ter no mínimo 6 caracteres" }),
   email: z
     .string({ required_error: "Informe um email" })
     .email({ message: "Informe um email válido" }),
