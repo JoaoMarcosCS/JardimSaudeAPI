@@ -35,16 +35,16 @@ class UserService {
         relations: {
           especialidade: true,
         },
-        select:{
+        select: {
           name: true,
-          nascimento:true,
-          cpf:true,
-          crm:true,
-          email:true,
-          empregado:true,
-          id:true,
-          nivel:true,
-          salario:true,
+          nascimento: true,
+          cpf: true,
+          crm: true,
+          email: true,
+          empregado: true,
+          id: true,
+          nivel: true,
+          salario: true,
         },
       });
       return response;
@@ -53,23 +53,23 @@ class UserService {
         where: {
           empregado: true,
         },
-        select:{
+        select: {
           name: true,
-          nascimento:true,
-          cpf:true,
-          crm:true,
-          email:true,
-          empregado:true,
-          id:true,
-          nivel:true,
-          salario:true,
+          nascimento: true,
+          cpf: true,
+          crm: true,
+          email: true,
+          empregado: true,
+          id: true,
+          nivel: true,
+          salario: true,
         },
         order: {
           name: "ASC",
         },
         relations: {
           especialidade: true,
-          pagamento:true,
+          pagamento: true,
         },
       });
       return response;
@@ -104,6 +104,8 @@ class UserService {
     novoUsuario.nivel = data.nivel;
     novoUsuario.salario = data.salario;
     novoUsuario.senha = data.senha;
+
+    await this.repo.save(novoUsuario);
 
     const userCreated = await this.repo.findOne({
       where: {
@@ -157,7 +159,7 @@ class UserService {
     return success({ ok: true });
   }
 
- 
+
 }
 
 export default new UserService();
