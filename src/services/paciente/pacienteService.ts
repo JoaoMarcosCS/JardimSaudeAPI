@@ -20,18 +20,18 @@ class PacienteService {
     this.initialize();
   }
 
-  async returnTotalRegister(){
+  async returnTotalRegister() {
     const response = await this.repo.count();
     return response;
   }
 
-  async findPacienteByCPF(cpf:string){
+  async findPacienteByCPF(cpf: string) {
     const response = await this.repo.findOne({
       where: {
         cpf: cpf
       }
     })
-    
+
     return response;
   }
 
@@ -59,8 +59,8 @@ class PacienteService {
       const response = await this.repo.findAndCount({
         order: orderOption,
         relations: {
-          tratamentos:{
-            medico_responsavel:true
+          tratamentos: {
+            medico_responsavel: true
           },
 
         },
@@ -125,14 +125,14 @@ class PacienteService {
 
     const existEmail = email
       ? await this.repo.findOne({
-          where: { email: email, id: Not(id) },
-        })
+        where: { email: email, id: Not(id) },
+      })
       : Promise.resolve(null);
 
     const existCpf = cpf
       ? await this.repo.findOne({
-          where: { cpf: cpf, id: Not(id) },
-        })
+        where: { cpf: cpf, id: Not(id) },
+      })
       : Promise.resolve(null);
 
     const [emailResult, cpfResult] = await Promise.all([existEmail, existCpf]);
@@ -164,13 +164,13 @@ class PacienteService {
     return success({ ok: true });
   }
 
-  async fetchTotalPacientesByMedicoId(medicoId:number){
+  async fetchTotalPacientesByMedicoId(medicoId: number) {
     const response = await this.repo.count({
-      where:{
-        tratamentos:{
-          status:In(["Finalizado", "Cancelado"]),
-          medico_responsavel:{
-            id:medicoId
+      where: {
+        tratamentos: {
+          status: In(["Finalizado", "Cancelado"]),
+          medico_responsavel: {
+            id: medicoId
           }
         }
       }
@@ -179,27 +179,33 @@ class PacienteService {
   }
   async
 
-  async fetchPacientesByMedicoId(medicoId: number){
+  async fetchPacientesByMedicoId(medicoId: number) {
     const response = await this.repo.find({
-      where:{
-        tratamentos:{
-          medico_responsavel:{
-            id:medicoId
+      where: {
+        tratamentos: {
+          medico_responsavel: {
+            id: medicoId
           },
-          status:In(["Finalizado", "Cancelado"])
+          status: In(["Finalizado", "Cancelado"])
         }
       },
-      order:{
+      order: {
         nome: "ASC"
       },
-      relations:{
-       tratamentos:true
+      relations: {
+        tratamentos: {
+          medico_responsavel: {
+            especialidade: true
+          },
+          paciente: true
+
+        }
       }
     });
 
     return response;
   }
-  
+
 }
 
 export default new PacienteService();
