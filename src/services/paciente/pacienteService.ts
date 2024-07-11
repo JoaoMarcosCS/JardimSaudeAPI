@@ -41,8 +41,14 @@ class PacienteService {
         id: id,
       },
       relations: {
-        tratamentos: true,
-      },
+        tratamentos: {
+          medico_responsavel: {
+            especialidade: true
+          },
+          paciente: true
+
+        }
+      }
     });
 
     return response;
@@ -60,10 +66,12 @@ class PacienteService {
         order: orderOption,
         relations: {
           tratamentos: {
-            medico_responsavel: true
-          },
-
-        },
+            medico_responsavel: {
+              especialidade: true
+            },
+            paciente: true
+          }
+        }
       });
       return response;
     } else {
@@ -72,8 +80,14 @@ class PacienteService {
           nome: "ASC",
         },
         relations: {
-          tratamentos: true,
-        },
+          tratamentos: {
+            medico_responsavel: {
+              especialidade: true
+            },
+            paciente: true
+
+          }
+        }
       });
       return response;
     }
@@ -177,7 +191,6 @@ class PacienteService {
     });
     return response;
   }
-  async
 
   async fetchPacientesByMedicoId(medicoId: number) {
     const response = await this.repo.find({
