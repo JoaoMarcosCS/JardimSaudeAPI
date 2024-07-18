@@ -103,6 +103,9 @@ class MedicamentoService {
 
       const response = await this.repo.findAndCount({
         order: orderOption,
+        relations:{
+          historico_compras:true,
+        }
       });
 
       return response;
@@ -111,6 +114,9 @@ class MedicamentoService {
         order: {
           nome: "ASC",
         },
+        relations:{
+          historico_compras:true
+        }
       });
 
       return response;
