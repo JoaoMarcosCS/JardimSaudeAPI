@@ -10,6 +10,7 @@
 
 <h1 align="center" style="font-weight: bold;">Jardim Saúde API</h1>
 
+<span align="center">
 ![NodeJS][NODEJS_BADGE]
 ![Typescript][TYPESCRIPT__BADGE]
 ![Express][EXPRESS__BADGE]
@@ -18,6 +19,7 @@
 ![Postgres][POSTGRES_BADGE]
 ![Supabase][SUPABSE_BADGE]
 ![Vercel][VERCEL_BADGE]
+</span>
 
 <p align="center">
  <a href="#about">Sobre Jardim Saúde</a> • 
