@@ -75,7 +75,7 @@ Aqui está o link do postman com os endpoints de todas as entidades do Jardim Sa
 https://www.postman.com/cryosat-pilot-65657988/workspace/jardim-sade-api
 ​
 
-<h2 id="colab">🤝 Colaborados</h2>
+<h2 id="colab">🤝 Colaboradores</h2>
 
 <table>
   <tr>
