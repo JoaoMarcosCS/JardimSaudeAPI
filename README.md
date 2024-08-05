@@ -20,10 +20,11 @@
 ![Vercel][VERCEL_BADGE]
 
 <p align="center">
- <a href="#started">Getting Started</a> • 
-  <a href="#routes">API Endpoints</a> •
- <a href="#colab">Collaborators</a> •
- <a href="#contribute">Contribute</a>
+ <a href="#about">Sobre Jardim Saúde</a> • 
+  <a href="#api">Sobre API</a> •
+ <a href="#started">Como rodar</a> •
+ <a href="#endpoints">Endpoints API</a> •
+ <a href="#colab">Colaboradores</a> 
 </p>
 
 <h2 id="about">📖 Sobre o Jardim Saúde</h2>
