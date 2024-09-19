@@ -11,13 +11,7 @@ router.get("/:id", loginRequired, userController.show);
 
 router.get("/", loginRequired, nivelSecretaria, userController.index);
 
-router.post(
-  "/",
-  loginRequired,
-  validateCreateUser,
-  nivelSecretaria,
-  userController.store,
-);
+router.post("/", loginRequired, validateCreateUser, nivelSecretaria, userController.store);
 router.delete("/:id", loginRequired, nivelSecretaria, userController.delete);
 router.put("/:id", loginRequired, validateUpdateUser, userController.update);
 
